@@ -6,9 +6,12 @@ package com.pack.common.pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ImageCroppingPopUp {
 	private static WebDriver driver;
+	private static WebDriverWait wait = new WebDriverWait(driver, 5);
 	private static String RotateLeftXpath="//*[@id='harriApp']/div[1]/div[2]/span/image-cropping/div/div[1]/div[2]/div/div/div[5]/div/div[1]";
     private static String RotateRightXpath="//*[@id='harriApp']/div[1]/div[2]/span/image-cropping/div/div[1]/div[2]/div/div/div[5]/div/div[2]";
 	private static String ResetSettingsXpath ="//*[@id='harriApp']/div[1]/div[2]/span/image-cropping/div/div[1]/div[2]/div/div/div[5]/div/div[3]";
@@ -34,6 +37,7 @@ public class ImageCroppingPopUp {
 	
 	public static void  ClickRotateRight()
 	{
+		wait.until(ExpectedConditions.visibilityOfElementLocated(RotatClockWise));
 		WebElement RotateRightButton=getDriver().findElement(RotatClockWise);
 		if(RotateRightButton.isDisplayed())
 		{
@@ -43,6 +47,7 @@ public class ImageCroppingPopUp {
 	}
 	public static void ClickRotateLeft()
 	{
+		wait.until(ExpectedConditions.visibilityOfElementLocated(RotateCounterClockWise));		
 		WebElement RotateLeftButton=getDriver().findElement(RotateCounterClockWise);
 		if(RotateLeftButton.isDisplayed())
 		{
@@ -52,6 +57,7 @@ public class ImageCroppingPopUp {
 	}
 	public static void CickResetSettings()
 	{
+		wait.until(ExpectedConditions.visibilityOfElementLocated(ResetSettings));
 		WebElement ResetSttingButton=getDriver().findElement(ResetSettings);
 		if(ResetSttingButton.isDisplayed())
 		{
@@ -62,6 +68,7 @@ public class ImageCroppingPopUp {
 	}
 	public static void ClickSave()
 	{
+		wait.until(ExpectedConditions.visibilityOfElementLocated(Save));
 		WebElement SaveButton=getDriver().findElement(Save);
 		if(SaveButton.isDisplayed())
 		{
@@ -71,6 +78,7 @@ public class ImageCroppingPopUp {
 	}
 	public static void ClickClose()
 	{
+		wait.until(ExpectedConditions.visibilityOfElementLocated(ClosePopUp));
 		WebElement CloseButton=getDriver().findElement(ClosePopUp);
 		if(CloseButton.isDisplayed())
 		{

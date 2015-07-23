@@ -15,6 +15,7 @@ import java.awt.datatransfer.StringSelection;
 public class EmployerQuickReg {
 	
 	private static WebDriver driver;
+	private static WebDriverWait wait = new WebDriverWait(driver, 5);
 	private static String  LoginLinkXpath="//*[@id='emp-quick-reg-cont']/div[2]/div/div[2]/div/div/div/div[1]/div[2]/a";
 	private static String FirstNametxtXpath="//*[@id='app-quick-reg-form']/div[1]/div[1]/div[1]/div/input";
 	private static String LastNametxtXpath="//*[@id='app-quick-reg-form']/div[1]/div[2]/div[1]/div/input";
@@ -60,6 +61,7 @@ public class EmployerQuickReg {
 	
 	public static void ClickLoginLink()
 	{
+		wait.until(ExpectedConditions.visibilityOfElementLocated(LoginLink));
 		WebElement Login=getDriver().findElement(LoginLink);
 		if(Login.isDisplayed())
 		{
@@ -70,6 +72,7 @@ public class EmployerQuickReg {
 		
 	public static void enterFirstName(String FName)
 	{
+		wait.until(ExpectedConditions.visibilityOfElementLocated(FirstNameText));
 		WebElement FirstName=getDriver().findElement(FirstNameText);
 		if(FirstName.isDisplayed())
 		{
@@ -79,6 +82,7 @@ public class EmployerQuickReg {
 	}
 	public static void enterLastname(String LName)
 	{
+		wait.until(ExpectedConditions.visibilityOfElementLocated(LastNameText));
 		WebElement LastName=getDriver().findElement(LastNameText);
 		if(LastName.isDisplayed())
 		{
@@ -88,6 +92,7 @@ public class EmployerQuickReg {
 	}
 	public static void enterEmail(String Email)
 	{
+		wait.until(ExpectedConditions.visibilityOfElementLocated(EmailText));
 		WebElement EmailLocator=getDriver().findElement(EmailText);
 		if(EmailLocator.isDisplayed())
 		{
@@ -97,6 +102,7 @@ public class EmployerQuickReg {
 	}
 	public static void enterPhoneNumber(String Phone)
 	{
+		wait.until(ExpectedConditions.visibilityOfElementLocated(PhoneNumText));
 		WebElement PhoneNum=getDriver().findElement(PhoneNumText);
 		if(PhoneNum.isDisplayed())
 		{
@@ -106,6 +112,7 @@ public class EmployerQuickReg {
 	}
 	public static void enterPassword(String Password)
 	{
+		wait.until(ExpectedConditions.visibilityOfElementLocated(PasswordText));
 		WebElement PassLocator=getDriver().findElement(PasswordText);
 		if(PassLocator.isDisplayed())
 		{
@@ -115,6 +122,7 @@ public class EmployerQuickReg {
 	}
 	public static void enterConfirmPass(String ConfPassword)
 	{
+		wait.until(ExpectedConditions.visibilityOfElementLocated(PasswordConfirmText));
 		WebElement PassConfLocator=getDriver().findElement(PasswordConfirmText);
 		if(PassConfLocator.isDisplayed())
 		{
@@ -124,6 +132,7 @@ public class EmployerQuickReg {
 	}
 	public static void SelectBusiness(String BusinessName, String Address)
 	{
+		wait.until(ExpectedConditions.visibilityOfElementLocated(BusinessDropDown));
 		WebElement BusinessDroplocator=getDriver().findElement(BusinessDropDown);
 		 WebElement Item;	
 		if(BusinessDroplocator.isDisplayed())
@@ -154,6 +163,7 @@ public class EmployerQuickReg {
 	}
     public static void SelectHecs(String HecsText)	
     {
+    	wait.until(ExpectedConditions.visibilityOfElementLocated(HecsDropDown));
     	WebElement HecsDrop=getDriver().findElement(HecsDropDown);
     	HecsDrop.click();
     	WebElement	 Item=(new WebDriverWait(getDriver(), 60))
@@ -163,6 +173,7 @@ public class EmployerQuickReg {
     }
     public static void SelectCuisine(String CuisineText)
     {
+    	wait.until(ExpectedConditions.visibilityOfElementLocated(CuisineDropDown));
     	WebElement CuisineDrop=getDriver().findElement(CuisineDropDown);
     	CuisineDrop.click();
     	WebElement	 Item=(new WebDriverWait(getDriver(), 60))
@@ -173,6 +184,7 @@ public class EmployerQuickReg {
     
     public static void SelectBrandLogo(String LogoPath)
     {
+    	wait.until(ExpectedConditions.visibilityOfElementLocated(UploadPicButton));
     	    	
     	//click select button
     	WebElement UploadButtonLocator=getDriver().findElement(UploadPicButton);
@@ -205,11 +217,13 @@ public class EmployerQuickReg {
     }
     public static void setClipboardData(String string) 
     {
+    	
     	   StringSelection stringSelection = new StringSelection(string);
     	   Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
     }
 	public static void ClickTerm()
 	{
+		wait.until(ExpectedConditions.visibilityOfElementLocated(TermofServiceLink));
 		WebElement Term=getDriver().findElement(TermofServiceLink);
 		if(Term.isDisplayed())
 		{
@@ -219,6 +233,7 @@ public class EmployerQuickReg {
 	}
 	public static void ClickPrivacy()
 	{
+		wait.until(ExpectedConditions.visibilityOfElementLocated(PrivacyPolicylink));
 		WebElement Privacy=getDriver().findElement(PrivacyPolicylink);
 		if(Privacy.isDisplayed())
 		{
@@ -228,6 +243,7 @@ public class EmployerQuickReg {
 	}
 	public static void ClickContinueStageOne()
 	{
+		wait.until(ExpectedConditions.visibilityOfElementLocated(FirstContinueButton));
 		WebElement Continue=getDriver().findElement(FirstContinueButton);
 		if(Continue.isDisplayed())
 		{
@@ -237,6 +253,7 @@ public class EmployerQuickReg {
 	}
 	public static void ClickContinueFinal()
 	{
+		wait.until(ExpectedConditions.visibilityOfElementLocated(LastContinueButton));
 		WebElement Continue=getDriver().findElement(LastContinueButton);
 		if(Continue.isDisplayed())
 		{
@@ -246,6 +263,7 @@ public class EmployerQuickReg {
 	}
 	public static void CheckGroupBox()
 	{
+		wait.until(ExpectedConditions.visibilityOfElementLocated(CheckBox));
 		WebElement checkBoxLocator=getDriver().findElement(CheckBox);
 		if(checkBoxLocator.isDisplayed())
 		{
@@ -254,6 +272,7 @@ public class EmployerQuickReg {
 	}
 	public static void enterGroupName(String GroupName)
 	{
+		wait.until(ExpectedConditions.visibilityOfElementLocated(GroupNameText));
 		WebElement GroupNametextLocator=getDriver().findElement(GroupNameText);
 		if(GroupNametextLocator.isDisplayed())
 		{
