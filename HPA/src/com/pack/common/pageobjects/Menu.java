@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Menu {
 	protected WebDriver driver;
-	private WebDriverWait wait = new WebDriverWait(driver, 5);
+	private WebDriverWait wait; 
 	private By BuildYourProfile = By
 			.xpath("//*[@id='harriApp']/div[1]/div[1]/div[1]/div/div/div/div[2]/button");
 	private By Home = By
@@ -50,6 +50,7 @@ public class Menu {
 
 	public Menu(WebDriver driver) {
 		this.driver = driver;
+		wait=new WebDriverWait(driver, 5);
 	}
 
 	public String getPageTitle() {
