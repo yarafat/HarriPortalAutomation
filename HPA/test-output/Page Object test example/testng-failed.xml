@@ -1,27 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite verbose="0" name="Failed suite [Page Object test example]">
-  <parameter name="appURL" value="https://www.google.com/"/>
+<suite name="Failed suite [Page Object test example]">
+  <parameter name="appURL" value="http://beta.harri.com"/>
   <parameter name="browserType" value="chrome"/>
-  <test name="sample test(failed)" preserve-order="false">
-    <parameter name="appURL" value="https://www.google.com/"/>
-    <parameter name="browserType" value="chrome"/>
+  <test name="sample test(failed)">
     <classes>
-      <class name="com.pack.common.tests.CreateAnAccounTest">
-        <methods>
-          <include name="verifyCreateAnAccounPage"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-          <include name="initializeTestBaseSetup"/>
-        </methods>
-      </class>
-      <class name="com.pack.common.tests.BasePageTest">
-        <methods>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-          <include name="initializeTestBaseSetup"/>
-        </methods>
-      </class>
       <class name="com.pack.common.tests.SignInPageTest">
         <methods>
           <include name="setUp"/>
@@ -29,7 +12,7 @@
           <include name="verifySignInFunction"/>
           <include name="initializeTestBaseSetup"/>
         </methods>
-      </class>
+      </class> <!-- com.pack.common.tests.SignInPageTest -->
     </classes>
-  </test>
-</suite>
+  </test> <!-- sample test(failed) -->
+</suite> <!-- Failed suite [Page Object test example] -->
