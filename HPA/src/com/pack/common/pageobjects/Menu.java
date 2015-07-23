@@ -1,9 +1,12 @@
 package com.pack.common.pageobjects;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Menu {
 	protected WebDriver driver;
+	private WebDriverWait wait = new WebDriverWait(driver, 5);
 	private By BuildYourProfile = By
 			.xpath("//*[@id='harriApp']/div[1]/div[1]/div[1]/div/div/div/div[2]/button");
 	private By Home = By
@@ -55,101 +58,126 @@ public class Menu {
 	}
 
 	public void ClickBuildYourProfile() {
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(BuildYourProfile));
 		WebElement build_yourprofile = driver.findElement(BuildYourProfile);
 		build_yourprofile.click();
 	}
 
 	public void ClickHome() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(Home));
 		WebElement home = driver.findElement(Home);
 		home.click();
 	}
 
 	public void ClickJobs() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(Jobs));
 		WebElement jobs = driver.findElement(Jobs);
 		jobs.click();
 	}
 
 	public void ClickPeople() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(People));
 		WebElement people = driver.findElement(People);
 		people.click();
 	}
 
 	public void ClickCompanies() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(Companies));
 		WebElement companies = driver.findElement(Companies);
 		companies.click();
 	}
 
 	public void ClickLogin() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(Login));
 		WebElement login = driver.findElement(Login);
 		login.click();
 	}
 
 	public void ClickHelpAndSupport() {
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(HelpAndSupport));
 		WebElement help_and_support = driver.findElement(HelpAndSupport);
 		help_and_support.click();
 	}
 
 	public void ClickPricing() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(Pricing));
 		WebElement pricing = driver.findElement(Pricing);
 		pricing.click();
 	}
 
 	public void ClickAboutHarri() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(AboutHarri));
 		WebElement about_harri = driver.findElement(AboutHarri);
 		about_harri.click();
 	}
 
 	public void ClickHarriBlog() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(HarriBlog));
 		WebElement harri_blog = driver.findElement(HarriBlog);
 		harri_blog.click();
 	}
 
 	public void ClickTermsOfService() {
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(TermsOfService));
 		WebElement terms_of_service = driver.findElement(TermsOfService);
 		terms_of_service.click();
 	}
 
 	public void ClickPrivacy() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(Privacy));
 		WebElement privacy = driver.findElement(Privacy);
 		privacy.click();
 	}
 
 	public void ClickFAQ() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(FAQ));
 		WebElement faq = driver.findElement(FAQ);
 		faq.click();
 	}
 
 	public void ClickContactUs() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(ContactUs));
 		WebElement contact_us = driver.findElement(ContactUs);
 		contact_us.click();
 	}
 
 	public void ClickHarriFB() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(HarriFB));
 		WebElement fb = driver.findElement(HarriFB);
 		fb.click();
 	}
 
 	public void ClickHarriTwitter() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(HarriTwitter));
 		WebElement twitter = driver.findElement(HarriTwitter);
 		twitter.click();
 	}
 
 	public void ClickHarriInstagram() {
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(HarriInstagram));
 		WebElement instagram = driver.findElement(HarriInstagram);
 		instagram.click();
 	}
 
 	public void ClickHarriLinkedIn() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(HarriLinkedIn));
 		WebElement linkedin = driver.findElement(HarriLinkedIn);
 		linkedin.click();
 	}
 
 	public void ClickHarriPinterest() {
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(HarriPinterest));
 		WebElement pinterest = driver.findElement(HarriPinterest);
 		pinterest.click();
 	}
 
 	public void ClickHarriYouTube() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(HarriYouTube));
 		WebElement youtube = driver.findElement(HarriYouTube);
 		youtube.click();
 	}

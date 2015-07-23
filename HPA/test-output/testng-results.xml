@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Page Object test example" duration-ms="74610" started-at="2015-07-23T13:17:19Z" finished-at="2015-07-23T13:18:34Z">
+  <suite name="Page Object test example" duration-ms="72455" started-at="2015-07-23T13:33:26Z" finished-at="2015-07-23T13:34:39Z">
     <groups>
     </groups>
-    <test name="sample test" duration-ms="74610" started-at="2015-07-23T13:17:19Z" finished-at="2015-07-23T13:18:34Z">
+    <test name="sample test" duration-ms="72455" started-at="2015-07-23T13:33:26Z" finished-at="2015-07-23T13:34:39Z">
       <class name="com.pack.common.tests.SignInPageTest">
-        <test-method status="PASS" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:com.pack.common.tests.SignInPageTest@5ba23b66]" name="initializeTestBaseSetup" is-config="true" duration-ms="39467" started-at="2015-07-23T15:17:19Z" finished-at="2015-07-23T15:17:59Z">
+        <test-method status="PASS" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:com.pack.common.tests.SignInPageTest@5ba23b66]" name="initializeTestBaseSetup" is-config="true" duration-ms="67918" started-at="2015-07-23T15:33:26Z" finished-at="2015-07-23T15:34:34Z">
           <params>
             <param index="0">
               <value>
@@ -23,15 +23,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeTestBaseSetup -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.pack.common.tests.SignInPageTest@5ba23b66]" name="setUp" is-config="true" duration-ms="1" started-at="2015-07-23T15:17:59Z" finished-at="2015-07-23T15:17:59Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.pack.common.tests.SignInPageTest@5ba23b66]" name="setUp" is-config="true" duration-ms="2" started-at="2015-07-23T15:34:34Z" finished-at="2015-07-23T15:34:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="verifySignInFunction()[pri:0, instance:com.pack.common.tests.SignInPageTest@5ba23b66]" name="verifySignInFunction" duration-ms="35012" started-at="2015-07-23T15:17:59Z" finished-at="2015-07-23T15:18:34Z">
+        <test-method status="PASS" signature="verifySignInFunction()[pri:0, instance:com.pack.common.tests.SignInPageTest@5ba23b66]" name="verifySignInFunction" duration-ms="4353" started-at="2015-07-23T15:34:34Z" finished-at="2015-07-23T15:34:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifySignInFunction -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.pack.common.tests.SignInPageTest@5ba23b66]" name="tearDown" is-config="true" duration-ms="0" started-at="2015-07-23T15:18:34Z" finished-at="2015-07-23T15:18:34Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.pack.common.tests.SignInPageTest@5ba23b66]" name="tearDown" is-config="true" duration-ms="0" started-at="2015-07-23T15:34:39Z" finished-at="2015-07-23T15:34:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
