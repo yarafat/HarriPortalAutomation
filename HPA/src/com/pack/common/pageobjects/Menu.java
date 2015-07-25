@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Menu {
 	protected WebDriver driver;
-	private WebDriverWait wait; 
+	private WebDriverWait wait;
 	private By BuildYourProfile = By
 			.xpath("//*[@id='harriApp']/div[1]/div[1]/div[1]/div/div/div/div[2]/button");
 	private By Home = By
@@ -50,7 +50,7 @@ public class Menu {
 
 	public Menu(WebDriver driver) {
 		this.driver = driver;
-		wait=new WebDriverWait(driver, 5);
+		wait = new WebDriverWait(driver, 5);
 	}
 
 	public String getPageTitle() {
@@ -59,128 +59,255 @@ public class Menu {
 	}
 
 	public void ClickBuildYourProfile() {
-		wait.until(ExpectedConditions
-				.visibilityOfElementLocated(BuildYourProfile));
-		WebElement build_yourprofile = driver.findElement(BuildYourProfile);
-		build_yourprofile.click();
+		try {
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(BuildYourProfile));
+			WebElement build_yourprofile = driver.findElement(BuildYourProfile);
+			build_yourprofile.click();
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
 	}
 
 	public void ClickHome() {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(Home));
-		WebElement home = driver.findElement(Home);
-		home.click();
+		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(Home));
+			WebElement home = driver.findElement(Home);
+			home.click();
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
 	}
 
 	public void ClickJobs() {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(Jobs));
-		WebElement jobs = driver.findElement(Jobs);
-		jobs.click();
+		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(Jobs));
+			WebElement jobs = driver.findElement(Jobs);
+			jobs.click();
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
 	}
 
 	public void ClickPeople() {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(People));
-		WebElement people = driver.findElement(People);
-		people.click();
+		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(People));
+			WebElement people = driver.findElement(People);
+			people.click();
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
 	}
 
 	public void ClickCompanies() {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(Companies));
-		WebElement companies = driver.findElement(Companies);
-		companies.click();
+		try {
+			WebElement companies = driver.findElement(Companies);
+			companies.click();
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
 	}
 
 	public void ClickLogin() {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(Login));
-		WebElement login = driver.findElement(Login);
-		login.click();
+		try {
+			WebElement login = driver.findElement(Login);
+			login.click();
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
 	}
 
 	public void ClickHelpAndSupport() {
-		wait.until(ExpectedConditions
-				.visibilityOfElementLocated(HelpAndSupport));
-		WebElement help_and_support = driver.findElement(HelpAndSupport);
-		help_and_support.click();
+		try {
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(HelpAndSupport));
+			WebElement help_and_support = driver.findElement(HelpAndSupport);
+			help_and_support.click();
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
 	}
 
 	public void ClickPricing() {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(Pricing));
-		WebElement pricing = driver.findElement(Pricing);
-		pricing.click();
+		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(Pricing));
+			WebElement pricing = driver.findElement(Pricing);
+			pricing.click();
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
 	}
 
 	public void ClickAboutHarri() {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(AboutHarri));
-		WebElement about_harri = driver.findElement(AboutHarri);
-		about_harri.click();
+		try {
+			WebElement about_harri = driver.findElement(AboutHarri);
+			about_harri.click();
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
 	}
 
 	public void ClickHarriBlog() {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(HarriBlog));
-		WebElement harri_blog = driver.findElement(HarriBlog);
-		harri_blog.click();
+		try {
+			WebElement harri_blog = driver.findElement(HarriBlog);
+			harri_blog.click();
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
 	}
 
 	public void ClickTermsOfService() {
-		wait.until(ExpectedConditions
-				.visibilityOfElementLocated(TermsOfService));
-		WebElement terms_of_service = driver.findElement(TermsOfService);
-		terms_of_service.click();
+		try {
+
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(TermsOfService));
+			WebElement terms_of_service = driver.findElement(TermsOfService);
+			terms_of_service.click();
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
 	}
 
 	public void ClickPrivacy() {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(Privacy));
-		WebElement privacy = driver.findElement(Privacy);
-		privacy.click();
+		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(Privacy));
+			WebElement privacy = driver.findElement(Privacy);
+			privacy.click();
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
 	}
 
 	public void ClickFAQ() {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(FAQ));
-		WebElement faq = driver.findElement(FAQ);
-		faq.click();
+		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(FAQ));
+			WebElement faq = driver.findElement(FAQ);
+			faq.click();
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
 	}
 
 	public void ClickContactUs() {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(ContactUs));
-		WebElement contact_us = driver.findElement(ContactUs);
-		contact_us.click();
+		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(ContactUs));
+			WebElement contact_us = driver.findElement(ContactUs);
+			contact_us.click();
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
+
 	}
 
 	public void ClickHarriFB() {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(HarriFB));
-		WebElement fb = driver.findElement(HarriFB);
-		fb.click();
+		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(HarriFB));
+			WebElement fb = driver.findElement(HarriFB);
+			fb.click();
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
+
 	}
 
 	public void ClickHarriTwitter() {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(HarriTwitter));
-		WebElement twitter = driver.findElement(HarriTwitter);
-		twitter.click();
+		try {
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(HarriTwitter));
+			WebElement twitter = driver.findElement(HarriTwitter);
+			twitter.click();
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
 	}
 
 	public void ClickHarriInstagram() {
-		wait.until(ExpectedConditions
-				.visibilityOfElementLocated(HarriInstagram));
-		WebElement instagram = driver.findElement(HarriInstagram);
-		instagram.click();
+		try {
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(HarriInstagram));
+			WebElement instagram = driver.findElement(HarriInstagram);
+			instagram.click();
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
+
 	}
 
 	public void ClickHarriLinkedIn() {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(HarriLinkedIn));
-		WebElement linkedin = driver.findElement(HarriLinkedIn);
-		linkedin.click();
+		try {
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(HarriLinkedIn));
+			WebElement linkedin = driver.findElement(HarriLinkedIn);
+			linkedin.click();
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
 	}
 
 	public void ClickHarriPinterest() {
-		wait.until(ExpectedConditions
-				.visibilityOfElementLocated(HarriPinterest));
-		WebElement pinterest = driver.findElement(HarriPinterest);
-		pinterest.click();
+		try {
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(HarriPinterest));
+			WebElement pinterest = driver.findElement(HarriPinterest);
+			pinterest.click();
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
 	}
 
 	public void ClickHarriYouTube() {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(HarriYouTube));
-		WebElement youtube = driver.findElement(HarriYouTube);
-		youtube.click();
+		try {
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(HarriYouTube));
+			WebElement youtube = driver.findElement(HarriYouTube);
+			youtube.click();
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
 	}
 
 }
