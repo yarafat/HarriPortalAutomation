@@ -48,6 +48,7 @@ public class EmployerQuickReg {
 	private static By CheckBox=By.xpath(CheckGroupBoxXpath);
 	private static By GroupNameText=By.id("group_name");
 	private static By UploadPicButton=By.xpath(UploadPicButtonXpath);
+	
 	public EmployerQuickReg(WebDriver driver)
 	{
 		super();
