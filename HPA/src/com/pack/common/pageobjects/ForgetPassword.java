@@ -8,22 +8,23 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ForgetPassword {
-	private static WebDriver driver;
-	private static WebDriverWait wait = new WebDriverWait(driver, 5);
+	private  WebDriver driver;
+	 
 	
-	private static String ResetButtonXpath="//*[@id='login-modal']/div/div[2]/div/div/div[3]/div/div/div/div/h-form[2]/form/div[2]/button";
+	private  String ResetButtonXpath="//*[@id='login-modal']/div/div[2]/div/div/div[3]/div/div/div/div/h-form[2]/form/div[2]/button";
 	
-	private static By Emailtext=By.id("reset-email");
-	private static By ResetButton=By.xpath(ResetButtonXpath);
+	private  By Emailtext=By.id("reset-email");
+	private  By ResetButton=By.xpath(ResetButtonXpath);
 	
 	public ForgetPassword(WebDriver driver)
 	{
 		super();
-		ForgetPassword.setDriver(driver);
+		this.setDriver(driver);
 	}
 	
-	public static void enterEmail(String Email)
+	public  void enterEmail(String Email,int WaitSeconds)
 	{
+	    WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(Emailtext));
 		WebElement EmailText=getDriver().findElement(Emailtext);
 		if(EmailText.isDisplayed())
@@ -32,8 +33,9 @@ public class ForgetPassword {
 		}
 	}
 	
-	public static void ClickReset()
+	public  void ClickReset(int WaitSeconds)
 	{
+	    WebDriverWait wait = new WebDriverWait(driver,  WaitSeconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(ResetButton));
 		WebElement ResetBtn=getDriver().findElement(ResetButton);
 		if(ResetBtn.isDisplayed())
@@ -42,12 +44,12 @@ public class ForgetPassword {
 		}
 	}
 
-	public static WebDriver getDriver() {
+	public  WebDriver getDriver() {
 		return driver;
 	}
 
-	public static void setDriver(WebDriver driver) {
-		ForgetPassword.driver = driver;
+	public  void setDriver(WebDriver driver) {
+		this.driver = driver;
 	}
 
 }

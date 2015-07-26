@@ -10,33 +10,33 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ImageCroppingPopUp {
-	private static WebDriver driver;
-	private static WebDriverWait wait = new WebDriverWait(driver, 5);
-	private static String RotateLeftXpath="//*[@id='harriApp']/div[1]/div[2]/span/image-cropping/div/div[1]/div[2]/div/div/div[5]/div/div[1]";
-    private static String RotateRightXpath="//*[@id='harriApp']/div[1]/div[2]/span/image-cropping/div/div[1]/div[2]/div/div/div[5]/div/div[2]";
-	private static String ResetSettingsXpath ="//*[@id='harriApp']/div[1]/div[2]/span/image-cropping/div/div[1]/div[2]/div/div/div[5]/div/div[3]";
-	private static String SaveButtonXpath="//*[@id='harriApp']/div[1]/div[2]/span/image-cropping/div/div[1]/div[2]/div/div/div[5]/div/div[4]";
-	private static String ClosePopUpXpath="//*[@id='harriApp']/div[1]/div[2]/span/image-cropping/div/div[1]/div[2]/div/div/div[1]/div";
+	private  WebDriver driver;
+	
+	private  String RotateLeftXpath="//*[@id='harriApp']/div[1]/div[2]/span/image-cropping/div/div[1]/div[2]/div/div/div[5]/div/div[1]";
+    private  String RotateRightXpath="//*[@id='harriApp']/div[1]/div[2]/span/image-cropping/div/div[1]/div[2]/div/div/div[5]/div/div[2]";
+	private  String ResetSettingsXpath ="//*[@id='harriApp']/div[1]/div[2]/span/image-cropping/div/div[1]/div[2]/div/div/div[5]/div/div[3]";
+	private  String SaveButtonXpath="//*[@id='harriApp']/div[1]/div[2]/span/image-cropping/div/div[1]/div[2]/div/div/div[5]/div/div[4]";
+	private  String ClosePopUpXpath="//*[@id='harriApp']/div[1]/div[2]/span/image-cropping/div/div[1]/div[2]/div/div/div[1]/div";
 	
 	
-	private static By RotatClockWise=By.xpath(RotateRightXpath);
-	private static By RotateCounterClockWise=By.xpath(RotateLeftXpath);
-	private static By ResetSettings=By.xpath(ResetSettingsXpath);
-	private static By ClosePopUp=By.xpath(ClosePopUpXpath);
-	private static By Save=By.xpath(SaveButtonXpath);
+	private  By RotatClockWise=By.xpath(RotateRightXpath);
+	private  By RotateCounterClockWise=By.xpath(RotateLeftXpath);
+	private  By ResetSettings=By.xpath(ResetSettingsXpath);
+	private  By ClosePopUp=By.xpath(ClosePopUpXpath);
+	private  By Save=By.xpath(SaveButtonXpath);
 	
 	public  ImageCroppingPopUp(WebDriver driver)
 	{
-		
-		ImageCroppingPopUp.setDriver(driver);
+		this.setDriver(driver);
 	}
 	public String ImageCroppingPopUpTitle() {
 		String pageTitle = getDriver().getTitle();
 		return pageTitle;
 	}
 	
-	public static void  ClickRotateRight()
+	public  void  ClickRotateRight(int WaitSeconds)
 	{
+		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(RotatClockWise));
 		WebElement RotateRightButton=getDriver().findElement(RotatClockWise);
 		if(RotateRightButton.isDisplayed())
@@ -45,8 +45,9 @@ public class ImageCroppingPopUp {
 			
 		}
 	}
-	public static void ClickRotateLeft()
+	public  void ClickRotateLeft(int WaitSeconds)
 	{
+		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(RotateCounterClockWise));		
 		WebElement RotateLeftButton=getDriver().findElement(RotateCounterClockWise);
 		if(RotateLeftButton.isDisplayed())
@@ -55,8 +56,9 @@ public class ImageCroppingPopUp {
 			
 		}
 	}
-	public static void CickResetSettings()
+	public  void CickResetSettings(int WaitSeconds)
 	{
+		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(ResetSettings));
 		WebElement ResetSttingButton=getDriver().findElement(ResetSettings);
 		if(ResetSttingButton.isDisplayed())
@@ -66,8 +68,9 @@ public class ImageCroppingPopUp {
 		}
 	
 	}
-	public static void ClickSave()
+	public  void ClickSave(int WaitSeconds)
 	{
+		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(Save));
 		WebElement SaveButton=getDriver().findElement(Save);
 		if(SaveButton.isDisplayed())
@@ -76,8 +79,9 @@ public class ImageCroppingPopUp {
 			
 		}
 	}
-	public static void ClickClose()
+	public  void ClickClose(int WaitSeconds)
 	{
+		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(ClosePopUp));
 		WebElement CloseButton=getDriver().findElement(ClosePopUp);
 		if(CloseButton.isDisplayed())
@@ -87,11 +91,11 @@ public class ImageCroppingPopUp {
 		}
 	}
 	
-    public static WebDriver getDriver() {
+    public  WebDriver getDriver() {
 		return driver;
 	}
-	public static void setDriver(WebDriver driver) {
-		ImageCroppingPopUp.driver = driver;
+	public  void setDriver(WebDriver driver) {
+		this.driver = driver;
 	}
 	
 
