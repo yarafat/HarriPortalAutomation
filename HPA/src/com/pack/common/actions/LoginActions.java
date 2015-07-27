@@ -11,7 +11,7 @@ import com.pack.common.pageobjects.Google;
 import com.pack.common.pageobjects.LinkedinPage;
 import com.pack.common.pageobjects.LoginPage;
 import com.pack.common.pageobjects.ForgetPassword;
-import GeneralClasses.*;
+import com.pack.utils.*;
 
 
 public class LoginActions extends LoginPage {
