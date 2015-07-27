@@ -2,19 +2,19 @@
 package GeneralClasses;
 
 public class Errors {
-	private static Boolean Status=true;
-	private static String Message ="Success";
+	private  Boolean Status=true;
+	private  String Message ="Success";
 	public Errors()
 	{}
-	public static void setError(Boolean status,String message) {
+	public  void setError(Boolean status,String message) {
 		Status = status;
 		Message = message;
 	}
-	public static Boolean getStatus() {
+	public  Boolean getStatus() {
 		return Status;
 	}
 	
-	public static String getMessage() {
+	public  String getMessage() {
 		return Message;
 	}
 	
