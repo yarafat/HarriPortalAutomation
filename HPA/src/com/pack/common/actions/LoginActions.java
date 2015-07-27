@@ -30,7 +30,7 @@ public class LoginActions extends LoginPage {
 		this.setDriver(driver);
 		this.Login=new LoginPage(getDriver());
 		Error=new Errors();
-		Errors.setError(true, "Success");
+		Error.setError(true, "Success");
 	}
 	public Object LoginWithEmail(String UserName, String Password)
 	{
@@ -43,10 +43,10 @@ public class LoginActions extends LoginPage {
 				Login.enterPassword(Password, 5);
 				Login.clickOnLogin(7);
 			}
-			else {Errors.setError(false, "Login Page Pointer is NULL");}
+			else {Error.setError(false, "Error: Login Page Pointer is NULL");}
 		}
 		catch (Exception e)
-		{Errors.setError(false, e.getMessage());}
+		{Error.setError(false, e.getMessage());}
 		return this.Error;
 	}
 
@@ -75,11 +75,11 @@ public class LoginActions extends LoginPage {
 			 getDriver().switchTo().window(Loginhandle);// return the focus to the main login popup
 			 
 			}
-			else {Errors.setError(false, "Login Page Pointer is NULL");}
+			else {Error.setError(false, "Error: Login Page Pointer is NULL");}
 		}
 		catch(Exception e)
 		{
-			Errors.setError(false, e.getMessage());
+			Error.setError(false, e.getMessage());
 		}
 		
 		return Error;
@@ -111,11 +111,11 @@ public class LoginActions extends LoginPage {
 			 getDriver().switchTo().window(Loginhandle);// return the focus to the main login popup
 			 
 			}
-			else {Errors.setError(false, "Login Page Pointer is NULL");}
+			else {Error.setError(false, "Error: Login Page Pointer is NULL");}
 		}
 		catch(Exception e)
 		{
-			Errors.setError(false, e.getMessage());
+			Error.setError(false, e.getMessage());
 		}
 		
 		return Error;
@@ -148,11 +148,11 @@ public class LoginActions extends LoginPage {
 		    getDriver().switchTo().window(Loginhandle);// return the focus to the main login popup
 			 
 			}
-			else {Errors.setError(false, "Login Page Pointer is NULL");}
+			else {Error.setError(false, "Error: Login Page Pointer is NULL");}
 		}
 		catch(Exception e)
 		{
-			Errors.setError(false, e.getMessage());
+			Error.setError(false, e.getMessage());
 		}
 		
 		return Error;
@@ -167,11 +167,11 @@ public class LoginActions extends LoginPage {
 			{
 			Login.ClickSignUpLink(7);
 			}
-			else {Errors.setError(false, "Login Page Pointer is NULL");}
+			else {Error.setError(false, "Error: Login Page Pointer is NULL");}
 		}
 		catch(Exception e)
 		{
-			Errors.setError(false, e.getMessage());
+			Error.setError(false, e.getMessage());
 		}
 		return Error;
 	}
@@ -199,11 +199,11 @@ public class LoginActions extends LoginPage {
 			 ForgetPass.ClickReset(10);
 			
 			}
-			else {Errors.setError(false, "Login Page Pointer is NULL");}
+			else {Error.setError(false, "Error: Login Page Pointer is NULL");}
 		}
 		catch(Exception e)
 		{
-			Errors.setError(false, e.getMessage());
+			Error.setError(false, e.getMessage());
 		}
 		return Error;
 	}
