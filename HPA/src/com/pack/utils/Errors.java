@@ -1,5 +1,5 @@
 //Aziza H Mustafa
-package GeneralClasses;
+package com.pack.utils;
 
 public class Errors {
 	private  Boolean Status=true;
