@@ -1,4 +1,11 @@
-//Aziza H Mustafa 
+/**
+* Login Action Class : Contains all the actions 
+* in the Login page with the Selenium flows
+*
+* @author  Aziza Mustafa
+* @version 1.0
+* @since   2015-07-27 
+*/
 package com.pack.common.actions;
 
 import java.util.Set;

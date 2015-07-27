@@ -1,4 +1,11 @@
-//Aziza H Mustafa
+/**
+* Google Class : Contains all the elements 
+* in the Google page with the Selenium actions on these elements
+*
+* @author  Aziza Mustafa
+* @version 1.0
+* @since   2015-07-26 
+*/
 package com.pack.common.pageobjects;
 
 import org.openqa.selenium.By;

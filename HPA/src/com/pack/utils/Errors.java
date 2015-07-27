@@ -1,4 +1,10 @@
-//Aziza H Mustafa
+/**
+* Error Class 
+*
+* @author  Aziza Mustafa
+* @version 1.0
+* @since   2015-07-24
+*/
 package com.pack.utils;
 
 public class Errors {

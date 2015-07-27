@@ -1,4 +1,11 @@
-// Aziza H Mustafa
+/**
+* Login page tests Class : Contains all the tests
+* in the Login page 
+*
+* @author  Aziza Mustafa
+* @version 1.0
+* @since   2015-07-27
+*/
 package com.pack.common.tests;
 
 import org.openqa.selenium.By;
