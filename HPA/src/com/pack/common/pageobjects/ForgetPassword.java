@@ -15,7 +15,7 @@ public class ForgetPassword {
 	
 	private  By Emailtext=By.id("reset-email");
 	private  By ResetButton=By.xpath(ResetButtonXpath);
-	
+	private  By CloseButton=By.xpath("//*[@id='login-modal']/div/div[2]/div/div/div[3]/div/div/div/div/h-form[3]/div[2]/button");
 	public ForgetPassword(WebDriver driver)
 	{
 		super();
@@ -43,7 +43,17 @@ public class ForgetPassword {
 			ResetBtn.click();
 		}
 	}
-
+   public void ClickClose(int WaitSeconds)
+   {
+	   WebDriverWait wait = new WebDriverWait(driver,  WaitSeconds);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(CloseButton));
+		WebElement CloseBtn=getDriver().findElement(CloseButton);
+		if(CloseBtn.isDisplayed())
+		{
+			CloseBtn.click();
+		}
+	   
+   }
 	public  WebDriver getDriver() {
 		return driver;
 	}

@@ -12,7 +12,7 @@ public class Google {
 	
 	private  By GUSerNametextBox=By.id("Email");
 	private  By GPasswordTextBox=By.id("Passwd");
-	private  By GNextButton=By.name("next");
+	private  By GNextButton=By.id("next");
 	private  By GSigninButton=By.id("signIn");
 	public Google(WebDriver driver)
 	{

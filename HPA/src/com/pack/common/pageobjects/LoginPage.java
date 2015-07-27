@@ -29,18 +29,17 @@ public class LoginPage {
 	
 	public LoginPage(WebDriver driver)
 	{
-		super();
 		this.driver = driver;
 	}
 	
 	public  void enterUserName(String userName,int WaitSeconds)
     {
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(UserNameText));
+        WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(UserNameText));		
 		WebElement UserName =driver.findElement(UserNameText);
 		if(UserName.isDisplayed())
 			UserName.sendKeys(userName);
-		
+		System.out.println("element was founded and username entered  ");
 	}
 	
 	public void enterPassword(String password,int WaitSeconds)
@@ -50,6 +49,7 @@ public class LoginPage {
 		WebElement passwordTxtBox = driver.findElement(PasswordText);
 		if(passwordTxtBox.isDisplayed())
 			passwordTxtBox.sendKeys(password);
+		System.out.println("element was founded and password entered  ");
 	}
 	public void clickOnLogin(int WaitSeconds)
 	{

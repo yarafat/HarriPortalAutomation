@@ -5,14 +5,14 @@
   <parameter name="browserType" value="chrome"/>
   <test name="sample test(failed)">
     <classes>
-      <class name="com.pack.common.tests.SignInPageTest">
+      <class name="com.pack.common.tests.TestLogin">
         <methods>
-          <include name="setUp"/>
+          <include name="SuccessLoginViaLinkedin"/>
           <include name="tearDown"/>
-          <include name="verifySignInFunction"/>
+          <include name="setUp"/>
           <include name="initializeTestBaseSetup"/>
         </methods>
-      </class> <!-- com.pack.common.tests.SignInPageTest -->
+      </class> <!-- com.pack.common.tests.TestLogin -->
     </classes>
   </test> <!-- sample test(failed) -->
 </suite> <!-- Failed suite [Page Object test example] -->

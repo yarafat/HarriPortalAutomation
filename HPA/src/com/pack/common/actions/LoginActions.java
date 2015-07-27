@@ -31,17 +31,19 @@ public class LoginActions extends LoginPage {
 		this.Login=new LoginPage(getDriver());
 		Error=new Errors();
 		Error.setError(true, "Success");
+		System.out.println("login actions constructor  ");
 	}
 	public Object LoginWithEmail(String UserName, String Password)
 	{
 		try
 		{
-			
+			System.out.println("before check login  ");
 			if(Login!=null)
 			{
+				System.out.println("before enter user name  ");
 				Login.enterUserName(UserName, 5);
 				Login.enterPassword(Password, 5);
-				Login.clickOnLogin(7);
+				Login.clickOnLogin(5);
 			}
 			else {Error.setError(false, "Error: Login Page Pointer is NULL");}
 		}
@@ -61,8 +63,8 @@ public class LoginActions extends LoginPage {
 			 Set<String> handles = getDriver().getWindowHandles();
 			 for (String handle : handles) {
 			        if (!handle.equals(Loginhandle)) {
-			            WebDriverWait wait = new WebDriverWait(driver, 10);
-						wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(handle));
+			           // WebDriverWait wait = new WebDriverWait(driver, 10);
+						//wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(handle));
 			            getDriver().switchTo().window(handle);
 			            break;
 			    }
@@ -97,8 +99,8 @@ public class LoginActions extends LoginPage {
 			 Set<String> handles = getDriver().getWindowHandles();
 			 for (String handle : handles) {
 			        if (!handle.equals(Loginhandle)) {
-			            WebDriverWait wait = new WebDriverWait(driver, 10);
-						wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(handle));
+			            //WebDriverWait wait = new WebDriverWait(driver, 10);
+						//wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(handle));
 			            getDriver().switchTo().window(handle);
 			            break;
 			    }
@@ -108,6 +110,8 @@ public class LoginActions extends LoginPage {
 			 LinkedInLogin.enterLUserName(LUserName, 5);
 			 LinkedInLogin.enterLPassword(LPassword, 5);
 			 LinkedInLogin.ClickLogin(7);
+			/* LinkedInLogin.enterLPassword(LPassword, 5);
+			 LinkedInLogin.ClickLogin(7);*/
 			 getDriver().switchTo().window(Loginhandle);// return the focus to the main login popup
 			 
 			}
@@ -133,8 +137,8 @@ public class LoginActions extends LoginPage {
 			 Set<String> handles = getDriver().getWindowHandles();
 			 for (String handle : handles) {
 			        if (!handle.equals(Loginhandle)) {
-			            WebDriverWait wait = new WebDriverWait(driver, 10);
-						wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(handle));
+			          //  WebDriverWait wait = new WebDriverWait(driver, 10);
+						//wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(handle));
 			            getDriver().switchTo().window(handle);
 			            break;
 			    }
@@ -188,8 +192,8 @@ public class LoginActions extends LoginPage {
 			 Set<String> handles = getDriver().getWindowHandles();			 
 			 for (String handle : handles) {
 			        if (!handle.equals(Loginhandle)) {
-			            WebDriverWait wait = new WebDriverWait(driver, 10);
-						wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(handle));
+			            //WebDriverWait wait = new WebDriverWait(driver, 10);
+						//wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(handle));
 			            getDriver().switchTo().window(handle);
 			            break;
 			    }
@@ -197,6 +201,7 @@ public class LoginActions extends LoginPage {
 			 ForgetPass=new ForgetPassword(getDriver());
 			 ForgetPass.enterEmail(Email, 5);
 			 ForgetPass.ClickReset(10);
+			 ForgetPass.ClickClose(5);
 			
 			}
 			else {Error.setError(false, "Error: Login Page Pointer is NULL");}
