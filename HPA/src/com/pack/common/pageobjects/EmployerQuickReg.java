@@ -79,7 +79,7 @@ public class EmployerQuickReg {
 			
 		}
 	}
-		
+	
 	public  void enterFirstName(String FName,int WaitSeconds)
 	{
 		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);

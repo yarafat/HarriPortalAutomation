@@ -11,8 +11,7 @@ package com.pack.common.actions;
 import java.util.Set;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 import com.pack.common.pageobjects.Facebookpage;
 import com.pack.common.pageobjects.Google;
