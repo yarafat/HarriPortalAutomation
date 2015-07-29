@@ -33,6 +33,7 @@ public class EmailsGenerator {
 		Calendar cal = Calendar.getInstance();
         String Date=dateFormat.format(cal.getTime());
         Date=  Date.replaceAll("[^a-zA-Z0-9]+", " ").trim();
+        Date= Date.replaceAll("\\s+","") ;
         String Email="."+Date+"@Test.Com";
         
         return Email;

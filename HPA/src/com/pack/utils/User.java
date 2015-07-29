@@ -15,6 +15,13 @@ public class User {
 	private String BrandLocation;
 	private String Slug;
 	private String phoneNumber;
+	private String Hecs;
+	private String Cuisine;
+	private String Description ;
+	private String ProfileLogoPath;
+	private String CoverPhotoPath;
+	private String BusinessEmail;
+	private String GroupName;
 	public User()
 	{
 		
@@ -69,6 +76,62 @@ public class User {
 
 	public void setLastUserName(String lastUserName) {
 		LastUserName = lastUserName;
+	}
+
+	public String getHecs() {
+		return Hecs;
+	}
+
+	public void setHecs(String hecs) {
+		Hecs = hecs;
+	}
+
+	public String getCuisine() {
+		return Cuisine;
+	}
+
+	public void setCuisine(String cuisine) {
+		Cuisine = cuisine;
+	}
+
+	public String getDescription() {
+		return Description;
+	}
+
+	public void setDescription(String description) {
+		Description = description;
+	}
+
+	public String getProfileLogoPath() {
+		return ProfileLogoPath;
+	}
+
+	public void setProfileLogoPath(String profileLogoPath) {
+		ProfileLogoPath = profileLogoPath;
+	}
+
+	public String getCoverPhotoPath() {
+		return CoverPhotoPath;
+	}
+
+	public void setCoverPhotoPath(String coverPhotoPath) {
+		CoverPhotoPath = coverPhotoPath;
+	}
+
+	public String getBusinessEmail() {
+		return BusinessEmail;
+	}
+
+	public void setBusinessEmail(String businessEmail) {
+		BusinessEmail = businessEmail;
+	}
+
+	public String getGroupName() {
+		return GroupName;
+	}
+
+	public void setGroupName(String groupName) {
+		GroupName = groupName;
 	}
 	
 

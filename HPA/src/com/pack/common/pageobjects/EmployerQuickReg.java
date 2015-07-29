@@ -46,7 +46,7 @@ public class EmployerQuickReg {
 	private  By PasswordText=By.xpath(PasswordtxtXpath);
 	private  By PasswordConfirmText=By.xpath(PasswordConftxtXpath);
 	private  By BusinessDropDown=By.id("select2-chosen-10");
-	private  By BusinessSearchBox=By.id("s2id_autogen12_search");
+	private  By BusinessSearchBox=By.id("s2id_autogen10_search");
 	private  By TermofServiceLink=By.xpath(TermofServiceLinkXpath);
 	private  By PrivacyPolicylink=By.xpath(PrivacyPolicLinkXpath);
 	private  By FirstContinueButton=By.xpath(FirstContinueButtonXpath);
@@ -56,7 +56,7 @@ public class EmployerQuickReg {
 	private  By CheckBox=By.xpath(CheckGroupBoxXpath);
 	private  By GroupNameText=By.id("group_name");
 	private  By UploadPicButton=By.xpath(UploadPicButtonXpath);
-	
+	private  By BrandDescText=By.id("description");
 	public EmployerQuickReg(WebDriver driver)
 	{
 		super();
@@ -156,7 +156,7 @@ public class EmployerQuickReg {
 		{
 			BusinessDroplocator.click();
 			WebElement BusinessSearchText = (new WebDriverWait(getDriver(), 10))
-					   .until(ExpectedConditions.elementToBeClickable(BusinessSearchBox));
+					  .until(ExpectedConditions.visibilityOfElementLocated(BusinessSearchBox));
 			if(BusinessSearchText.isDisplayed()||BusinessSearchText.isEnabled())
 			{
 				BusinessSearchText.sendKeys(BusinessName);
@@ -164,12 +164,12 @@ public class EmployerQuickReg {
 				if(Address!=null && !Address.isEmpty())
 				{
 				       Item=(new WebDriverWait(getDriver(), 60))
-						   .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//small[contains(text(),"+Address+")]")));
+						   .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//small[contains(text(),'"+Address+"')]")));
 				}
 				else
 				{
 				       Item=(new WebDriverWait(getDriver(), 60))
-						   .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//strong[contains(text(),"+BusinessName+")]")));
+						   .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//strong[contains(text(),'"+BusinessName+"')]")));
 				}
 			
 				 Item.click();
@@ -178,14 +178,16 @@ public class EmployerQuickReg {
 			}
 		}
 	}
-    public  void SelectHecs(String HecsText,int WaitSeconds)	
+    public  void SelectHecs(String HecsText,int WaitSeconds) throws InterruptedException	
     {
     	WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
     	wait.until(ExpectedConditions.visibilityOfElementLocated(HecsDropDown));
+    	Thread.sleep(6000);
     	WebElement HecsDrop=getDriver().findElement(HecsDropDown);
     	HecsDrop.click();
+    	Thread.sleep(6000);
     	WebElement	 Item=(new WebDriverWait(getDriver(), 60))
-				   .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[contains(text(),"+HecsText+")]")));
+				   .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[contains(text(),'"+HecsText+"')]")));
     	
     	Item.click();
     }
@@ -196,7 +198,7 @@ public class EmployerQuickReg {
     	WebElement CuisineDrop=getDriver().findElement(CuisineDropDown);
     	CuisineDrop.click();
     	WebElement	 Item=(new WebDriverWait(getDriver(), 60))
-				   .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[contains(text(),"+CuisineText+")]")));
+				   .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'"+CuisineText+"')]")));
     	
     	Item.click();
     }
@@ -302,6 +304,16 @@ public class EmployerQuickReg {
 		if(GroupNametextLocator.isDisplayed())
 		{
 			GroupNametextLocator.sendKeys(GroupName);
+		}
+	}
+	public void enterBrandDescription(String Desc, int WaitSeconds)
+	{
+		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(BrandDescText));
+		WebElement BrandDesctextLocator=getDriver().findElement(BrandDescText);
+		if(BrandDesctextLocator.isDisplayed())
+		{
+			BrandDesctextLocator.sendKeys(Desc);
 		}
 	}
 	public  WebDriver getDriver() {
