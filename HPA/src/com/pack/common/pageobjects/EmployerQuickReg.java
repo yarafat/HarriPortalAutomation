@@ -34,7 +34,7 @@ public class EmployerQuickReg {
 	private  String TermofServiceLinkXpath="//*[@id='app-quick-reg-form']/div[5]/div/a[1]";
 	private  String PrivacyPolicLinkXpath="//*[@id='app-quick-reg-form']/div[5]/div/a[2]";
 	private  String FirstContinueButtonXpath="//*[@id='app-quick-reg-form']/div[7]/div/button";
-	private  String LastContinueButtonXpath="//div[contains(text(),' Continue')]";
+	private  String LastContinueButtonXpath="//*[@id='emp-quick-reg-cont']/div[2]/div/div[2]/div/div/div/div[2]/h-form/div/form/div[7]";
 	private  String CheckGroupBoxXpath="//*[@id='emp-quick-reg-cont']/div[2]/div/div[2]/div/div/div/div[2]/h-form/div/form/div[6]/div/div/label/div/div";
 	private  String UploadPicButtonXpath="//*[@id='emp-quick-reg-cont']/div[2]/div/div[2]/div/div/div/div[2]/h-form/div/form/h-form/div/ng-form/div[2]/div[2]/div[1]";
 	
@@ -215,7 +215,7 @@ public class EmployerQuickReg {
     		UploadButtonLocator.click();
     	}
     	try {
-			Thread.sleep(60000);
+			Thread.sleep(30000);
 		} catch (InterruptedException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

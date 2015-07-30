@@ -50,7 +50,8 @@ private Errors Actual;
 					+ "knowledge your car couldn’t be in better hands.");
 			empInfo.setHecs("Event/Catering");
 			empInfo.setCuisine("American");
-			
+			empInfo.setProfileLogoPath("C:\\Users\\Harri\\Desktop\\test.jpg");
+			empInfo.setGroupName("HarriTest");
 		}
 		return empInfo;
 	}
@@ -107,7 +108,6 @@ private Errors Actual;
 			EmpReg=new EmpQuickRegActions(driver);
 			Emp=new Employer(driver);
 			NewEmp=new User();
-			
 			Home.clickEmployersLink();
 		    Emp.ClickBuildemployerProfile(7);
 			Thread.sleep(6000);
