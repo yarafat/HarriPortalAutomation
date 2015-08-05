@@ -1,9 +1,9 @@
 <suite name="Page Object test example">
-<parameter name="appURL" value="http://beta.harri.com/Zan-Resturant-And-Pub/job/502452-karmi/apply/502452"/>
+<parameter name="appURL" value="http://beta.harri.com"/>
 <parameter name="browserType" value="chrome"/>
   <test name="sample test">
     <classes>
-      <class name="com.pack.common.tests.SignInPageTest"/>
+      <class name="com.pack.common.tests.EmployerQuickRegTest"/>
     </classes>
   </test>
 </suite>

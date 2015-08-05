@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Page Object test example]">
-  <parameter name="appURL" value="http://beta.harri.com/Zan-Resturant-And-Pub/job/502452-karmi/apply/502452"/>
-  <parameter name="browserType" value="chrome"/>
-  <test name="sample test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
     <classes>
-      <class name="com.pack.common.tests.SignInPageTest">
+      <class name="com.pack.common.tests.EmployerQuickRegTest">
         <methods>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-          <include name="verifySignInFunction"/>
-          <include name="initializeTestBaseSetup"/>
+          <include name="TestEmpReg"/>
         </methods>
-      </class> <!-- com.pack.common.tests.SignInPageTest -->
+      </class> <!-- com.pack.common.tests.EmployerQuickRegTest -->
     </classes>
-  </test> <!-- sample test(failed) -->
-</suite> <!-- Failed suite [Page Object test example] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
