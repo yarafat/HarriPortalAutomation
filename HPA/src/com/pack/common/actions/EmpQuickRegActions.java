@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.pack.common.pageobjects.EmployerQuickReg;
 import com.pack.common.pageobjects.ImageCroppingPopUp;
+import com.pack.utils.Brand;
 import com.pack.utils.Errors;
 import com.pack.utils.User;
 
@@ -22,7 +23,7 @@ public class EmpQuickRegActions extends EmployerQuickReg {
 		Error.setError(true, "Success");
 		System.out.println("EmpQuickRegActions constructor  ");
 	}
-	public Object EmpRegFirstStage(User EmpUserInfo)
+	public Object EmpRegFirstStage(User EmpUserInfo,Brand BrandInfo)
 	{
 		try
 		{
@@ -32,8 +33,8 @@ public class EmpQuickRegActions extends EmployerQuickReg {
 				Emp.enterFirstName(EmpUserInfo.getFirstUserName(), 5);
 				Emp.enterLastname(EmpUserInfo.getLastUserName(), 5);
 				Emp.enterEmail(EmpUserInfo.getEmail(), 5);
-				Emp.enterPhoneNumber(EmpUserInfo.getPhoneNumber(), 5);
-				Emp.SelectBusiness(EmpUserInfo.getBrandName(), EmpUserInfo.getBrandLocation(), 20);
+				Emp.enterPhoneNumber(EmpUserInfo.getPhoneNumber(),5);
+				Emp.SelectBusiness(BrandInfo.getBrandName(), BrandInfo.getBrandLocation(), 20);
 				Emp.enterPassword(EmpUserInfo.getPassword(), 5);
 				Emp.enterConfirmPass(EmpUserInfo.getPassword(), 5);
 				Emp.ClickContinueStageOne(5);
@@ -49,29 +50,29 @@ public class EmpQuickRegActions extends EmployerQuickReg {
 		}
 		return Error;
 	}
-	public Object EmpQuickRegFullStages(User EmpUserInfo)
+	public Object EmpQuickRegFullStages(User EmpUserInfo, Brand BrandInfo)
 	{
 		try
 		{
-			Error=(Errors)EmpRegFirstStage(EmpUserInfo);
+			Error=(Errors)EmpRegFirstStage(EmpUserInfo,BrandInfo);
 			Thread.sleep(6000);
 			if(Error.getStatus())
 			{
-				Emp.SelectHecs(EmpUserInfo.getHecs(), 60);
-				Emp.SelectCuisine(EmpUserInfo.getCuisine(), 60);
+				Emp.SelectHecs(BrandInfo.getHecs(), 60);
+				Emp.SelectCuisine(BrandInfo.getCuisine(), 60);
 				if(EmpUserInfo.getDescription()!=null)
 				{
 				Emp.enterBrandDescription(EmpUserInfo.getDescription(), 10);
 				}
-				if(EmpUserInfo.getProfileLogoPath()!=null)
+				if(BrandInfo.getProfileLogoPath()!=null)
 				{
-				Emp.SelectBrandLogo(EmpUserInfo.getProfileLogoPath(), 10);
+				Emp.SelectBrandLogo(BrandInfo.getProfileLogoPath(), 10);
 			    Crop.ClickSave(5);
 				}
-				if(EmpUserInfo.getGroupName()!=null)
+				if(BrandInfo.getGroupName()!=null)
 				{
 					Emp.CheckGroupBox(10);
-					Emp.enterGroupName(EmpUserInfo.getGroupName(), 10);
+					Emp.enterGroupName(BrandInfo.getGroupName(), 10);
 				}
 				Emp.ClickContinueFinal(10);				
 			}
