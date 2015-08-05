@@ -1,5 +1,6 @@
 package com.pack.common.tests;
 
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 
@@ -13,19 +14,19 @@ import com.pack.utils.UserMedia;
 import com.pack.utils.UserReferences;
 import com.pack.utils.UserWorkHistory;
 
-public class JSQuickRegTest extends TestBaseSetup {
+public class JSQuickRegTest extends TestBaseSetup{
 	private WebDriver driver;
 	private JSQuickRegistrationAction action;
 	private User testUser;
-	private String[] skills = { "Inventory Management", "Social Media" };
+	private String[] skills={"Inventory Management","Social Media"};
 	private UserEducation testUserEdu;
 	private UserWorkHistory testUserHis;
 	private UserAbout testUserAbout;
 	private UserMedia testUserMeida;
 	private UserReferences testUserRef;
-	private EmailsGenerator UserEmail = new EmailsGenerator();
+	private EmailsGenerator UserEmail= new EmailsGenerator();
 	String Email;
-
+	
 	@BeforeClass
 	public void setUp() {
 		driver = getDriver();
@@ -40,6 +41,7 @@ public class JSQuickRegTest extends TestBaseSetup {
 		testUser.setPhoneNumber("123123123");
 		testUser.setPassword("123123");
 		testUser.SetConfirmPassword("123123");
+
 		testUserHis = new UserWorkHistory();
 		testUserHis.setCompany("Meltshop ny");
 		testUserHis
@@ -73,4 +75,16 @@ public class JSQuickRegTest extends TestBaseSetup {
 		testUserAbout.setBio("Bio");
 
 	}
+	
+	@Test
+	public void verifySignInFunction() {
+		System.out.println("Sign In functionality details...");
+	//	basePage = new BasePage(driver);
+	//	signInPage = basePage.clickSignInBtn();
+		//Assert.assertTrue(signInPage.verifySignInPageTitle(), "Sign In page title doesn't match");
+		//Assert.assertTrue(signInPage.verifySignInPageText(), "Page text not matching");
+		//Assert.assertTrue(signInPage.verifySignIn(), "Unable to sign in");
+
+	}
+	
 }
