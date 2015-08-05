@@ -91,13 +91,13 @@ public class JSQuickRegistration {
 	private By AreaOfStudy = By
 			.xpath("//*[@id='application-cont']/div[2]/div/div/div/div[3]/div[2]/div/div[5]/div/div/div/div[3]/div[6]/div[2]/h-form/div/form/div[1]/ng-form/div[2]/div[1]/div[2]/input");
 	private By EducationStartMonth = By
-			.xpath("//*[@id='-month']/span/span[1]/div/a");
+			.xpath("//*[@id='application-cont']/div[2]/div/div/div/div[3]/div[2]/div/div[5]/div/div/div/div[3]/div[6]/div[2]/h-form/div/form/div[1]/ng-form/div[2]/div[2]/div[1]/div[1]/month-date-picker/div/div/div[1]/span/span[1]/div");
 	private By EduStartMonthTextBox = By
-			.xpath("//*[@id='-month']/span/span[1]/div/div[2]/div/input");
+			.xpath("//*[@id='application-cont']/div[2]/div/div/div/div[3]/div[2]/div/div[5]/div/div/div/div[3]/div[6]/div[2]/h-form/div/form/div[1]/ng-form/div[2]/div[2]/div[1]/div[1]/month-date-picker/div/div/div[1]/span/span[1]/div/div[2]/div/input");
 	private By EducationStartYear = By
-			.xpath("//*[@id='-year']/span/span[1]/div/a");
+			.xpath("//*[@id='application-cont']/div[2]/div/div/div/div[3]/div[2]/div/div[5]/div/div/div/div[3]/div[6]/div[2]/h-form/div/form/div[1]/ng-form/div[2]/div[2]/div[1]/div[1]/month-date-picker/div/div/div[2]/span/span[1]/div");
 	private By EduStartYearTextBox = By
-			.xpath("//*[@id='-year']/span/span[1]/div/div[2]/div/input");
+			.xpath("//*[@id='application-cont']/div[2]/div/div/div/div[3]/div[2]/div/div[5]/div/div/div/div[3]/div[6]/div[2]/h-form/div/form/div[1]/ng-form/div[2]/div[2]/div[1]/div[1]/month-date-picker/div/div/div[2]/span/span[1]/div/div[2]/div/input");
 	private By EducationEndMonth = By
 			.xpath("//*[@id='-month']/span/span[1]/div/a");
 	private By EduEndMonthTextBox = By
@@ -113,7 +113,7 @@ public class JSQuickRegistration {
 	private By SkillsInputTxt = By
 			.xpath("//*[@id='application-cont']/div[2]/div/div/div/div[3]/div[2]/div/div[5]/div/div/div/div[3]/div[8]/div[2]/div[2]/h-form/form/div/span/span[1]/div/ul/li/input");
 	private By ExpandAbout = By
-			.xpath("//*[@id='application-cont']/div[2]/div/div/div/div[3]/div[2]/div/div[5]/div/div/div/div[3]/div[9]/div[1]");
+			.xpath("//*[@id='application-cont']/div[2]/div/div/div/div[3]/div[2]/div/div[5]/div/div/div/div[3]/div[9]/div[1]/i[1]");
 	private By FirstWord = By.id("word1");
 	private By SecondWord = By
 			.xpath("//*[@id='application-cont']/div[2]/div/div/div/div[3]/div[2]/div/div[5]/div/div/div/div[3]/div[9]/div[2]/h-form/form/div[1]/div/div/div[2]/input");
@@ -131,7 +131,7 @@ public class JSQuickRegistration {
 
 	public JSQuickRegistration(WebDriver driver) {
 		this.driver = driver;
-		wait = new WebDriverWait(driver, 10);
+		wait = new WebDriverWait(driver, 20);
 	}
 
 	public String getPageTitle() {
@@ -139,7 +139,7 @@ public class JSQuickRegistration {
 		return title;
 	}
 
-	public void TypeFirstName(String FName) {
+	public void SetFirstName(String FName) {
 		try {
 			WebElement firstname = driver.findElement(FirstName);
 			firstname.sendKeys(FName);
@@ -150,7 +150,7 @@ public class JSQuickRegistration {
 		}
 	}
 
-	public void TypeLastName(String LName) {
+	public void SetLastName(String LName) {
 		try {
 			WebElement lastname = driver.findElement(LastName);
 			lastname.sendKeys(LName);
@@ -162,7 +162,7 @@ public class JSQuickRegistration {
 
 	}
 
-	public void TypeEmailAddress(String email) {
+	public void SetEmailAddress(String email) {
 		try {
 			WebElement email_address = driver.findElement(EmailAddress);
 			email_address.sendKeys(email);
@@ -174,7 +174,7 @@ public class JSQuickRegistration {
 
 	}
 
-	public void TypePhoneNumber(String phone) {
+	public void SetPhoneNumber(String phone) {
 		try {
 			WebElement phone_number = driver.findElement(PhoneNumber);
 			phone_number.sendKeys(phone);
@@ -186,7 +186,7 @@ public class JSQuickRegistration {
 
 	}
 
-	public void TypePassword(String pass) {
+	public void SetPassword(String pass) {
 		try {
 			WebElement password = driver.findElement(Password);
 			password.sendKeys(pass);
@@ -442,11 +442,13 @@ public class JSQuickRegistration {
 
 	public void UploadImage(String ImageURL) throws Exception {
 		try {
+			driver.findElement(By.xpath("//*[@id='application-cont']/div[2]/div/div/div/div[3]/div[2]/div/div[5]/div/div/div/div[3]/div[4]/h-form/form/div[2]")).click();;
 			WebElement uploadInputField = driver
 					.findElement(ProfileImageInputFile);
 			uploadInputField.sendKeys(ImageURL);
 			wait.until(ExpectedConditions
 					.invisibilityOfElementLocated(UploadButton));
+			Thread.sleep(3000);
 			WebElement SaveButton = driver.findElement(UploadButton);
 			SaveButton.click();
 			Thread.sleep(7000);
@@ -666,11 +668,12 @@ public class JSQuickRegistration {
 
 	}
 
-	public void SetAreaOfStudy(String areaofstudy) {
+	public void SetAreaOfStudy(String areaofstudy) throws Exception {
 		try {
 			WebElement area_of_study = driver.findElement(AreaOfStudy);
+			area_of_study.clear();
 			area_of_study.sendKeys(areaofstudy);
-
+			Thread.sleep(3000);
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
 			throw (ex);
@@ -813,14 +816,15 @@ public class JSQuickRegistration {
 			throw (ex);
 		}
 	}
-	
-	public void DeleteLocation(){
-		try{
-			wait.until(ExpectedConditions.visibilityOfElementLocated(DeleteLocation));
-			WebElement delete=driver.findElement(DeleteLocation);
+
+	public void DeleteLocation() {
+		try {
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(DeleteLocation));
+			WebElement delete = driver.findElement(DeleteLocation);
 			delete.click();
 			System.out.println("Element was found and clicked successfully");
-		}catch (Exception ex) {
+		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
 			throw (ex);
 		}

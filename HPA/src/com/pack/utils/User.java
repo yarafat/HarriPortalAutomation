@@ -10,6 +10,7 @@ public class User {
 	private String FirstUserName;
 	private String LastUserName;
 	private String Password;
+	private String ConfirmPassword;
 	private String Email;
 	private String Slug;
 	private String phoneNumber;
@@ -86,6 +87,10 @@ public class User {
 
 	public void setCoverPhotoPath(String coverPhotoPath) {
 		CoverPhotoPath = coverPhotoPath;
+	}
+
+	public String getConfirmPassword() {
+		return ConfirmPassword;
 	}
 
 	

@@ -47,8 +47,11 @@ private Errors Actual;
 					+ "fully qualified Ford main agent technicians and the very"
 					+ "latest in leading computer diagnostics, you’ll feel safe in the "
 					+ "knowledge your car couldn’t be in better hands.");
+
 			empInfo.setProfileLogoPath("C:\\Users\\Harri\\Desktop\\test.jpg");
 		
+
+
 		}
 		return empInfo;
 	}
@@ -62,6 +65,8 @@ private Errors Actual;
 			BrandInfo.setCuisine("American");
 			BrandInfo.setGroupName("HarriTest");
 			BrandInfo.setProfileLogoPath("C:\\Users\\Harri\\Desktop\\test.jpg");
+			BrandInfo.setHecs("Event/Catering");
+			BrandInfo.setCuisine("American");
 		}
 		return BrandInfo;
 	}

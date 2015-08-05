@@ -3,8 +3,11 @@ package com.pack.common.actions;
 import org.openqa.selenium.WebDriver;
 
 import com.pack.common.pageobjects.EmployerQuickReg;
+<<<<<<< HEAD
 import com.pack.common.pageobjects.ImageCroppingPopUp;
 import com.pack.utils.Brand;
+=======
+>>>>>>> origin/master
 import com.pack.utils.Errors;
 import com.pack.utils.User;
 
@@ -12,13 +15,11 @@ public class EmpQuickRegActions extends EmployerQuickReg {
 	private Errors Error;
 	private EmployerQuickReg Emp;
 	private WebDriver driver;
-	private ImageCroppingPopUp Crop;
 	public EmpQuickRegActions(WebDriver driver)
 	{
 		super(driver);
 		this.setDriver(driver);
 		Emp=new EmployerQuickReg(getDriver());
-		Crop=new ImageCroppingPopUp(getDriver());
 	    Error = new Errors();
 		Error.setError(true, "Success");
 		System.out.println("EmpQuickRegActions constructor  ");
@@ -58,6 +59,7 @@ public class EmpQuickRegActions extends EmployerQuickReg {
 			Thread.sleep(6000);
 			if(Error.getStatus())
 			{
+<<<<<<< HEAD
 				Emp.SelectHecs(BrandInfo.getHecs(), 60);
 				Emp.SelectCuisine(BrandInfo.getCuisine(), 60);
 				if(EmpUserInfo.getDescription()!=null)
@@ -75,6 +77,13 @@ public class EmpQuickRegActions extends EmployerQuickReg {
 					Emp.enterGroupName(BrandInfo.getGroupName(), 10);
 				}
 				Emp.ClickContinueFinal(10);				
+=======
+				Emp.SelectHecs(EmpUserInfo.getHecs(), 60);
+				Emp.SelectCuisine(EmpUserInfo.getCuisine(), 60);
+				Emp.enterBrandDescription(EmpUserInfo.getDescription(), 10);
+				
+				//Emp.SelectBrandLogo(EmpUserInfo.getProfileLogoPath(), 10);
+>>>>>>> origin/master
 			}
 			
 		}
