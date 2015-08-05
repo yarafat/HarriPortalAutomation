@@ -39,8 +39,7 @@ public class JSQuickRegTest extends TestBaseSetup {
 		testUser.setEmail(Email);
 		testUser.setPhoneNumber("123123123");
 		testUser.setPassword("123123");
-		testUser.setConfirmPassword("123123");
-
+		testUser.SetConfirmPassword("123123");
 		testUserHis = new UserWorkHistory();
 		testUserHis.setCompany("Meltshop ny");
 		testUserHis

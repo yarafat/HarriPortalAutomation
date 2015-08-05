@@ -91,6 +91,8 @@ public class User {
 	public String getConfirmPassword() {
 		return ConfirmPassword;
 	}
-
+	public void SetConfirmPassword(String ConfirmedPassword) {
+		ConfirmPassword = ConfirmedPassword;
+	}
 
 }

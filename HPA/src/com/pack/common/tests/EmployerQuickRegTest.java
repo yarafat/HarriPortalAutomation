@@ -41,8 +41,6 @@ private Errors Actual;
 			empInfo.setPhoneNumber("0597395494");
 			empInfo.setEmail(Email.getEmail());
 			empInfo.setPassword("123123");
-			empInfo.setBrandName("Redline tuning");
-			empInfo.setBrandLocation("Ha-Banai Street 29, Holon, 58857, Israel");
 			empInfo.setDescription("Redline Tuning are an Essex based "
 					+ "engine tuning company, which specialise in vehicle "
 					+ "performance enhancements. With over 10 years experience, "
