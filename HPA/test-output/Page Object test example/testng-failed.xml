@@ -5,14 +5,12 @@
   <parameter name="browserType" value="chrome"/>
   <test name="sample test(failed)">
     <classes>
-      <class name="com.pack.common.tests.TestLogin">
+      <class name="com.pack.common.tests.EmployerQuickRegTest">
         <methods>
-          <include name="SuccessLoginViaLinkedin"/>
-          <include name="tearDown"/>
-          <include name="setUp"/>
+          <include name="TestEmpQuickRegFullstages"/>
           <include name="initializeTestBaseSetup"/>
         </methods>
-      </class> <!-- com.pack.common.tests.TestLogin -->
+      </class> <!-- com.pack.common.tests.EmployerQuickRegTest -->
     </classes>
   </test> <!-- sample test(failed) -->
 </suite> <!-- Failed suite [Page Object test example] -->
