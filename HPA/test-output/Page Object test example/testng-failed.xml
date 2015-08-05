@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Page Object test example]">
-  <parameter name="appURL" value="http://beta.harri.com"/>
+  <parameter name="appURL" value="http://beta.harri.com/Zan-Resturant-And-Pub/job/502452-karmi/apply/502452"/>
   <parameter name="browserType" value="chrome"/>
   <test name="sample test(failed)">
     <classes>
-      <class name="com.pack.common.tests.TestLogin">
+      <class name="com.pack.common.tests.SignInPageTest">
         <methods>
-          <include name="SuccessLoginViaLinkedin"/>
-          <include name="tearDown"/>
           <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="verifySignInFunction"/>
           <include name="initializeTestBaseSetup"/>
         </methods>
-      </class> <!-- com.pack.common.tests.TestLogin -->
+      </class> <!-- com.pack.common.tests.SignInPageTest -->
     </classes>
   </test> <!-- sample test(failed) -->
 </suite> <!-- Failed suite [Page Object test example] -->
