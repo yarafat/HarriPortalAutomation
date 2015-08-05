@@ -34,13 +34,15 @@ private Errors Actual;
 	{
 		EmailsGenerator Email=new EmailsGenerator();
 		Email.SetEmail("EMPLOYER");
-		if(empInfo!=null )
+		if(empInfo!=null)
 		{
 			empInfo.setFirstUserName("Test");
 			empInfo.setLastUserName("Test");
 			empInfo.setPhoneNumber("0597395494");
 			empInfo.setEmail(Email.getEmail());
 			empInfo.setPassword("123123");
+			empInfo.setBrandName("Redline tuning");
+			empInfo.setBrandLocation("Ha-Banai Street 29, Holon, 58857, Israel");
 			empInfo.setDescription("Redline Tuning are an Essex based "
 					+ "engine tuning company, which specialise in vehicle "
 					+ "performance enhancements. With over 10 years experience, "
@@ -50,11 +52,10 @@ private Errors Actual;
 
 			empInfo.setProfileLogoPath("C:\\Users\\Harri\\Desktop\\test.jpg");
 		
-
-
 		}
 		return empInfo;
 	}
+	
 	private Brand SetBrandInfo(Brand BrandInfo)
 	{
 		if(BrandInfo!=null)
@@ -70,6 +71,8 @@ private Errors Actual;
 		}
 		return BrandInfo;
 	}
+
+
 	
 	public void TestEmpRegFirstStage()
 	{
@@ -87,7 +90,8 @@ private Errors Actual;
 			EmpReg=new EmpQuickRegActions(driver);
 			Emp=new Employer(driver);
 			NewEmp=new User();
-			brand=new Brand();
+		    brand=new Brand();
+
 			Home.clickEmployersLink();
 		    Emp.ClickBuildemployerProfile(7);
 			Thread.sleep(6000);

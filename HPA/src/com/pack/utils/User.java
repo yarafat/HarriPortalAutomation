@@ -64,7 +64,6 @@ public class User {
 	}
 
 	
-
 	public String getDescription() {
 		return Description;
 	}
@@ -93,7 +92,5 @@ public class User {
 		return ConfirmPassword;
 	}
 
-	
-	
 
 }
