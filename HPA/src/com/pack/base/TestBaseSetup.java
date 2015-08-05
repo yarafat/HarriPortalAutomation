@@ -1,8 +1,5 @@
 package com.pack.base;
 
-import java.awt.Toolkit;
-
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -39,11 +36,9 @@ public class TestBaseSetup {
 		System.setProperty("webdriver.chrome.driver", driverPath
 				+ "chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
-		Toolkit toolkit = Toolkit.getDefaultToolkit();
-		int Width = (int) toolkit.getScreenSize().getWidth();
-		int Height = (int)toolkit.getScreenSize().getHeight();
+		
 		//For Dimension class, Import following library "org.openqa.selenium.Dimension" 
-		driver.manage().window().setSize(new Dimension(Width,Height));
+		driver.manage().window().maximize();
 
 		
 		driver.navigate().to(appURL);
@@ -53,11 +48,9 @@ public class TestBaseSetup {
 	private static WebDriver initFirefoxDriver(String appURL) {
 		System.out.println("Launching Firefox browser..");
 		WebDriver driver = new FirefoxDriver();
-		Toolkit toolkit = Toolkit.getDefaultToolkit();
-		int Width = (int) toolkit.getScreenSize().getWidth();
-		int Height = (int)toolkit.getScreenSize().getHeight();
+	
 		//For Dimension class, Import following library "org.openqa.selenium.Dimension" 
-		driver.manage().window().setSize(new Dimension(Width,Height));
+		driver.manage().window().maximize();
 		driver.navigate().to(appURL);
 		return driver;
 	}
