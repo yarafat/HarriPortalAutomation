@@ -10,6 +10,7 @@ public class User {
 	private String FirstUserName;
 	private String LastUserName;
 	private String Password;
+	private String ConfirmPassword;
 	private String Email;
 	private String BrandName;
 	private String BrandLocation;
@@ -132,6 +133,14 @@ public class User {
 
 	public void setGroupName(String groupName) {
 		GroupName = groupName;
+	}
+
+	public String getConfirmPassword() {
+		return ConfirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) {
+		ConfirmPassword = confirmPassword;
 	}
 	
 
