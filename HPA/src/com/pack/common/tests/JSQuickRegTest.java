@@ -7,12 +7,12 @@ import org.testng.annotations.BeforeClass;
 import com.pack.base.TestBaseSetup;
 import com.pack.common.actions.JSQuickRegistrationAction;
 import com.pack.utils.EmailsGenerator;
-import com.pack.utils.User;
-import com.pack.utils.UserAbout;
-import com.pack.utils.UserEducation;
-import com.pack.utils.UserMedia;
-import com.pack.utils.UserReferences;
-import com.pack.utils.UserWorkHistory;
+import com.pack.entities.User;
+import com.pack.entities.UserAbout;
+import com.pack.entities.UserEducation;
+import com.pack.entities.UserMedia;
+import com.pack.entities.UserReferences;
+import com.pack.entities.UserWorkHistory;
 
 public class JSQuickRegTest extends TestBaseSetup{
 	private WebDriver driver;

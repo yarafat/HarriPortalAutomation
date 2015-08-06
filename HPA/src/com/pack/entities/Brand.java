@@ -1,4 +1,4 @@
-package com.pack.utils;
+package com.pack.entities;
 
 public class Brand {
 	private String BrandName;
@@ -9,6 +9,7 @@ public class Brand {
 	private String GroupName;
 	private String ProfileLogoPath;
 	private String CoverPhotoPath;
+	
 	public String getBrandName() {
 		return BrandName;
 	}

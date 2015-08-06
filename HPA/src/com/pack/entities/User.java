@@ -4,7 +4,7 @@
 * @version 1.0
 * @since   2015-07-28 
 */
-package com.pack.utils;
+package com.pack.entities;
 
 public class User {
 	private String FirstUserName;

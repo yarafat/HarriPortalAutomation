@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
 import com.pack.base.TestBaseSetup;
 import com.pack.common.actions.LoginActions;
 import com.pack.common.pageobjects.HomePage;
-import com.pack.utils.Errors;
+import com.pack.entities.Errors;
 
 public class TestLogin extends TestBaseSetup{
 	private WebDriver driver;

@@ -5,9 +5,9 @@ import org.openqa.selenium.WebDriver;
 import com.pack.common.pageobjects.EmployerQuickReg;
 import com.pack.common.pageobjects.ImageCroppingPopUp;
 
-import com.pack.utils.Brand;
-import com.pack.utils.Errors;
-import com.pack.utils.User;
+import com.pack.entities.Brand;
+import com.pack.entities.Errors;
+import com.pack.entities.User;
 
 public class EmpQuickRegActions extends EmployerQuickReg {
 	private Errors Error;

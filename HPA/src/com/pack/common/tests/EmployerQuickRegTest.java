@@ -18,10 +18,10 @@ import org.testng.annotations.Test;
 import com.pack.base.TestBaseSetup;
 import com.pack.common.actions.EmpQuickRegActions;
 import com.pack.common.pageobjects.HomePage;
-import com.pack.utils.Brand;
+import com.pack.entities.Brand;
 import com.pack.utils.EmailsGenerator;
-import com.pack.utils.Errors;
-import com.pack.utils.User;
+import com.pack.entities.Errors;
+import com.pack.entities.User;
 import com.pack.common.pageobjects.Employer;
 public class EmployerQuickRegTest extends TestBaseSetup{
 private WebDriver driver;

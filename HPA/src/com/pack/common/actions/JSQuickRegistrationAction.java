@@ -3,12 +3,12 @@ package com.pack.common.actions;
 import org.openqa.selenium.WebDriver;
 
 import com.pack.common.pageobjects.JSQuickRegistration;
-import com.pack.utils.User;
-import com.pack.utils.UserAbout;
-import com.pack.utils.UserEducation;
-import com.pack.utils.UserMedia;
-import com.pack.utils.UserReferences;
-import com.pack.utils.UserWorkHistory;
+import com.pack.entities.User;
+import com.pack.entities.UserAbout;
+import com.pack.entities.UserEducation;
+import com.pack.entities.UserMedia;
+import com.pack.entities.UserReferences;
+import com.pack.entities.UserWorkHistory;
 
 public class JSQuickRegistrationAction {
 	private JSQuickRegistration jsPage;

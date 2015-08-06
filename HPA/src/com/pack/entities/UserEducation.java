@@ -1,4 +1,4 @@
-package com.pack.utils;
+package com.pack.entities;
 
 public class UserEducation {
 	private String Institution;
