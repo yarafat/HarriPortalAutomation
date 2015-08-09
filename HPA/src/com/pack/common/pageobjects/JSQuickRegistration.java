@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class JSQuickRegistration {
 	protected WebDriver driver;
 	private WebDriverWait wait;
-	private String NewEntry = "Can't find what you’re looking for? Keep typing to create your own entry";
+	private String NewEntry = "Keep typing to create your own entry";
 	private By FirstName = By
 			.xpath("//*[@id='app-quick-reg-form']/div[1]/div[1]/div[1]/div/input");
 	private By LastName = By
