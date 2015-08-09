@@ -8,6 +8,7 @@ public class UserWorkHistory {
 	private String StartYear;
 	private String EndMonth;
 	private String EndYear;
+	private boolean NewPosition;
 	private boolean StillWorkHere;
 
 	public UserWorkHistory() {
@@ -75,6 +76,14 @@ public class UserWorkHistory {
 
 	public void setStillWorkHere(boolean stillWorkHere) {
 		StillWorkHere = stillWorkHere;
+	}
+
+	public boolean isNewPosition() {
+		return NewPosition;
+	}
+
+	public void setNewPosition(boolean newPosition) {
+		NewPosition = newPosition;
 	}
 
 }

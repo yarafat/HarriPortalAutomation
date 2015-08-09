@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class JSQuickRegistration {
 	protected WebDriver driver;
 	private WebDriverWait wait;
+	private String NewEntry = "Can't find what you’re looking for? Keep typing to create your own entry";
 	private By FirstName = By
 			.xpath("//*[@id='app-quick-reg-form']/div[1]/div[1]/div[1]/div/input");
 	private By LastName = By
@@ -32,7 +33,6 @@ public class JSQuickRegistration {
 	private By PrivacyPolicy = By
 			.xpath("//*[@id='app-quick-reg-form']/div[5]/div/a[2]");
 	private By MyFirstJob = By.xpath("//*[@id='first_job']/label/div/i");
-	// *[@id="work_history_2-form-cont"]/h-form/div/form/div[1]/ng-form/div[2]/div/div/span/span[1]/div/a/span[1]
 	private By WorkHistoryDropDown = By
 			.xpath("//*[@id='work_history_2-form-cont']/h-form/div/form/div[1]/ng-form/div[2]/div/div[1]/span/span[1]/div/a");
 	private By WorkHistoryTextBox = By
@@ -128,6 +128,7 @@ public class JSQuickRegistration {
 			.xpath("//*[@id='location-form-cont']/h-form/form/div[2]/div[2]/div[1]/span/span[1]/div/div[2]/div/input");
 	private By DeleteLocation = By
 			.xpath("//*[@id='location-form-cont']/h-form/form/div[2]/div[2]/div[3]/div/div/div/div/div/div[2]/button");
+	private By HintMsg = By.id("app-reg-welcome-text");
 
 	public JSQuickRegistration(WebDriver driver) {
 		this.driver = driver;
@@ -286,12 +287,21 @@ public class JSQuickRegistration {
 			WebElement work_history_txtbox = driver
 					.findElement(WorkHistoryTextBox);
 			work_history_txtbox.sendKeys(SelectedName);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By
-					.xpath("//small[contains(text(),'" + SelectedLocation
-							+ "')]")));
-			driver.findElement(
-					By.xpath("//small[contains(text(),'" + SelectedLocation
-							+ "')]")).click();
+			if (SelectedLocation == null) {
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By
+						.xpath("//small[contains(text(),'" + NewEntry + "')]")));
+				driver.findElement(
+						By.xpath("//small[contains(text(),'" + NewEntry + "')]"))
+						.click();
+
+			} else {
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By
+						.xpath("//small[contains(text(),'" + SelectedLocation
+								+ "')]")));
+				driver.findElement(
+						By.xpath("//small[contains(text(),'" + SelectedLocation
+								+ "')]")).click();
+			}
 			System.out.println("Element was found and clicked successfully");
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
@@ -299,7 +309,7 @@ public class JSQuickRegistration {
 		}
 	}
 
-	public void SelectPosition(String SelectedPosition) throws Exception {
+	public void SelectPosition(String SelectedPosition,boolean NewPosition) throws Exception {
 		try {
 			Thread.sleep(6000);
 			WebElement work_history = driver.findElement(WorkHistoryPosition);
@@ -309,12 +319,21 @@ public class JSQuickRegistration {
 			WebElement work_history_txtbox = driver
 					.findElement(WorkHistoryPositionTextBox);
 			work_history_txtbox.sendKeys(SelectedPosition);
+			if(NewPosition){
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By
 					.xpath("//strong[contains(text(),'" + SelectedPosition
 							+ "')]")));
 			driver.findElement(
 					By.xpath("//strong[contains(text(),'" + SelectedPosition
 							+ "')]")).click();
+			}
+			else{
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By
+						.xpath("//*[contains(text(),'" + SelectedPosition + "')]")));
+				driver.findElement(
+						By.xpath("//*[contains(text(),'" + SelectedPosition + "')]"))
+						.click();
+			}
 			System.out.println("Element was found and clicked successfully");
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
@@ -442,7 +461,10 @@ public class JSQuickRegistration {
 
 	public void UploadImage(String ImageURL) throws Exception {
 		try {
-			driver.findElement(By.xpath("//*[@id='application-cont']/div[2]/div/div/div/div[3]/div[2]/div/div[5]/div/div/div/div[3]/div[4]/h-form/form/div[2]")).click();;
+			driver.findElement(
+					By.xpath("//*[@id='application-cont']/div[2]/div/div/div/div[3]/div[2]/div/div[5]/div/div/div/div[3]/div[4]/h-form/form/div[2]"))
+					.click();
+			;
 			WebElement uploadInputField = driver
 					.findElement(ProfileImageInputFile);
 			uploadInputField.sendKeys(ImageURL);
@@ -624,7 +646,8 @@ public class JSQuickRegistration {
 		}
 	}
 
-	public void SelectEducation(String SelectedInstitution) {
+	public void SelectEducation(String SelectedInstitution,
+			String InstitutionLocation) {
 		try {
 			wait.until(ExpectedConditions
 					.visibilityOfElementLocated(EducationDropDown));
@@ -634,12 +657,21 @@ public class JSQuickRegistration {
 					.visibilityOfElementLocated(EducationTextBox));
 			WebElement education_txtbox = driver.findElement(EducationTextBox);
 			education_txtbox.sendKeys(SelectedInstitution);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By
-					.xpath("//*[contains(text(),'" + SelectedInstitution
-							+ "')]")));
-			driver.findElement(
-					By.xpath("//*[contains(text(),'" + SelectedInstitution
-							+ "')]")).click();
+			if (InstitutionLocation == null) {
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By
+						.xpath("//*[contains(text(),'" + SelectedInstitution
+								+ "')]")));
+				driver.findElement(
+						By.xpath("//*[contains(text(),'" + SelectedInstitution
+								+ "')]")).click();
+			} else {
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By
+						.xpath("//small[contains(text(),'"
+								+ InstitutionLocation + "')]")));
+				driver.findElement(
+						By.xpath("//small[contains(text(),'"
+								+ InstitutionLocation + "')]")).click();
+			}
 			System.out.println("Element was found and clicked successfully");
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
@@ -671,9 +703,10 @@ public class JSQuickRegistration {
 	public void SetAreaOfStudy(String areaofstudy) throws Exception {
 		try {
 			WebElement area_of_study = driver.findElement(AreaOfStudy);
-			area_of_study.clear();
+			// area_of_study.clear();
 			area_of_study.sendKeys(areaofstudy);
-			Thread.sleep(3000);
+			System.out.println("Keys were sent successfully");
+			// Thread.sleep(3000);
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
 			throw (ex);
@@ -824,6 +857,23 @@ public class JSQuickRegistration {
 			WebElement delete = driver.findElement(DeleteLocation);
 			delete.click();
 			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
+	}
+
+	public boolean FirstLoginHint() {
+		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(HintMsg));
+			if (driver.findElement(HintMsg).isDisplayed()) {
+				System.out.println("Hint Message was found successfully");
+				return true;
+			} else {
+				System.out.println("Hint Message was not found successfully");
+				return false;
+			}
+
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
 			throw (ex);

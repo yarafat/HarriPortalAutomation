@@ -32,7 +32,7 @@ public class JSQuickRegistrationAction {
 	public void FillWorkHistory(UserWorkHistory WorkHistory) throws Exception {
 		jsPage.SelectWorkHistory(WorkHistory.getCompany(),
 				WorkHistory.getCompanyAddress());
-		jsPage.SelectPosition(WorkHistory.getPosition());
+		jsPage.SelectPosition(WorkHistory.getPosition(),WorkHistory.isNewPosition());
 		jsPage.SetWorkHistoryStartMonth(WorkHistory.getStartMonth());
 		jsPage.SetWorkHistoryStartYear(WorkHistory.getStartYear());
 
@@ -47,7 +47,7 @@ public class JSQuickRegistrationAction {
 
 	public void FillEducation(UserEducation Education) throws Exception {
 		jsPage.ExpandEducation();
-		jsPage.SelectEducation(Education.getInstitution());
+		jsPage.SelectEducation(Education.getInstitution(),Education.getLocation());
 		jsPage.SelectDegree(Education.getDegree());
 		jsPage.SetAreaOfStudy(Education.getAreaOfStudy());
 		jsPage.SetEducationStartMonth(Education.getStartMonth());

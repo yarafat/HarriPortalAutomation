@@ -1,11 +1,14 @@
 package com.pack.common.tests;
 
-import org.junit.Test;
+import junit.framework.Assert;
+
+import org.testng.annotations.Test;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 
 import com.pack.base.TestBaseSetup;
 import com.pack.common.actions.JSQuickRegistrationAction;
+import com.pack.common.pageobjects.JSQuickRegistration;
 import com.pack.utils.EmailsGenerator;
 import com.pack.entities.User;
 import com.pack.entities.UserAbout;
@@ -14,23 +17,25 @@ import com.pack.entities.UserMedia;
 import com.pack.entities.UserReferences;
 import com.pack.entities.UserWorkHistory;
 
-public class JSQuickRegTest extends TestBaseSetup{
+public class JSQuickRegTest extends TestBaseSetup {
+	private JSQuickRegistration JSQuickRegPage;
 	private WebDriver driver;
 	private JSQuickRegistrationAction action;
 	private User testUser;
-	private String[] skills={"Inventory Management","Social Media"};
+	private String[] skills = { "Inventory Management", "Social Media" };
 	private UserEducation testUserEdu;
 	private UserWorkHistory testUserHis;
 	private UserAbout testUserAbout;
 	private UserMedia testUserMeida;
 	private UserReferences testUserRef;
-	private EmailsGenerator UserEmail= new EmailsGenerator();
+	private EmailsGenerator UserEmail = new EmailsGenerator();
 	String Email;
-	
+
 	@BeforeClass
 	public void setUp() {
 		driver = getDriver();
 		action = new JSQuickRegistrationAction(driver);
+		JSQuickRegPage=new JSQuickRegistration(driver);
 
 		testUser = new User();
 		testUser.setFirstUserName("Sireen");
@@ -75,16 +80,20 @@ public class JSQuickRegTest extends TestBaseSetup{
 		testUserAbout.setBio("Bio");
 
 	}
-	
+
 	@Test
-	public void verifySignInFunction() {
-		System.out.println("Sign In functionality details...");
-	//	basePage = new BasePage(driver);
-	//	signInPage = basePage.clickSignInBtn();
-		//Assert.assertTrue(signInPage.verifySignInPageTitle(), "Sign In page title doesn't match");
-		//Assert.assertTrue(signInPage.verifySignInPageText(), "Page text not matching");
-		//Assert.assertTrue(signInPage.verifySignIn(), "Unable to sign in");
+	public void VerifyFirstStageFunctionality() throws Exception {
+		System.out.println("Vefifying JS Quick Registration First Stage..");
+		action.FirstStage(testUser);
+		Assert.assertTrue("User Passed First Stage of Quick Reg..",
+				JSQuickRegPage.FirstLoginHint());
+	}
+
+	@Test
+	public void VerifySecondStageFunctionality() throws Exception {
+		System.out.println("Vefifying JS Quick Registration Second Stage..");
+		action.SecondStage(testUserHis, testUserMeida, testUserEdu, testUserRef, skills, testUserAbout);
 
 	}
-	
+
 }
