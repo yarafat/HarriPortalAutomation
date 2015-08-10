@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.pack.utils.ElementActions;
 import com.pack.utils.GeneralSelectors;
 
 public class SBSLRegistrationFunnelPages {
@@ -32,7 +33,7 @@ public class SBSLRegistrationFunnelPages {
 	
 	/*Media For Selected Brand*/
 	private By UploadLogoPic=By.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[7]/div[2]/ng-form/div[2]/div[2]/div[1]");
-	private By ClickContinueMsedia=By.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[7]/div[2]/ng-form/div[12]/button");
+	private By ClickContinueMedia=By.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[7]/div[2]/ng-form/div[12]/button");
 	 public SBSLRegistrationFunnelPages(WebDriver driver)
 		{
 			this.driver = driver;
@@ -40,22 +41,16 @@ public class SBSLRegistrationFunnelPages {
 	 /* Employer type SBSL choose methods */
 	 public void ChooseSBSL(int WaitSeconds)
 	 {
+		 ElementActions SelectSBML=new ElementActions(driver);
+		 SelectSBML.ClickElement(SBSLRadioBtn, WaitSeconds);
 
-			WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(SBSLRadioBtn));
-			WebElement SBSL = driver.findElement(SBSLRadioBtn);
-			if(SBSL.isDisplayed())
-				SBSL.click();
 	 }
 	 public void ClickContinueSBSL(int WaitSeconds)
 	 {
+		 ElementActions ClickContinue=new ElementActions(driver);
+		 ClickContinue.ClickElement(ContinueSBSLBtn, WaitSeconds);
 
-			WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(ContinueSBSLBtn));
-			WebElement Continue = driver.findElement(ContinueSBSLBtn);
-			if(Continue.isDisplayed())
-				Continue.click();
-	 }
+	  }
 	 
 	 
 	 /*About Your Company methods */
@@ -81,43 +76,24 @@ public class SBSLRegistrationFunnelPages {
 	    }	  
 	 public void enterPhoneNumber(String Phone,int WaitSeconds)
 		{
-			WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(BrandPhone));
-			WebElement PhoneNum=driver.findElement(BrandPhone);
-			if(PhoneNum.isDisplayed())
-			{
-				PhoneNum.sendKeys(Phone);
-				
-			}
+		    ElementActions EnterBrandPhone=new ElementActions(driver);
+		    EnterBrandPhone.EnterText(BrandPhone, Phone, WaitSeconds);
 		}
 	 public void enterCommunicationEmail(String Email,int WaitSeconds)
 		{
-			WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(BrandCommunicationEmail));
-			WebElement EmailLocator=driver.findElement(BrandCommunicationEmail);
-			if(EmailLocator.isDisplayed())
-			{
-				EmailLocator.sendKeys(Email);
-				
-			}
+		    ElementActions EnterBrandCommEmail=new ElementActions(driver);
+		    EnterBrandCommEmail.EnterText(BrandCommunicationEmail, Email, WaitSeconds);
 		}
 	 public void enterBrandDescription(String Desc, int WaitSeconds)
 		{
-			WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(BrandDesc));
-			WebElement BrandDesctextLocator=driver.findElement(BrandDesc);
-			if(BrandDesctextLocator.isDisplayed())
-			{
-				BrandDesctextLocator.sendKeys(Desc);
-			}
+		   ElementActions EnterDesc=new ElementActions(driver);
+		   EnterDesc.EnterText(BrandDesc, Desc, WaitSeconds);
 		}
 	 public void ClickContineBrandInfo(int WaitSeconds)
 	  {
-		  WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(ContinueBrandInfoBtn));
-			WebElement Continue = driver.findElement(ContinueBrandInfoBtn);
-			if(Continue.isDisplayed())
-				Continue.click();
+		 ElementActions ClickContinue=new ElementActions(driver);
+		 ClickContinue.ClickElement(ContinueBrandInfoBtn, WaitSeconds);
+		 
 	  }
 	 
 	 
@@ -129,11 +105,8 @@ public class SBSLRegistrationFunnelPages {
 	 }
 	 public void ClickContinueMedia(int WaitSeconds)
 	 {
-		 WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(ClickContinueMsedia));
-			WebElement Continue = driver.findElement(ClickContinueMsedia);
-			if(Continue.isDisplayed())
-				Continue.click();
+		 ElementActions ClickContinue=new ElementActions(driver);
+		 ClickContinue.ClickElement(ClickContinueMedia, WaitSeconds);
 	 }
 	 
 	 

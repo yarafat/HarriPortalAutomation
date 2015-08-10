@@ -116,7 +116,7 @@ public class GeneralSelectors {
 	    	   Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
 	    }
 	
-	 public void SelectLocation(By LocationsDDlLocator,By LocationSearchBoxLocator,String BrandLocation, String ChoosenLocation,int WaitSeconds)
+	 public void SelectLocation(By LocationsDDlLocator,By LocationSearchBoxLocator,String EnteredLcation, String TargedLocation,int WaitSeconds)
 	 {
 			WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(LocationsDDlLocator));
@@ -129,17 +129,17 @@ public class GeneralSelectors {
 						  .until(ExpectedConditions.visibilityOfElementLocated(LocationSearchBoxLocator));
 				if(LocationSearchText.isDisplayed()||LocationSearchText.isEnabled())
 				{
-					LocationSearchText.sendKeys(BrandLocation);
+					LocationSearchText.sendKeys(EnteredLcation);
 					
-					if(ChoosenLocation!=null && !ChoosenLocation.isEmpty())
+					if(TargedLocation!=null && !TargedLocation.isEmpty())
 					{
 					       Item=(new WebDriverWait(driver, 60))
-							   .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[contains(text(),'"+ChoosenLocation+"')]")));
+							   .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[contains(text(),'"+TargedLocation+"')]")));
 					}
 					else
 					{
 					       Item=(new WebDriverWait(driver, 60))
-							   .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[contains(text(),'"+BrandLocation+"')]")));
+							   .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[contains(text(),'"+EnteredLcation+"')]")));
 					}
 				
 					 Item.click();
