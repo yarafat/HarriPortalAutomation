@@ -2,12 +2,12 @@ package com.pack.entities;
 
 import java.util.Arrays;
 
-public class UserMedia {
+public class Media {
 	private String ProfileUrl;
 	private String CoverUrl;
 	private String[] AdditionalMedia;
 	
-	public UserMedia() {
+	public Media() {
 	}
 	
 	public String getProfileUrl() {

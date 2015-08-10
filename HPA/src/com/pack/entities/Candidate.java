@@ -21,7 +21,7 @@ public class Candidate {
 	private String phoneNumber;
 	private LinkedList<UserWorkHistory> wh_linkedList = new LinkedList<UserWorkHistory>();
 	private LinkedList<UserReferences> ref_linkedList = new LinkedList<UserReferences>();
-	private UserMedia  candidate_media;
+	private Media  candidate_media;
 	private LinkedList<UserEducation> edu_linkedList = new LinkedList<UserEducation>();
 	private UserAbout  candidate_about;
 	
@@ -32,7 +32,7 @@ public class Candidate {
 			String password, String confirmPassword, String email, String slug,
 			String phoneNumber, LinkedList<UserWorkHistory> wh_linkedList,
 			LinkedList<UserReferences> ref_linkedList,
-			UserMedia candidate_media,
+			Media candidate_media,
 			LinkedList<UserEducation> edu_linkedList, UserAbout candidate_about) {
 		super();
 		FirstUserName = firstUserName;
@@ -159,13 +159,13 @@ public class Candidate {
 	/**
 	 * @return the candidate_media
 	 */
-	public UserMedia getCandidate_media() {
+	public Media getCandidate_media() {
 		return candidate_media;
 	}
 	/**
 	 * @param candidate_media the candidate_media to set
 	 */
-	public void setCandidate_media(UserMedia candidate_media) {
+	public void setCandidate_media(Media candidate_media) {
 		this.candidate_media = candidate_media;
 	}
 	/**

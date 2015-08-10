@@ -6,7 +6,7 @@ import com.pack.common.pageobjects.JSQuickRegistration;
 import com.pack.entities.User;
 import com.pack.entities.UserAbout;
 import com.pack.entities.UserEducation;
-import com.pack.entities.UserMedia;
+import com.pack.entities.Media;
 import com.pack.entities.UserReferences;
 import com.pack.entities.UserWorkHistory;
 
@@ -70,7 +70,7 @@ public class JSQuickRegistrationAction {
 		jsPage.SetBio(about.getBio());
 	}
 
-	public void FillUserMedia(UserMedia media) throws Exception {
+	public void FillUserMedia(Media media) throws Exception {
 		jsPage.UploadImage(media.getProfileUrl());
 	}
 
@@ -87,7 +87,7 @@ public class JSQuickRegistrationAction {
 	}
 
 	public void SecondStage(UserWorkHistory UserWorkHistory,
-			UserMedia UserMedia, UserEducation UserEdu, UserReferences UserRef,
+			Media UserMedia, UserEducation UserEdu, UserReferences UserRef,
 			String[] UserSkills, UserAbout UserAbout) throws Exception {
 		FillWorkHistory(UserWorkHistory);
 		FillUserMedia(UserMedia);

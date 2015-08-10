@@ -16,7 +16,7 @@ import org.hamcrest.text.pattern.Parse;
 import com.pack.entities.Candidate;
 import com.pack.entities.UserAbout;
 import com.pack.entities.UserEducation;
-import com.pack.entities.UserMedia;
+import com.pack.entities.Media;
 import com.pack.entities.UserReferences;
 import com.pack.entities.UserWorkHistory;
 
@@ -30,7 +30,7 @@ public class CandidateParser {
 	private  Candidate candidate;
 	private  UserEducation user_education;
 	private  UserAbout user_about;
-	private  UserMedia user_media;
+	private  Media user_media;
 	private  UserReferences user_references;
 	private  LinkedList<UserWorkHistory> work_history_linkedList = new LinkedList<UserWorkHistory>();
 	private  LinkedList<UserReferences> references_linkedList = new LinkedList<UserReferences>();
@@ -207,7 +207,7 @@ public class CandidateParser {
 			else if (media_string.length == 3)
 
 			{
-				user_media = new UserMedia();
+				user_media = new Media();
 				user_media.setProfileUrl(media_string[0]);
 				user_media.setCoverUrl(media_string[1]);
 				String[] media_string_additionalPaths = media_string[2]
