@@ -1,25 +1,36 @@
 /**
-* SBMLRegistrationFunnelPages  Class : Contains all the elements 
-* in the SBMLRegistrationFunnelPages Pages  with the Selenium actions on these elements
+* MBMLRegistrationFunnelPage  Class : Contains all the elements 
+* in the MBMLRegistrationFunnel Pages  with the Selenium actions on these elements
 *
 * @author  Aziza Mustafa
 * @version 1.0
-* @since   2015-08-9 
+* @since   2015-08-10 
 */
 package com.pack.common.pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
 import com.pack.utils.ElementActions;
 import com.pack.utils.GeneralSelectors;
 
-public class SBMLRegistrationFunnelPages {
+public class MBMLRegistrationFunnelPage {
 	private  WebDriver driver;
-	/* Employer Type SBML*/
-	private String SBMLXpath="//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[4]/div/form/div[2]/div[3]/label/span";
-	private String ContinueSBMlXpath="//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[4]/div/form/div[4]/button";
-	private By SBMLRadioBtn=By.xpath(SBMLXpath);
-	private By ContinueSBMLBtn=By.xpath(ContinueSBMlXpath);
+	/* Employer Type MBML*/
+	private String MBMLXpath="//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[4]/div/form/div[2]/div[5]/label/span";
+	private String ContinueMBMlXpath="//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[4]/div/form/div[4]/button";
+	private By MBMLRadioBtn=By.xpath(MBMLXpath);
+	private By ContinueMBMLBtn=By.xpath(ContinueMBMlXpath);
+	
+	/*About Your Group*/
+	private By GroupDDlLocator=By.id("select2-chosen-12");
+	private By GroupSearchTextBoxLOcator=By.id("s2id_autogen12_search");
+	private By UploadGroupLogo=By.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[6]/div/div[1]/div/div[2]");
+    private By ContinueGroup=By.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[6]/div/div[2]/form/div[4]/button");
+	
+    /*Brand Media*/
+	private By UploadLogoPic=By.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[7]/div[2]/ng-form/div[2]/div[2]/div[1]");
+	private By ClickContinueMedia=By.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[7]/div[2]/ng-form/div[12]/button");
 	
 	/*About Your Company*/
 	private String SelectProfileLinkXpath="//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[5]/div/div[1]/div/div[2]";
@@ -38,30 +49,56 @@ public class SBMLRegistrationFunnelPages {
 	private By LocationDDLLocator=By.id("select2-chosen-14");
 	private By LocationSearchBoxLocator=By.id("s2id_autogen14_search");
 	private By LocationContinueBtn=By.id("save-locations");
-	
-	/*Brand Media*/
-	private By UploadLogoPic=By.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[7]/div[2]/ng-form/div[2]/div[2]/div[1]");
-	private By ClickContinueMedia=By.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[7]/div[2]/ng-form/div[12]/button");
-	
-	public SBMLRegistrationFunnelPages(WebDriver driver)
+		
+		
+    public MBMLRegistrationFunnelPage(WebDriver driver)
 	{
 		this.driver = driver;
 	}
 	
-	/* Employer type SBML choose methods */
-	 public void ChooseSBML(int WaitSeconds)
+	/* Employer type MBML choose methods */
+	 public void ChooseMBML(int WaitSeconds)
 	 {
 		 ElementActions SelectSBML=new ElementActions(driver);
-		 SelectSBML.ClickElement(SBMLRadioBtn, WaitSeconds);
+		 SelectSBML.ClickElement(MBMLRadioBtn, WaitSeconds);
 
 	 }
-	 public void ClickContinueSBML(int WaitSeconds)
+	 public void ClickContinueMBML(int WaitSeconds)
 	 {
 		 ElementActions ClickContinue=new ElementActions(driver);
-		 ClickContinue.ClickElement(ContinueSBMLBtn, WaitSeconds);
+		 ClickContinue.ClickElement(ContinueMBMLBtn, WaitSeconds);
 
 	 }
+     
+	 /*About Your Group*/
+	 public void SelectGroup(String GroupName, String Address,int WaitSeconds)
+	 {
+		    GeneralSelectors Group=new GeneralSelectors(driver);
+		    Group.SelectBusiness(GroupDDlLocator, GroupSearchTextBoxLOcator, GroupName, Address, WaitSeconds);
+	 }
+	 public void SelectGroupLogo(String LogoPath,int WaitSeconds)
+	 {
+		    GeneralSelectors BrandLogo=new GeneralSelectors(driver);
+	    	BrandLogo.SelectLogo(UploadGroupLogo, LogoPath, WaitSeconds);
+	 }
+	 public void continueGroup(int WaitSeconds)
+	 {
+		 ElementActions ClickContinue=new ElementActions(driver);
+		 ClickContinue.ClickElement(ContinueGroup, WaitSeconds);
+	 }
 	 
+	 /*Media For Selected Brand*/
+	 public void ClickUploadBrandPic(String LogoPath,int WaitSeconds)
+	 {
+		 GeneralSelectors BrandLogo=new GeneralSelectors(driver);
+	     BrandLogo.SelectLogo(UploadLogoPic, LogoPath, WaitSeconds);
+	 }
+	 public void ClickContinueMedia(int WaitSeconds)
+	 {
+		 ElementActions ClickContinue=new ElementActions(driver);
+		 ClickContinue.ClickElement(ClickContinueMedia, WaitSeconds);
+	 }
+
 	 /*About Your Company methods */
 	 public void SelectBusiness(String BusinessName, String Address,int WaitSeconds)
 		{
@@ -121,18 +158,5 @@ public class SBMLRegistrationFunnelPages {
 		 
 	 }
 	 
-	 /*Media For Selected Brand*/
-	 public void ClickUploadBrandPic(String LogoPath,int WaitSeconds)
-	 {
-		 GeneralSelectors BrandLogo=new GeneralSelectors(driver);
-	     BrandLogo.SelectLogo(UploadLogoPic, LogoPath, WaitSeconds);
-	 }
-	 public void ClickContinueMedia(int WaitSeconds)
-	 {
-		 ElementActions ClickContinue=new ElementActions(driver);
-		 ClickContinue.ClickElement(ClickContinueMedia, WaitSeconds);
-	 }
 	 
-
 }
-

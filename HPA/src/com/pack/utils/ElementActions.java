@@ -1,3 +1,11 @@
+/**
+* ElementActions  Class : Contains all the general elements 
+* actions
+*
+* @author  Aziza Mustafa
+* @version 1.0
+* @since   2015-08-10
+*/
 package com.pack.utils;
 
 import org.openqa.selenium.By;

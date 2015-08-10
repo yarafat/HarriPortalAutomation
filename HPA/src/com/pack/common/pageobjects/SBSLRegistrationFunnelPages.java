@@ -1,3 +1,11 @@
+/**
+* SBSLRegistrationFunnelPages  Class : Contains all the elements 
+* in the SBSLRegistrationFunnelPages Pages  with the Selenium actions on these elements
+*
+* @author  Aziza Mustafa
+* @version 1.0
+* @since   2015-08-6
+*/
 package com.pack.common.pageobjects;
 
 import org.openqa.selenium.By;

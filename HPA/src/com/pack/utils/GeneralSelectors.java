@@ -1,3 +1,11 @@
+/**
+* GeneralSelectors  Class : Contains all the general Selectors elements 
+* actions
+*
+* @author  Aziza Mustafa
+* @version 1.0
+* @since   2015-08-7
+*/
 package com.pack.utils;
 
 import java.awt.AWTException;
