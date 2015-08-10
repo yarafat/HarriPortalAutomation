@@ -6,7 +6,7 @@ import com.pack.common.pageobjects.JSQuickRegistration;
 import com.pack.entities.User;
 import com.pack.entities.UserAbout;
 import com.pack.entities.UserEducation;
-import com.pack.entities.UserMedia;
+import com.pack.entities.Media;
 import com.pack.entities.UserReferences;
 import com.pack.entities.UserWorkHistory;
 
@@ -32,7 +32,7 @@ public class JSQuickRegistrationAction {
 	public void FillWorkHistory(UserWorkHistory WorkHistory) throws Exception {
 		jsPage.SelectWorkHistory(WorkHistory.getCompany(),
 				WorkHistory.getCompanyAddress());
-		jsPage.SelectPosition(WorkHistory.getPosition());
+		jsPage.SelectPosition(WorkHistory.getPosition(),WorkHistory.isNewPosition());
 		jsPage.SetWorkHistoryStartMonth(WorkHistory.getStartMonth());
 		jsPage.SetWorkHistoryStartYear(WorkHistory.getStartYear());
 
@@ -47,7 +47,7 @@ public class JSQuickRegistrationAction {
 
 	public void FillEducation(UserEducation Education) throws Exception {
 		jsPage.ExpandEducation();
-		jsPage.SelectEducation(Education.getInstitution());
+		jsPage.SelectEducation(Education.getInstitution(),Education.getLocation());
 		jsPage.SelectDegree(Education.getDegree());
 		jsPage.SetAreaOfStudy(Education.getAreaOfStudy());
 		jsPage.SetEducationStartMonth(Education.getStartMonth());
@@ -70,7 +70,7 @@ public class JSQuickRegistrationAction {
 		jsPage.SetBio(about.getBio());
 	}
 
-	public void FillUserMedia(UserMedia media) throws Exception {
+	public void FillUserMedia(Media media) throws Exception {
 		jsPage.UploadImage(media.getProfileUrl());
 	}
 
@@ -87,7 +87,7 @@ public class JSQuickRegistrationAction {
 	}
 
 	public void SecondStage(UserWorkHistory UserWorkHistory,
-			UserMedia UserMedia, UserEducation UserEdu, UserReferences UserRef,
+			Media UserMedia, UserEducation UserEdu, UserReferences UserRef,
 			String[] UserSkills, UserAbout UserAbout) throws Exception {
 		FillWorkHistory(UserWorkHistory);
 		FillUserMedia(UserMedia);

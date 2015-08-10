@@ -40,5 +40,14 @@ public class UserAbout {
 	public void setBio(String bio) {
 		Bio = bio;
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "UserAbout [word1=" + word1 + ", word2=" + word2 + ", word3="
+				+ word3 + ", Bio=" + Bio + "]";
+	}
 
+	
 }

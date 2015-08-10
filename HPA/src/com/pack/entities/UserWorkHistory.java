@@ -1,6 +1,18 @@
 package com.pack.entities;
 
 public class UserWorkHistory {
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "UserWorkHistory [Company=" + Company + ", CompanyAddress="
+				+ CompanyAddress + ", Position=" + Position + ", StartMonth="
+				+ StartMonth + ", StartYear=" + StartYear + ", EndMonth="
+				+ EndMonth + ", EndYear=" + EndYear + ", StillWorkHere="
+				+ StillWorkHere + "]";
+	}
+
 	private String Company;
 	private String CompanyAddress;
 	private String Position;
@@ -8,6 +20,8 @@ public class UserWorkHistory {
 	private String StartYear;
 	private String EndMonth;
 	private String EndYear;
+	private String Description;
+	private boolean NewPosition;
 	private boolean StillWorkHere;
 
 	public UserWorkHistory() {
@@ -75,6 +89,22 @@ public class UserWorkHistory {
 
 	public void setStillWorkHere(boolean stillWorkHere) {
 		StillWorkHere = stillWorkHere;
+	}
+
+	public boolean isNewPosition() {
+		return NewPosition;
+	}
+
+	public void setNewPosition(boolean newPosition) {
+		NewPosition = newPosition;
+	}
+
+	public String getDescription() {
+		return Description;
+	}
+
+	public void setDescription(String description) {
+		Description = description;
 	}
 
 }
