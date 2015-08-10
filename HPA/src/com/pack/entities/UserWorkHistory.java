@@ -1,6 +1,18 @@
 package com.pack.entities;
 
 public class UserWorkHistory {
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "UserWorkHistory [Company=" + Company + ", CompanyAddress="
+				+ CompanyAddress + ", Position=" + Position + ", StartMonth="
+				+ StartMonth + ", StartYear=" + StartYear + ", EndMonth="
+				+ EndMonth + ", EndYear=" + EndYear + ", StillWorkHere="
+				+ StillWorkHere + "]";
+	}
+
 	private String Company;
 	private String CompanyAddress;
 	private String Position;

@@ -1,5 +1,7 @@
 package com.pack.entities;
 
+import java.util.Arrays;
+
 public class UserMedia {
 	private String ProfileUrl;
 	private String CoverUrl;
@@ -25,6 +27,15 @@ public class UserMedia {
 	}
 	public void setAdditionalMedia(String[] additionalMedia) {
 		AdditionalMedia = additionalMedia;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "UserMedia [ProfileUrl=" + ProfileUrl + ", CoverUrl=" + CoverUrl
+				+ ", AdditionalMedia=" + Arrays.toString(AdditionalMedia) + "]";
 	}
 	
 

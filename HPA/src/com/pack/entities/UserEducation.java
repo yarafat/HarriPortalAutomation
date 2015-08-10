@@ -86,4 +86,16 @@ public class UserEducation {
 		Location = location;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "UserEducation [Institution=" + Institution + ", Location="
+				+ Location + ", Degree=" + Degree + ", AreaOfStudy="
+				+ AreaOfStudy + ", StartMonth=" + StartMonth + ", StartYear="
+				+ StartYear + ", EndMonth=" + EndMonth + ", EndYear=" + EndYear
+				+ ", StillAtShcool=" + StillAtShcool + "]";
+	}
+
 }
