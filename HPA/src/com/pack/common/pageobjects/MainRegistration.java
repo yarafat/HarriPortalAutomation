@@ -106,11 +106,12 @@ public class MainRegistration {
 		}
 	}
 
-	public void ClickContinueButton() {
+	public void ClickContinueButton() throws Exception {
 		try {
+			Thread.sleep(5000);
 			WebElement continue_btn = driver.findElement(MainContinueButton);
 			continue_btn.click();
-			System.out.println("Element was found and clicked successfully");
+			System.out.println("Element was found and clicked successfully");			
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
 			throw (ex);

@@ -54,6 +54,7 @@ public class JSFullRegistration {
 	private By EducationTextBox = By
 			.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[11]/div/form/div[2]/span/span[1]/div/div[2]/div/input");
 	private By EductionContinue = By
+	// *[@id="join-modal"]/div/div[2]/div/div/div/div/div/h-form[11]/div/form/div[6]/button[2]
 			.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[11]/div/form/div[6]/button[2]");
 	private By EducationSkip = By
 			.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[11]/div/form/div[6]/button[1]");
@@ -107,7 +108,7 @@ public class JSFullRegistration {
 	private By ImageUpload = By
 			.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[16]/div[2]/form/div[2]/div[2]/div[1]/input");
 	private By SavePhoto = By
-			.xpath("//*[@id='harriApp']/div[1]/div[2]/div[2]/image-cropping/div/div[2]/div/div/div[5]/div/div[4]");
+			.xpath("//*[@id='harriApp']/div[1]/div[2]/div[1]/image-cropping/div/div[1]/div[2]/div/div/div[5]/div/div[4]");
 	private By MediaContinue = By
 			.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[16]/div[2]/form/div[11]/button");
 	private By ReferenceName = By
@@ -143,24 +144,26 @@ public class JSFullRegistration {
 		}
 	}
 
-	public void ClickUserTypeContinue() {
+	public void ClickUserTypeContinue() throws Exception {
 		try {
 			wait.until(ExpectedConditions
 					.visibilityOfElementLocated(UserTypeContinueButton));
 			driver.findElement(UserTypeContinueButton).click();
 			System.out.println("Element was found and clicked successfully");
+			Thread.sleep(4000);
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
 			throw (ex);
 		}
 	}
 
-	public void ClickConfirmationContinue() {
+	public void ClickConfirmationContinue() throws Exception {
 		try {
 			wait.until(ExpectedConditions
 					.visibilityOfElementLocated(ThirdcontinueButton));
 			driver.findElement(ThirdcontinueButton).click();
 			System.out.println("Element was found and clicked successfully");
+			Thread.sleep(4000);
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
 			throw (ex);
@@ -179,7 +182,7 @@ public class JSFullRegistration {
 		}
 	}
 
-	public void FillWorkHistory(String SelectedCompany, String SelectedLocation) {
+	public void SetWorkHistory(String SelectedCompany, String SelectedLocation) {
 		try {
 			WebElement work_history = driver.findElement(WorkExperience);
 			work_history.click();
@@ -210,12 +213,13 @@ public class JSFullRegistration {
 		}
 	}
 
-	public void ClickWorkHistoryContinue() {
+	public void ClickWorkHistoryContinue() throws Exception {
 		try {
 			wait.until(ExpectedConditions
 					.visibilityOfElementLocated(WorkExperienceContinue));
 			driver.findElement(WorkExperienceContinue).click();
 			System.out.println("Element was found and clicked successfully");
+			Thread.sleep(4000);
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
 			throw (ex);
@@ -361,12 +365,13 @@ public class JSFullRegistration {
 		}
 	}
 
-	public void ClickWorkDetailsContinue() {
+	public void ClickWorkDetailsContinue() throws Exception {
 		try {
 			WebElement i_still_work_here = driver
 					.findElement(WorkHistoryDetailsContinue);
 			i_still_work_here.click();
 			System.out.println("Element was found and clicked successfully");
+			Thread.sleep(4000);
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
 			throw (ex);
@@ -392,11 +397,12 @@ public class JSFullRegistration {
 		}
 	}
 
-	public void ClickSkillsContinue() {
+	public void ClickSkillsContinue() throws Exception {
 		try {
 			WebElement skills_continue = driver.findElement(SkillsContinue);
 			skills_continue.click();
 			System.out.println("Element was found and clicked successfully");
+			Thread.sleep(4000);
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
 			throw (ex);
@@ -578,23 +584,26 @@ public class JSFullRegistration {
 		}
 	}
 
-	public void ClickEducationContinue() {
+	public void ClickEducationContinue() throws Exception {
 		try {
+			Thread.sleep(4000);
 			WebElement edu_continue = driver.findElement(EductionContinue);
 			edu_continue.click();
 			System.out.println("Element was found and clicked successfully");
+			Thread.sleep(4000);
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
 			throw (ex);
 		}
 	}
 
-	public void ClickEducationDetailsContinue() {
+	public void ClickEducationDetailsContinue() throws Exception {
 		try {
 			WebElement edu_details_continue = driver
 					.findElement(EducationDetails_Continue);
 			edu_details_continue.click();
 			System.out.println("Element was found and clicked successfully");
+			Thread.sleep(4000);
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
 			throw (ex);
@@ -635,12 +644,13 @@ public class JSFullRegistration {
 
 	}
 
-	public void ClickAvailabilityContinue() {
+	public void ClickAvailabilityContinue() throws Exception {
 		try {
 			WebElement availability_continue = driver
 					.findElement(AvailabilityContinue);
 			availability_continue.click();
 			System.out.println("Element was found and clicked successfully");
+			Thread.sleep(4000);
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
 			throw (ex);
@@ -688,11 +698,12 @@ public class JSFullRegistration {
 		}
 	}
 
-	public void ClickAboutContinue() {
+	public void ClickAboutContinue() throws Exception {
 		try {
 			WebElement about_continue = driver.findElement(AboutContinue);
 			about_continue.click();
 			System.out.println("Element was found and clicked successfully");
+			Thread.sleep(4000);
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
 			throw (ex);
@@ -717,11 +728,12 @@ public class JSFullRegistration {
 		}
 	}
 
-	public void MediaContinue() {
+	public void MediaContinue() throws Exception {
 		try {
 			WebElement media_continue = driver.findElement(MediaContinue);
 			media_continue.click();
 			System.out.println("Element was found and clicked successfully");
+			Thread.sleep(4000);
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
 			throw (ex);
@@ -772,12 +784,16 @@ public class JSFullRegistration {
 		}
 	}
 
-	public void ClickReferencesContinue() {
+	public void ClickReferencesContinue() throws Exception {
 		try {
+			driver.findElement(
+					By.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[18]/div"))
+					.click();
 			WebElement reference_continue = driver
 					.findElement(ReferencesContinue);
 			reference_continue.click();
 			System.out.println("Element was found and clicked successfully");
+			Thread.sleep(6000);
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
 			throw (ex);
