@@ -13,7 +13,7 @@ import com.pack.utils.EmailsGenerator;
 import com.pack.entities.User;
 import com.pack.entities.UserAbout;
 import com.pack.entities.UserEducation;
-import com.pack.entities.UserMedia;
+import com.pack.entities.Media;
 import com.pack.entities.UserReferences;
 import com.pack.entities.UserWorkHistory;
 
@@ -26,7 +26,7 @@ public class JSQuickRegTest extends TestBaseSetup {
 	private UserEducation testUserEdu;
 	private UserWorkHistory testUserHis;
 	private UserAbout testUserAbout;
-	private UserMedia testUserMeida;
+	private Media testUserMeida;
 	private UserReferences testUserRef;
 	private EmailsGenerator UserEmail = new EmailsGenerator();
 	String Email;
@@ -70,7 +70,7 @@ public class JSQuickRegTest extends TestBaseSetup {
 		testUserRef.setCompany("Company Name");
 		testUserRef.setEmail("reference@test.com");
 
-		testUserMeida = new UserMedia();
+		testUserMeida = new Media();
 		testUserMeida.setProfileUrl("C:\\Users\\LENOVO\\Pictures\\sireen.jpg");
 
 		testUserAbout = new UserAbout();

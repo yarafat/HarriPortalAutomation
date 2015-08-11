@@ -19,7 +19,7 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
-
+import com.pack.utils.GeneralSelectors;
 public class EmployerQuickReg {
 	
 	private  WebDriver driver;
@@ -63,7 +63,7 @@ public class EmployerQuickReg {
 	    this.setDriver(driver);
 	   
 	}
-	public   String EmployerQuickRegPageTitle() {
+	public String EmployerQuickRegPageTitle() {
 		String pageTitle = getDriver().getTitle();
 		return pageTitle;
 	}
@@ -148,7 +148,10 @@ public class EmployerQuickReg {
 	}
 	public  void SelectBusiness(String BusinessName, String Address,int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
+		 
+		GeneralSelectors business=new GeneralSelectors(getDriver());
+		business.SelectBusiness(BusinessDropDown, BusinessSearchBox, BusinessName, Address, WaitSeconds);
+		/*WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(BusinessDropDown));
 		WebElement BusinessDroplocator=getDriver().findElement(BusinessDropDown);
 		 WebElement Item;	
@@ -176,11 +179,13 @@ public class EmployerQuickReg {
 				
 				
 			}
-		}
+		}*/
 	}
     public  void SelectHecs(String HecsText,int WaitSeconds) throws InterruptedException	
     {
-    	WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
+    	GeneralSelectors Hecs=new GeneralSelectors(getDriver());
+    	Hecs.SelectHecs(HecsDropDown, HecsText, WaitSeconds);
+    	/*WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
     	wait.until(ExpectedConditions.visibilityOfElementLocated(HecsDropDown));
     	Thread.sleep(6000);
     	WebElement HecsDrop=getDriver().findElement(HecsDropDown);
@@ -189,23 +194,28 @@ public class EmployerQuickReg {
     	WebElement	 Item=(new WebDriverWait(getDriver(), 60))
 				   .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[contains(text(),'"+HecsText+"')]")));
     	
-    	Item.click();
+    	Item.click();*/
     }
     public  void SelectCuisine(String CuisineText,int WaitSeconds)
     {
-    	WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
+    	GeneralSelectors Cuisine=new GeneralSelectors(getDriver());
+    	Cuisine.SelectCuisine(CuisineDropDown, CuisineText, WaitSeconds);
+    	/*WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
     	wait.until(ExpectedConditions.visibilityOfElementLocated(CuisineDropDown));
     	WebElement CuisineDrop=getDriver().findElement(CuisineDropDown);
     	CuisineDrop.click();
     	WebElement	 Item=(new WebDriverWait(getDriver(), 60))
 				   .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'"+CuisineText+"')]")));
     	
-    	Item.click();
+    	Item.click();*/
     }
     
     public  void SelectBrandLogo(String LogoPath,int WaitSeconds)
     {
-    	WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
+    	GeneralSelectors BrandLogo=new GeneralSelectors(getDriver());
+    	BrandLogo.SelectLogo(UploadPicButton, LogoPath, WaitSeconds);
+    	
+    	/*WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
     	wait.until(ExpectedConditions.visibilityOfElementLocated(UploadPicButton));
     	    	
     	//click select button
@@ -234,14 +244,14 @@ public class EmployerQuickReg {
 		} catch (AWTException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
     	
     }
-    public  void setClipboardData(String string) 
+   /* public  void setClipboardData(String string) 
     {
     	   StringSelection stringSelection = new StringSelection(string);
     	   Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
-    }
+    }*/
 	public  void ClickTerm(int WaitSeconds)
 	{
 		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);

@@ -1,10 +1,21 @@
 package com.pack.entities;
 
 public class UserReferences {
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "UserReferences [Name=" + Name + ", Phone=" + Phone
+				+ ", Email=" + Email+ ", Company=" + Company  + "]";
+	}
+
 	private String Name;
 	private String Phone;
-	private String Company;
 	private String Email;
+	private String Company;
+	
 
 	public UserReferences() {
 
