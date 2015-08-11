@@ -9,7 +9,9 @@ public class Brand {
 	private String GroupName;
 	private String ProfileLogoPath;
 	private String CoverPhotoPath;
-	
+	private String Description ;
+	private String EnteredLocation;
+	private String GroupLocation;
 	public String getBrandName() {
 		return BrandName;
 	}
@@ -64,5 +66,23 @@ public class Brand {
 	}
 	public void setCoverPhotoPath(String coverPhotoPath) {
 		CoverPhotoPath = coverPhotoPath;
+	}
+	public String getDescription() {
+		return Description;
+	}
+	public void setDescription(String description) {
+		Description = description;
+	}
+	public String getEnteredLocation() {
+		return EnteredLocation;
+	}
+	public void setEnteredLocation(String enteredLocation) {
+		EnteredLocation = enteredLocation;
+	}
+	public String getGroupLocation() {
+		return GroupLocation;
+	}
+	public void setGroupLocation(String groupLocation) {
+		GroupLocation = groupLocation;
 	}
 }
