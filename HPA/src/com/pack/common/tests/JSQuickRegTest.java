@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 
 import com.pack.base.TestBaseSetup;
-import com.pack.common.actions.JSFullRegistrationActions;
+import com.pack.common.actions.JSQuickRegistrationAction;
 import com.pack.common.pageobjects.JSQuickRegistration;
 import com.pack.utils.EmailsGenerator;
 import com.pack.entities.User;
@@ -20,7 +20,7 @@ import com.pack.entities.UserWorkHistory;
 public class JSQuickRegTest extends TestBaseSetup {
 	private JSQuickRegistration JSQuickRegPage;
 	private WebDriver driver;
-	private JSFullRegistrationActions action;
+	private JSQuickRegistrationAction action;
 	private User testUser;
 	private String[] skills = { "Inventory Management", "Social Media" };
 	private UserEducation testUserEdu;
@@ -34,7 +34,7 @@ public class JSQuickRegTest extends TestBaseSetup {
 	@BeforeClass
 	public void setUp() {
 		driver = getDriver();
-		action = new JSFullRegistrationActions(driver);
+		action = new JSQuickRegistrationAction(driver);
 		JSQuickRegPage=new JSQuickRegistration(driver);
 
 		testUser = new User();
@@ -84,12 +84,15 @@ public class JSQuickRegTest extends TestBaseSetup {
 	@Test
 	public void VerifyFirstStageFunctionality() throws Exception {
 		System.out.println("Vefifying JS Quick Registration First Stage..");
+		action.FirstStage(testUser);
+		Assert.assertTrue("User Passed First Stage of Quick Reg..",
+				JSQuickRegPage.FirstLoginHint());
 	}
 
 	@Test
 	public void VerifySecondStageFunctionality() throws Exception {
 		System.out.println("Vefifying JS Quick Registration Second Stage..");
-
+		action.SecondStage(testUserHis, testUserMeida, testUserEdu, testUserRef, skills, testUserAbout);
 
 	}
 
