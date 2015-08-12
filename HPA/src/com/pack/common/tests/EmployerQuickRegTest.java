@@ -63,6 +63,7 @@ private Errors Actual;
 			BrandInfo.setHecs("Event/Catering");
 			BrandInfo.setCuisine("American");
 			BrandInfo.setGroupName("HarriTest");
+			//We should use the media object here
 			BrandInfo.setProfileLogoPath("C:\\Users\\Harri\\Desktop\\test.jpg");
 			BrandInfo.setHecs("Event/Catering");
 			BrandInfo.setCuisine("American");

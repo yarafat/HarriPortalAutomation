@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 
 import com.pack.common.pageobjects.EmployerQuickReg;
 import com.pack.common.pageobjects.ImageCroppingPopUp;
-
 import com.pack.entities.Brand;
 import com.pack.entities.Errors;
 import com.pack.entities.User;
@@ -65,8 +64,10 @@ public class EmpQuickRegActions extends EmployerQuickReg {
 				{
 				Emp.enterBrandDescription(EmpUserInfo.getDescription(), 10);
 				}
+				//We should use the media object here
 				if(BrandInfo.getProfileLogoPath()!=null)
 				{
+				//We should use the media object here
 				Emp.SelectBrandLogo(BrandInfo.getProfileLogoPath(), 10);
 			    Crop.ClickSave(5);
 				}
@@ -84,7 +85,6 @@ public class EmpQuickRegActions extends EmployerQuickReg {
 		{
 			Error.setError(false, e.getMessage());
 		}
-		
 		return Error;
 		
 	}

@@ -53,16 +53,11 @@ public class Brand {
 	public void setGroupName(String groupName) {
 		GroupName = groupName;
 	}
-	public String getProfileLogoPath() {
-		return ProfileLogoPath;
+	public Media getMedia() {
+		return media;
 	}
-	public void setProfileLogoPath(String profileLogoPath) {
-		ProfileLogoPath = profileLogoPath;
+	public void setMedia(Media media) {
+		this.media = media;
 	}
-	public String getCoverPhotoPath() {
-		return CoverPhotoPath;
-	}
-	public void setCoverPhotoPath(String coverPhotoPath) {
-		CoverPhotoPath = coverPhotoPath;
-	}
+	
 }
