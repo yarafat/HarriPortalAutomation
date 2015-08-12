@@ -7,8 +7,7 @@ public class Brand {
 	private String Cuisine;
 	private String BusinessEmail;
 	private String GroupName;
-	private String ProfileLogoPath;
-	private String CoverPhotoPath;
+	private Media media;
 	
 	public String getBrandName() {
 		return BrandName;
