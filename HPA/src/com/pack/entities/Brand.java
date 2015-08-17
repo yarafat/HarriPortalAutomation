@@ -2,28 +2,28 @@ package com.pack.entities;
 
 public class Brand {
 	private String BrandName;
-	private String BrandLocation;
+	private String [] BrandLocation;
 	private String Hecs;
 	private String Cuisine;
 	private String BusinessEmail;
 	private String GroupName;
-	private String ProfileLogoPath;
-	private String CoverPhotoPath;
 	private String Description ;
-	private String EnteredLocation;
-	private String GroupLocation;
+	private Media media;
+	
+
 	public String getBrandName() {
 		return BrandName;
 	}
 	public void setBrandName(String brandName) {
 		BrandName = brandName;
 	}
-	public String getBrandLocation() {
+	
+	
+	public String[] getBrandLocation() {
 		return BrandLocation;
 	}
-	public void setBrandLocation(String brandLocation) {
+	public void setBrandLocation(String[] brandLocation) {
 		BrandLocation = brandLocation;
-		
 	}
 	public String getHecs() {
 		return Hecs;
@@ -55,34 +55,21 @@ public class Brand {
 	public void setGroupName(String groupName) {
 		GroupName = groupName;
 	}
-	public String getProfileLogoPath() {
-		return ProfileLogoPath;
+	public Media getMedia() {
+		return media;
 	}
-	public void setProfileLogoPath(String profileLogoPath) {
-		ProfileLogoPath = profileLogoPath;
+	public void setMedia(Media media) {
+		this.media = media;
 	}
-	public String getCoverPhotoPath() {
-		return CoverPhotoPath;
-	}
-	public void setCoverPhotoPath(String coverPhotoPath) {
-		CoverPhotoPath = coverPhotoPath;
-	}
+
 	public String getDescription() {
 		return Description;
 	}
 	public void setDescription(String description) {
 		Description = description;
 	}
-	public String getEnteredLocation() {
-		return EnteredLocation;
-	}
-	public void setEnteredLocation(String enteredLocation) {
-		EnteredLocation = enteredLocation;
-	}
-	public String getGroupLocation() {
-		return GroupLocation;
-	}
-	public void setGroupLocation(String groupLocation) {
-		GroupLocation = groupLocation;
-	}
+	
+	
+	
+
 }
