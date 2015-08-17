@@ -309,7 +309,8 @@ public class JSQuickRegistration {
 		}
 	}
 
-	public void SelectPosition(String SelectedPosition,boolean NewPosition) throws Exception {
+	public void SelectPosition(String SelectedPosition, boolean NewPosition)
+			throws Exception {
 		try {
 			Thread.sleep(6000);
 			WebElement work_history = driver.findElement(WorkHistoryPosition);
@@ -319,20 +320,20 @@ public class JSQuickRegistration {
 			WebElement work_history_txtbox = driver
 					.findElement(WorkHistoryPositionTextBox);
 			work_history_txtbox.sendKeys(SelectedPosition);
-			if(NewPosition){
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By
-					.xpath("//strong[contains(text(),'" + SelectedPosition
-							+ "')]")));
-			driver.findElement(
-					By.xpath("//strong[contains(text(),'" + SelectedPosition
-							+ "')]")).click();
-			}
-			else{
+			if (NewPosition) {
 				wait.until(ExpectedConditions.visibilityOfElementLocated(By
-						.xpath("//*[contains(text(),'" + SelectedPosition + "')]")));
+						.xpath("//strong[contains(text(),'" + SelectedPosition
+								+ "')]")));
 				driver.findElement(
-						By.xpath("//*[contains(text(),'" + SelectedPosition + "')]"))
-						.click();
+						By.xpath("//strong[contains(text(),'"
+								+ SelectedPosition + "')]")).click();
+			} else {
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By
+						.xpath("//*[contains(text(),'" + SelectedPosition
+								+ "')]")));
+				driver.findElement(
+						By.xpath("//*[contains(text(),'" + SelectedPosition
+								+ "')]")).click();
 			}
 			System.out.println("Element was found and clicked successfully");
 		} catch (Exception ex) {
