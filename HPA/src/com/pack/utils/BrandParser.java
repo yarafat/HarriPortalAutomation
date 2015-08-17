@@ -36,7 +36,7 @@ public class BrandParser {
 		try {
 
 			FileInputStream file = new FileInputStream(new File(
-					"candidate.xlsx"));
+					"brand.xlsx"));
 			// Create Workbook instance holding reference to .xlsx file
 			XSSFWorkbook workbook = new XSSFWorkbook(file);
 
