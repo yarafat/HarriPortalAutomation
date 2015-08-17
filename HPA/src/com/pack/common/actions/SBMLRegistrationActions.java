@@ -15,7 +15,7 @@ public class SBMLRegistrationActions extends SBMLRegistrationFunnelPages{
 	public SBMLRegistrationActions(WebDriver driver)
 	{
 		super(driver);
-		this.driver=driver;
+		this.setDriver(driver);
 		Error=new Errors();
 		Crop=new ImageCroppingPopUp(driver);
 		SBML=new SBMLRegistrationFunnelPages(driver);
@@ -134,6 +134,12 @@ public class SBMLRegistrationActions extends SBMLRegistrationFunnelPages{
 		}
 		return Error;
     }
+	public WebDriver getDriver() {
+		return driver;
+	}
+	public void setDriver(WebDriver driver) {
+		this.driver = driver;
+	}
     
 
 }

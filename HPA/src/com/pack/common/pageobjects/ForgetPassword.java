@@ -10,9 +10,9 @@ package com.pack.common.pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
+
+import com.pack.utils.ElementActions;
 
 public class ForgetPassword {
 	private  WebDriver driver;
@@ -31,35 +31,22 @@ public class ForgetPassword {
 	
 	public  void enterEmail(String Email,int WaitSeconds)
 	{
-	    WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(Emailtext));
-		WebElement EmailText=getDriver().findElement(Emailtext);
-		if(EmailText.isDisplayed())
-		{
-			EmailText.sendKeys(Email);
-		}
+		ElementActions EmailText=new ElementActions(driver);
+		EmailText.EnterText(Emailtext, Email, WaitSeconds);
+		
 	}
 	
 	public  void ClickReset(int WaitSeconds)
 	{
-	    WebDriverWait wait = new WebDriverWait(driver,  WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(ResetButton));
-		WebElement ResetBtn=getDriver().findElement(ResetButton);
-		if(ResetBtn.isDisplayed())
-		{
-			ResetBtn.click();
-		}
+		 ElementActions ResetBtn=new ElementActions(driver);
+		 ResetBtn.ClickElement(ResetButton, WaitSeconds);
+		
 	}
    public void ClickClose(int WaitSeconds)
    {
-	   WebDriverWait wait = new WebDriverWait(driver,  WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(CloseButton));
-		WebElement CloseBtn=getDriver().findElement(CloseButton);
-		if(CloseBtn.isDisplayed())
-		{
-			CloseBtn.click();
-		}
-	   
+	     ElementActions CloseBtn=new ElementActions(driver);
+	     CloseBtn.ClickElement(CloseButton, WaitSeconds);
+		 
    }
 	public  WebDriver getDriver() {
 		return driver;

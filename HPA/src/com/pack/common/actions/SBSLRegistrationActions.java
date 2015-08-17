@@ -15,7 +15,7 @@ public class SBSLRegistrationActions extends SBSLRegistrationFunnelPages {
 	public SBSLRegistrationActions(WebDriver driver)
 	{
 		super(driver);
-		this.driver=driver;
+		this.setDriver(driver);
 		Error = new Errors();
 		Crop=new ImageCroppingPopUp(driver);
 		SBSL=new SBSLRegistrationFunnelPages(driver);
@@ -107,5 +107,11 @@ public class SBSLRegistrationActions extends SBSLRegistrationFunnelPages {
 		}
 		return Error;
     }
+	public WebDriver getDriver() {
+		return driver;
+	}
+	public void setDriver(WebDriver driver) {
+		this.driver = driver;
+	}
     
 }

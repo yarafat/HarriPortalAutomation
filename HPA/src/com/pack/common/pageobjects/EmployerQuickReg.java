@@ -10,15 +10,7 @@
 package com.pack.common.pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
+import com.pack.utils.ElementActions;
 import com.pack.utils.GeneralSelectors;
 public class EmployerQuickReg {
 	
@@ -70,81 +62,46 @@ public class EmployerQuickReg {
 	
 	public  void ClickLoginLink(int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(LoginLink));
-		WebElement Login=getDriver().findElement(LoginLink);
-		if(Login.isDisplayed())
-		{
-			Login.click();
-			
-		}
+		 ElementActions Login=new ElementActions(driver);
+		 Login.ClickElement(LoginLink, WaitSeconds);
+		
 	}
 	
 	public  void enterFirstName(String FName,int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(FirstNameText));
-		WebElement FirstName=getDriver().findElement(FirstNameText);
-		if(FirstName.isDisplayed())
-		{
-			FirstName.sendKeys(FName);
-			
-		}
+		ElementActions FirstName=new ElementActions(driver);
+		FirstName.EnterText(FirstNameText, FName, WaitSeconds);
+		
 	}
 	public  void enterLastname(String LName,int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(LastNameText));
-		WebElement LastName=getDriver().findElement(LastNameText);
-		if(LastName.isDisplayed())
-		{
-			LastName.sendKeys(LName);
-			
-		}
+		ElementActions LastName=new ElementActions(driver);
+		LastName.EnterText(LastNameText, LName, WaitSeconds);
+		
 	}
 	public  void enterEmail(String Email,int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(EmailText));
-		WebElement EmailLocator=getDriver().findElement(EmailText);
-		if(EmailLocator.isDisplayed())
-		{
-			EmailLocator.sendKeys(Email);
-			
-		}
+		ElementActions EmailLocator=new ElementActions(driver);
+		EmailLocator.EnterText(EmailText, Email, WaitSeconds);
+		
 	}
 	public  void enterPhoneNumber(String Phone,int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(PhoneNumText));
-		WebElement PhoneNum=getDriver().findElement(PhoneNumText);
-		if(PhoneNum.isDisplayed())
-		{
-			PhoneNum.sendKeys(Phone);
-			
-		}
+		ElementActions PhoneNum=new ElementActions(driver);
+		PhoneNum.EnterText(PhoneNumText, Phone, WaitSeconds);
+		
 	}
 	public  void enterPassword(String Password,int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(PasswordText));
-		WebElement PassLocator=getDriver().findElement(PasswordText);
-		if(PassLocator.isDisplayed())
-		{
-			PassLocator.sendKeys(Password);
-			
-		}
+		ElementActions PassLocator=new ElementActions(driver);
+		PassLocator.EnterText(PasswordText, Password, WaitSeconds);
+		
 	}
 	public  void enterConfirmPass(String ConfPassword,int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(PasswordConfirmText));
-		WebElement PassConfLocator=getDriver().findElement(PasswordConfirmText);
-		if(PassConfLocator.isDisplayed())
-		{
-			PassConfLocator.sendKeys(ConfPassword);
-			
-		}
+		ElementActions PassConfLocator=new ElementActions(driver);
+		PassConfLocator.EnterText(PasswordConfirmText, ConfPassword, WaitSeconds);
+		
 	}
 	public  void SelectBusiness(String BusinessName, String Address,int WaitSeconds)
 	{
@@ -254,77 +211,45 @@ public class EmployerQuickReg {
     }*/
 	public  void ClickTerm(int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(TermofServiceLink));
-		WebElement Term=getDriver().findElement(TermofServiceLink);
-		if(Term.isDisplayed())
-		{
-			Term.click();
-			
-		}
+		 ElementActions Term=new ElementActions(driver);
+		 Term.ClickElement(TermofServiceLink, WaitSeconds);
+		
 	}
 	public  void ClickPrivacy(int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(PrivacyPolicylink));
-		WebElement Privacy=getDriver().findElement(PrivacyPolicylink);
-		if(Privacy.isDisplayed())
-		{
-			Privacy.click();
-			
-		}
+		 ElementActions Privacy=new ElementActions(driver);
+		 Privacy.ClickElement(PrivacyPolicylink, WaitSeconds);
+		 
 	}
 	public  void ClickContinueStageOne(int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(FirstContinueButton));
-		WebElement Continue=getDriver().findElement(FirstContinueButton);
-		if(Continue.isDisplayed())
-		{
-			Continue.click();
-			
-		}
+		 ElementActions Continue=new ElementActions(driver);
+		 Continue.ClickElement(FirstContinueButton, WaitSeconds);
+		 
 	}
 	public  void ClickContinueFinal(int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(LastContinueButton));
-		WebElement Continue=getDriver().findElement(LastContinueButton);
-		if(Continue.isDisplayed())
-		{
-			Continue.click();
-			
-		}
+		 ElementActions Continue=new ElementActions(driver);
+		 Continue.ClickElement(LastContinueButton, WaitSeconds);
+		
 	}
 	public  void CheckGroupBox(int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(CheckBox));
-		WebElement checkBoxLocator=getDriver().findElement(CheckBox);
-		if(checkBoxLocator.isDisplayed())
-		{
-			checkBoxLocator.click();
-		}
+		 ElementActions checkBoxLocator=new ElementActions(driver);
+		 checkBoxLocator.ClickElement(CheckBox, WaitSeconds);
+		
 	}
 	public  void enterGroupName(String GroupName, int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(GroupNameText));
-		WebElement GroupNametextLocator=getDriver().findElement(GroupNameText);
-		if(GroupNametextLocator.isDisplayed())
-		{
-			GroupNametextLocator.sendKeys(GroupName);
-		}
+		 ElementActions GroupNametextLocator=new ElementActions(driver);
+		 GroupNametextLocator.EnterText(GroupNameText, GroupName, WaitSeconds);
+	     
 	}
 	public void enterBrandDescription(String Desc, int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(BrandDescText));
-		WebElement BrandDesctextLocator=getDriver().findElement(BrandDescText);
-		if(BrandDesctextLocator.isDisplayed())
-		{
-			BrandDesctextLocator.sendKeys(Desc);
-		}
+		ElementActions BrandDesctextLocator=new ElementActions(driver);
+		BrandDesctextLocator.EnterText(BrandDescText, Desc, WaitSeconds);
+		
 	}
 	public  WebDriver getDriver() {
 		return driver;

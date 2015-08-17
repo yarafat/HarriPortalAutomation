@@ -10,9 +10,9 @@ package com.pack.common.pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
+
+import com.pack.utils.ElementActions;
 
 public class LoginPage {
 	
@@ -41,70 +41,52 @@ public class LoginPage {
 	
 	public  void enterUserName(String userName,int WaitSeconds)
     {
-        WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(UserNameText));		
-		WebElement UserName =driver.findElement(UserNameText);
-		if(UserName.isDisplayed())
-			UserName.sendKeys(userName);
-		System.out.println("element was founded and username entered  ");
+		 ElementActions UserName=new ElementActions(driver);
+		 UserName.EnterText(UserNameText, userName, WaitSeconds);
+		 
 	}
 	
 	public void enterPassword(String password,int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(PasswordText));
-		WebElement passwordTxtBox = driver.findElement(PasswordText);
-		if(passwordTxtBox.isDisplayed())
-			passwordTxtBox.sendKeys(password);
-		System.out.println("element was founded and password entered  ");
+		 ElementActions passwordTxtBox=new ElementActions(driver);
+		 passwordTxtBox.EnterText(PasswordText, password, WaitSeconds);
+		
 	}
 	public void clickOnLogin(int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(LoginButton));
-		WebElement LogInBtn = driver.findElement(LoginButton);
-		if(LogInBtn.isDisplayed())
-			LogInBtn.click();
+		 ElementActions LogInBtn=new ElementActions(driver);
+		 LogInBtn.ClickElement(LoginButton, WaitSeconds);
+		 
 	}
 	public  void ClicForgetLink(int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(ForgetPassLink));
-		WebElement ForgetLink = driver.findElement(ForgetPassLink);
-		if(ForgetLink.isDisplayed())
-			ForgetLink.click();
+		 ElementActions ForgetLink=new ElementActions(driver);
+		 ForgetLink.ClickElement(ForgetPassLink, WaitSeconds);
+		 
 	}
 	public  void ClickLinkedInLogin(int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(LinkedInButton));
-		WebElement LinkedinBtn = driver.findElement(LinkedInButton);
-		if(LinkedinBtn.isDisplayed())
-			LinkedinBtn.click();
+		 ElementActions LinkedinBtn=new ElementActions(driver);
+		 LinkedinBtn.ClickElement(LinkedInButton, WaitSeconds);
+		 
 	}
 	public  void ClickFaceBookLogin(int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(FaceBookButton));
-		WebElement FaceBookBtn = driver.findElement(FaceBookButton);
-		if(FaceBookBtn.isDisplayed())
-			FaceBookBtn.click();
+		 ElementActions FaceBookBtn=new ElementActions(driver);
+		 FaceBookBtn.ClickElement(FaceBookButton, WaitSeconds);
+		
 	}
 	public  void ClickGooglLogin(int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(GooglePlusButton));
-		WebElement GoogleBtn = driver.findElement(GooglePlusButton);
-		if(GoogleBtn.isDisplayed())
-			GoogleBtn.click();
+		 ElementActions GoogleBtn=new ElementActions(driver);
+		 GoogleBtn.ClickElement(GooglePlusButton, WaitSeconds);
+		 
 	}
 	public  void ClickSignUpLink(int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(SignUpLink));
-		WebElement SignUp= driver.findElement(SignUpLink);
-		if(SignUp.isDisplayed())
-			SignUp.click();
+		 ElementActions SignUp=new ElementActions(driver);
+		 SignUp.ClickElement(SignUpLink, WaitSeconds);
+		
 	}
 
 

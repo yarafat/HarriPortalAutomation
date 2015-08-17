@@ -15,7 +15,7 @@ public class MBMLRegistrationActions extends MBMLRegistrationFunnelPage {
 	public MBMLRegistrationActions(WebDriver driver)
 	{
 		super(driver);
-		this.driver=driver;
+		this.setDriver(driver);
 		Error=new Errors();
 		Crop=new ImageCroppingPopUp(driver);
 		MBML=new MBMLRegistrationFunnelPage(driver);
@@ -161,6 +161,12 @@ public class MBMLRegistrationActions extends MBMLRegistrationFunnelPage {
 		}
 		return Error;
     }
+	public WebDriver getDriver() {
+		return driver;
+	}
+	public void setDriver(WebDriver driver) {
+		this.driver = driver;
+	}
     
 
 }

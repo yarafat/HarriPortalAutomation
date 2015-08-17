@@ -12,9 +12,9 @@ package com.pack.common.pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
+
+import com.pack.utils.ElementActions;
 
 public class ImageCroppingPopUp {
 	private  WebDriver driver;
@@ -43,59 +43,33 @@ public class ImageCroppingPopUp {
 	
 	public  void  ClickRotateRight(int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(RotatClockWise));
-		WebElement RotateRightButton=getDriver().findElement(RotatClockWise);
-		if(RotateRightButton.isDisplayed())
-		{
-			RotateRightButton.click();
-			
-		}
+		 ElementActions RotateRightButton=new ElementActions(driver);
+		 RotateRightButton.ClickElement(RotatClockWise, WaitSeconds);
+		
 	}
 	public  void ClickRotateLeft(int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(RotateCounterClockWise));		
-		WebElement RotateLeftButton=getDriver().findElement(RotateCounterClockWise);
-		if(RotateLeftButton.isDisplayed())
-		{
-			RotateLeftButton.click();
-			
-		}
+		 ElementActions RotateLeftButton=new ElementActions(driver);
+		 RotateLeftButton.ClickElement(RotateCounterClockWise, WaitSeconds);
+		 
 	}
 	public  void CickResetSettings(int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(ResetSettings));
-		WebElement ResetSttingButton=getDriver().findElement(ResetSettings);
-		if(ResetSttingButton.isDisplayed())
-		{
-			ResetSttingButton.click();
-			
-		}
-	
+		 ElementActions ResetSttingButton=new ElementActions(driver);
+		 ResetSttingButton.ClickElement(ResetSettings, WaitSeconds);
+		
 	}
 	public  void ClickSave(int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(Save));
-		WebElement SaveButton=getDriver().findElement(Save);
-		if(SaveButton.isDisplayed())
-		{
-			SaveButton.click();
-			
-		}
+		 ElementActions SaveButton=new ElementActions(driver);
+		 SaveButton.ClickElement(Save, WaitSeconds);
+		
 	}
 	public  void ClickClose(int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(ClosePopUp));
-		WebElement CloseButton=getDriver().findElement(ClosePopUp);
-		if(CloseButton.isDisplayed())
-		{
-			CloseButton.click();
-			
-		}
+		 ElementActions CloseButton=new ElementActions(driver);
+		 CloseButton.ClickElement(ClosePopUp, WaitSeconds);
+		
 	}
 	
     public  WebDriver getDriver() {
