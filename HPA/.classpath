@@ -21,5 +21,6 @@
 	<classpathentry kind="lib" path="lib/poi-3.9-20121203.jar"/>
 	<classpathentry kind="lib" path="lib/poi-ooxml-3.9-20121203.jar"/>
 	<classpathentry kind="lib" path="lib/poi-ooxml-schemas-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Yaser/Desktop/selenium-server-standalone-2.39.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
