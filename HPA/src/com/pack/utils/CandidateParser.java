@@ -11,8 +11,6 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.hamcrest.text.pattern.Parse;
-
 import com.pack.entities.Candidate;
 import com.pack.entities.UserAbout;
 import com.pack.entities.UserEducation;
@@ -39,7 +37,6 @@ public class CandidateParser {
 	private  LinkedList<UserEducation> education_linkedList = new LinkedList<UserEducation>();
 
 	public CandidateParser(int candidate_number) throws FileNotFoundException {
-		this.file = new FileInputStream(new File("candidate.xlsx"));
 		this.candidate_number = candidate_number;
 	}
 
@@ -112,7 +109,7 @@ public class CandidateParser {
 
 		{
 			// Get the needed candidate from the candidates sheet
-			Row row = sheet.getRow(2);
+			Row row = sheet.getRow(candidate_number);
 
 			// Create and set the about object
 			String[] about_string = row.getCell(11).toString().split("\\|");
@@ -144,7 +141,7 @@ public class CandidateParser {
 		{
 
 			// Get the needed candidate from the candidates sheet
-			Row row = sheet.getRow(2);
+			Row row = sheet.getRow(candidate_number);
 
 			// Create and set the education object
 			String[] education_string = row.getCell(10).toString().split("\\|");
@@ -192,7 +189,7 @@ public class CandidateParser {
 		{
 
 			// Get the needed candidate from the candidates sheet
-			Row row = sheet.getRow(2);
+			Row row = sheet.getRow(candidate_number);
 
 			// Create and set the media object
 			String[] media_string = row.getCell(9).toString().split("\\|");
@@ -228,7 +225,7 @@ public class CandidateParser {
 		{
 
 			// Get the needed candidate from the candidates sheet
-			Row row = sheet.getRow(2);
+			Row row = sheet.getRow(candidate_number);
 
 			// Create and set the about object
 			String[] references_string = row.getCell(8).toString().split("\\|");
@@ -265,7 +262,7 @@ public class CandidateParser {
 		{
 
 			// Get the needed candidate from the candidates sheet
-			Row row = sheet.getRow(2);
+			Row row = sheet.getRow(candidate_number);
 
 			// Create and set the work_history objects
 			String[] workHistory_string = row.getCell(7).toString()

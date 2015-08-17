@@ -2,7 +2,7 @@ package com.pack.entities;
 
 public class Brand {
 	private String BrandName;
-	private String BrandLocation;
+	private String [] BrandLocation;
 	private String Hecs;
 	private String Cuisine;
 	private String BusinessEmail;
@@ -15,12 +15,13 @@ public class Brand {
 	public void setBrandName(String brandName) {
 		BrandName = brandName;
 	}
-	public String getBrandLocation() {
+	
+	
+	public String[] getBrandLocation() {
 		return BrandLocation;
 	}
-	public void setBrandLocation(String brandLocation) {
+	public void setBrandLocation(String[] brandLocation) {
 		BrandLocation = brandLocation;
-		
 	}
 	public String getHecs() {
 		return Hecs;
