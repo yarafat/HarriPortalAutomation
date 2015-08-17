@@ -107,7 +107,7 @@ public class JSFullRegistration {
 	private By ImageUpload = By
 			.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[16]/div[2]/form/div[2]/div[2]/div[1]/input");
 	private By SavePhoto = By
-			.xpath("//*[@id='harriApp']/div[1]/div[2]/div[2]/image-cropping/div/div[2]/div/div/div[5]/div/div[4]");
+			.xpath("//*[@id='harriApp']/div[1]/div[2]/div[1]/image-cropping/div/div[1]/div[2]/div/div/div[5]/div/div[4]");
 	private By MediaContinue = By
 			.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[16]/div[2]/form/div[11]/button");
 	private By ReferenceName = By
@@ -772,11 +772,15 @@ public class JSFullRegistration {
 		}
 	}
 
-	public void ClickReferencesContinue() {
+	public void ClickReferencesContinue() throws Exception {
 		try {
+			driver.findElement(
+					By.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[18]/div"))
+					.click();
 			WebElement reference_continue = driver
 					.findElement(ReferencesContinue);
 			reference_continue.click();
+			Thread.sleep(6000);
 			System.out.println("Element was found and clicked successfully");
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
