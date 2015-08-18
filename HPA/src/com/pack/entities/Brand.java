@@ -64,6 +64,7 @@ public class Brand {
 		this.media = media;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public String toString() {
 		return "Brand [BrandName=" + BrandName + ", BrandLocation="
@@ -75,13 +76,18 @@ public class Brand {
 	
 
 
+=======
+>>>>>>> origin/master
 	public String getDescription() {
 		return Description;
 	}
 	public void setDescription(String description) {
 		Description = description;
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 	
 	
 	
