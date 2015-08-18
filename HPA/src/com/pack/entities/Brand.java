@@ -64,7 +64,15 @@ public class Brand {
 		this.media = media;
 	}
 
-<<<<<<< HEAD
+
+	public String getDescription() {
+		return Description;
+	}
+	public void setDescription(String description) {
+		Description = description;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Brand [BrandName=" + BrandName + ", BrandLocation="
@@ -72,23 +80,6 @@ public class Brand {
 				+ ", Cuisine=" + Cuisine + ", BusinessEmail=" + BusinessEmail
 				+ ", GroupName=" + GroupName + ", media=" + media + "]";
 	}
-	
-	
-
-
-=======
->>>>>>> origin/master
-	public String getDescription() {
-		return Description;
-	}
-	public void setDescription(String description) {
-		Description = description;
-	}
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
-	
 	
 	
 
