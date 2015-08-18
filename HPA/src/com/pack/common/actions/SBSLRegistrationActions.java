@@ -22,7 +22,7 @@ public class SBSLRegistrationActions extends SBSLRegistrationFunnelPages {
 		Error.setError(true, "Success");
 	}
 	/*Select SBSL Type Stage*/
-	public Object SelectEmpTypeSBSL()
+	public Object SelectEmpTypeSBSL(Boolean IsDropped)
 	{
 		try
 		{
@@ -30,7 +30,14 @@ public class SBSLRegistrationActions extends SBSLRegistrationFunnelPages {
 			if(SBSL!=null)
 			{
 				SBSL.ChooseSBSL(5);
-				SBSL.ClickContinueSBSL(5);
+				if(IsDropped)
+				{
+					SBSL.clickCloseModal(5);
+				}
+				else
+				{
+				  SBSL.ClickContinueSBSL(5);
+				}
 				
 			}
 			else {Error.setError(false, "Error: SBSL pages Pointer is NULL");}
@@ -44,19 +51,19 @@ public class SBSLRegistrationActions extends SBSLRegistrationFunnelPages {
 		return Error;
 	}
 	/* Select business and fill its required data  */
-    public Object BrandInfo(Brand BrandInfo)
+    public Object BrandInfo(Brand BrandInfo, Boolean IsDropped)
     {
     	try
 		{
 			
 			if(SBSL!=null)
 			{
-				if(BrandInfo.getProfileLogoPath()!=null)
+				if(BrandInfo.getMedia()!=null && BrandInfo.getMedia().getProfileUrl()!=null)
 				{
-			    	SBSL.SelectBrandLogo(BrandInfo.getProfileLogoPath(), 5);
+			    	SBSL.SelectBrandLogo(BrandInfo.getMedia().getProfileUrl(), 5);
 				    Crop.ClickSave(5);
 				}
-				SBSL.SelectBusiness(BrandInfo.getBrandName(), BrandInfo.getBrandLocation(), 5);
+				SBSL.SelectBusiness(BrandInfo.getBrandName(), (BrandInfo.getBrandLocation())[0].toString(), 5);
 				SBSL.SelectHecs(BrandInfo.getHecs(), 5);
 				SBSL.SelectCuisine(BrandInfo.getCuisine(), 5);
 		        if(BrandInfo.getBusinessEmail()!=null)
@@ -67,8 +74,14 @@ public class SBSLRegistrationActions extends SBSLRegistrationFunnelPages {
 		        {
 		        	SBSL.enterBrandDescription(BrandInfo.getDescription(), 5);
 		        }
+		        if(IsDropped)
+				{
+					SBSL.clickCloseModal(5);
+				}
+		        else
+		        {
 		        SBSL.ClickContineBrandInfo(5);
-		        
+		        }
 							
 			}
 			else {Error.setError(false, "Error: SBSL pages Pointer is NULL");}
@@ -83,18 +96,25 @@ public class SBSLRegistrationActions extends SBSLRegistrationFunnelPages {
     	
     }
     /* Add media to the selected brand */
-    public Object BrandMedia(Brand BrandInfo)
+    public Object BrandMedia(Brand BrandInfo, Boolean IsDropped)
     {
     	try
 		{
 			
 			if(SBSL!=null)
 			{
-				if(BrandInfo.getProfileLogoPath()!=null)
+				if(BrandInfo.getMedia()!=null&& BrandInfo.getMedia().getProfileUrl()!=null)
 				{
-			     SBSL.ClickUploadBrandPic(BrandInfo.getProfileLogoPath(), 10);
+			     SBSL.ClickUploadBrandPic(BrandInfo.getMedia().getProfileUrl(), 10);
 				}
+				if(IsDropped)
+				{
+					SBSL.clickCloseModal(5);
+				}
+				else
+				{
 			     SBSL.ClickContinueMedia(5);
+				}
 				
 			}
 			else {Error.setError(false, "Error: SBSL pages Pointer is NULL");}

@@ -34,7 +34,7 @@ public class EmpQuickRegActions extends EmployerQuickReg {
 				Emp.enterLastname(EmpUserInfo.getLastUserName(), 5);
 				Emp.enterEmail(EmpUserInfo.getEmail(), 5);
 				Emp.enterPhoneNumber(EmpUserInfo.getPhoneNumber(),5);
-				Emp.SelectBusiness(BrandInfo.getBrandName(), BrandInfo.getBrandLocation(), 20);
+				Emp.SelectBusiness(BrandInfo.getBrandName(), (BrandInfo.getBrandLocation())[0].toString(), 20);
 				Emp.enterPassword(EmpUserInfo.getPassword(), 5);
 				Emp.enterConfirmPass(EmpUserInfo.getPassword(), 5);
 				Emp.ClickContinueStageOne(5);
@@ -65,10 +65,10 @@ public class EmpQuickRegActions extends EmployerQuickReg {
 				Emp.enterBrandDescription(EmpUserInfo.getDescription(), 10);
 				}
 				//We should use the media object here
-				if(BrandInfo.getProfileLogoPath()!=null)
+				if(BrandInfo.getMedia()!=null && BrandInfo.getMedia().getProfileUrl()!=null)
 				{
 				//We should use the media object here
-				Emp.SelectBrandLogo(BrandInfo.getProfileLogoPath(), 10);
+				Emp.SelectBrandLogo(BrandInfo.getMedia().getProfileUrl().toString(), 10);
 			    Crop.ClickSave(5);
 				}
 				if(BrandInfo.getGroupName()!=null)
