@@ -60,6 +60,19 @@ public class GeneralSelectors {
 				}
 			}
 		}
+	 public void SelectPosition(By PositionDropDown, String PositionName, int WaitSeconds)throws InterruptedException
+	 {
+		   WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
+	    	wait.until(ExpectedConditions.visibilityOfElementLocated(PositionDropDown));
+	    	Thread.sleep(6000);
+	    	WebElement PositionsDrop=driver.findElement(PositionDropDown);
+	    	PositionsDrop.click();
+	    	Thread.sleep(6000);
+	    	WebElement	 Item=(new WebDriverWait(driver, 60))
+					   .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(text(),'"+PositionName+"')]")));
+	    	
+	    	Item.click();
+	 }
 	 public  void SelectHecs(By HecsDropDown,String HecsText,int WaitSeconds) throws InterruptedException	
 	    {
 	    	WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);

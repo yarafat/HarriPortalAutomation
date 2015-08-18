@@ -1,5 +1,7 @@
 package com.pack.entities;
 
+import java.util.Arrays;
+
 public class Brand {
 	private String BrandName;
 	private String [] BrandLocation;
@@ -7,8 +9,10 @@ public class Brand {
 	private String Cuisine;
 	private String BusinessEmail;
 	private String GroupName;
+	private String Description ;
 	private Media media;
 	
+
 	public String getBrandName() {
 		return BrandName;
 	}
@@ -59,5 +63,27 @@ public class Brand {
 	public void setMedia(Media media) {
 		this.media = media;
 	}
+
+	@Override
+	public String toString() {
+		return "Brand [BrandName=" + BrandName + ", BrandLocation="
+				+ Arrays.toString(BrandLocation) + ", Hecs=" + Hecs
+				+ ", Cuisine=" + Cuisine + ", BusinessEmail=" + BusinessEmail
+				+ ", GroupName=" + GroupName + ", media=" + media + "]";
+	}
 	
+	
+
+
+	public String getDescription() {
+		return Description;
+	}
+	public void setDescription(String description) {
+		Description = description;
+	}
+
+	
+	
+	
+
 }

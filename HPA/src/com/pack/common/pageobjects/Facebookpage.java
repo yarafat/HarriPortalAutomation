@@ -10,9 +10,7 @@ package com.pack.common.pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import com.pack.utils.ElementActions;
 
 public class Facebookpage {
 	private  WebDriver driver;
@@ -31,47 +29,32 @@ public class Facebookpage {
 	}
 	public  void enterFUserName(String UserName,int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(FUSerNametextBox));
-		WebElement UserNameLocator = getDriver().findElement(FUSerNametextBox);
-		if(UserNameLocator.isDisplayed())
-			UserNameLocator.sendKeys(UserName);
+		ElementActions UserNameLocator=new ElementActions(driver);
+		UserNameLocator.EnterText(FUSerNametextBox, UserName, WaitSeconds);
+	    
 	}
 	public  void enterFPassword(String Password,int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(FPasswordTextBox));
-		WebElement PasswordLocator = getDriver().findElement(FPasswordTextBox);
-		if(PasswordLocator.isDisplayed())
-			PasswordLocator.sendKeys(Password);
+		ElementActions PasswordLocator=new ElementActions(driver);
+		PasswordLocator.EnterText(FPasswordTextBox, Password, WaitSeconds);
 		
 	}
 	public  void ClickLogin( int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(FLoginButton));
-		WebElement LogInBtn = getDriver().findElement(FLoginButton);
-		if(LogInBtn.isDisplayed())
-			LogInBtn.click();
+		 ElementActions LogInBtn=new ElementActions(driver);
+		 LogInBtn.ClickElement(FLoginButton, WaitSeconds);
+		
 	}
 	public  void CheckKeepsLogin(int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(KeepsLoginCheckBoc));
-		WebElement checkBoxLocator=getDriver().findElement(KeepsLoginCheckBoc);
-		if(checkBoxLocator.isDisplayed())
-		{
-			checkBoxLocator.click();
-		}
+	   	ElementActions checkBoxLocator=new ElementActions(driver);
+	   	checkBoxLocator.ClickElement(KeepsLoginCheckBoc, WaitSeconds);
 		
 	}
 	public  void ClickCancel(int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(FCancelButton));
-		WebElement LogInBtn = getDriver().findElement(FCancelButton);
-		if(LogInBtn.isDisplayed())
-			LogInBtn.click();
+		ElementActions CancelBtn=new ElementActions(driver);
+		CancelBtn.ClickElement(FCancelButton, WaitSeconds);
 	}
 
 	public  WebDriver getDriver() {

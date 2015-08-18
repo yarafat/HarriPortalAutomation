@@ -20,19 +20,24 @@ import com.pack.entities.Media;
  *
  */
 public class BrandParser {
-	private  XSSFSheet sheet;
-	private  int brand_number;
-	private  Brand brand;
-	private  Media brand_media;
+	private static  XSSFSheet sheet;
+	private static  int brand_number;
+	private static  Brand brand;
+	private static  Media brand_media;
 	private static  FileInputStream file;
-	private  Row row;
+	private static  Row row;
 
 
 	public BrandParser(int brand_number) throws FileNotFoundException {
 		this.brand_number = brand_number;
 	}
+	
+	public static void main(String [ ] args)
+	{
+	  parse();
+	}
 
-	public  void parse() {
+	public static void parse() {
 		try {
 
 			FileInputStream file = new FileInputStream(new File(
@@ -42,18 +47,22 @@ public class BrandParser {
 
 			// Get first/desired sheet from the workbook
 			sheet = workbook.getSheetAt(0);
-			// Get the candidate row that we need to parse
-			row = sheet.getRow(brand_number);
+			// Get the brand row that we need to parse
+			row = sheet.getRow(1);
 
 			// Parse the brand media section
-			parse_brand_media();
+			//parse_brand_media();
 			// Print brand media values
-			System.out.println(brand_media.toString());
+			//System.out.println(brand_media.toString());
 			
 		    // set the brand
 			 brand = new Brand();
 			 // set brand name
-			 brand.setBrandName(row.getCell(0).toString());
+			 for (int i = 0; i < 6; i++) {
+				 row.getCell(i).setCellType(1);
+			}
+			 row.getCell(0).setCellType(1);
+			 brand.setBrandName(String.valueOf(row.getCell(0).toString()));
 			 String [] brandLocations = row.getCell(1).toString().split("\\|");
 			 brand.setBrandLocation(brandLocations);
 			 brand.setHecs(row.getCell(2).toString());
@@ -73,7 +82,7 @@ public class BrandParser {
 	
 	
 
-	public  void parse_brand_media() {
+	public static  void parse_brand_media() {
 		try
 
 		{

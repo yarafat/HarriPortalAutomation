@@ -10,9 +10,8 @@ package com.pack.common.pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.pack.utils.ElementActions;
 
 public class Google {
 	private  WebDriver driver;
@@ -28,36 +27,27 @@ public class Google {
 	}
 	public  void enterGUserName(String UserName, int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(GUSerNametextBox));
-		WebElement UserNameLocator = getDriver().findElement(GUSerNametextBox);
-		if(UserNameLocator.isDisplayed())
-			UserNameLocator.sendKeys(UserName);
+		   ElementActions UserNameLocator=new ElementActions(driver);
+		   UserNameLocator.EnterText(GUSerNametextBox, UserName, WaitSeconds);
+		
 	}
 	public  void enterGPassword(String Password,int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(GPasswordTextBox));
-		WebElement PasswordLocator = getDriver().findElement(GPasswordTextBox);
-		if(PasswordLocator.isDisplayed())
-			PasswordLocator.sendKeys(Password);
-		
+		ElementActions PasswordLocator=new ElementActions(driver);
+		PasswordLocator.EnterText(GPasswordTextBox, Password, WaitSeconds);
+	
 	}
 	public  void ClickNext(int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(GNextButton));
-		WebElement NextBtn = getDriver().findElement(GNextButton);
-		if(NextBtn.isDisplayed())
-			NextBtn.click();
+		ElementActions NextBtn=new ElementActions(driver);
+		NextBtn.ClickElement(GNextButton, WaitSeconds);
+		
 	}
 	public  void ClickSignIn(int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(GSigninButton));
-		WebElement SignInBtn = getDriver().findElement(GSigninButton);
-		if(SignInBtn.isDisplayed())
-			SignInBtn.click();
+		ElementActions SignInBtn=new ElementActions(driver);
+		SignInBtn.ClickElement(GSigninButton, WaitSeconds);
+		
 	}
 	public  WebDriver getDriver() {
 		return driver;

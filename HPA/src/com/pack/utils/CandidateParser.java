@@ -52,7 +52,10 @@ public class CandidateParser {
 			sheet = workbook.getSheetAt(0);
 			// Get the candidate row that we need to parse
 			row = sheet.getRow(candidate_number);
-
+			// Change the type of the cells to string before reading
+			for (int i = 0; i < 7; i++) {
+				 row.getCell(i).setCellType(1);
+			}
 			// Parse the work_history section
 
 			parse_user_workHistory();
@@ -81,7 +84,7 @@ public class CandidateParser {
 			// Print user about values
 				System.out.println(user_about.toString());
 		    // set the candidate data
-			candidate = new Candidate();
+			 candidate = new Candidate();
 			 candidate.setFirstUserName(row.getCell(0).toString());
 			 candidate.setLastUserName(row.getCell(1).toString());
 			 candidate.setPassword(row.getCell(2).toString());

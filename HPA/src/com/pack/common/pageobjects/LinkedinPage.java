@@ -10,9 +10,9 @@ package com.pack.common.pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
+
+import com.pack.utils.ElementActions;
 
 public class LinkedinPage {
 	private  WebDriver driver;
@@ -29,36 +29,27 @@ public class LinkedinPage {
 	}
 	public  void enterLUserName(String UserName,int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(LUSerNametextBox));
-		WebElement UserNameLocator = getDriver().findElement(LUSerNametextBox);
-		if(UserNameLocator.isDisplayed())
-			UserNameLocator.sendKeys(UserName);
+		 ElementActions UserNameLocator=new ElementActions(driver);
+		 UserNameLocator.EnterText(LUSerNametextBox, UserName, WaitSeconds);
+		
 	}
 	public  void enterLPassword(String Password,int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(LPasswordTextBox));
-		WebElement PasswordLocator = getDriver().findElement(LPasswordTextBox);
-		if(PasswordLocator.isDisplayed())
-			PasswordLocator.sendKeys(Password);
-		
+		 ElementActions PasswordLocator=new ElementActions(driver);
+		 PasswordLocator.EnterText(LPasswordTextBox, Password, WaitSeconds);
+			
 	}
 	public  void ClickLogin(int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(LLoginButton));
-		WebElement LogInBtn = getDriver().findElement(LLoginButton);
-		if(LogInBtn.isDisplayed())
-			LogInBtn.click();
+		ElementActions LogInBtn=new ElementActions(driver);
+		LogInBtn.ClickElement(LLoginButton, WaitSeconds);
+		
 	}
 	public  void ClickCancel(int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(LCancelButton));
-		WebElement LogInBtn = getDriver().findElement(LCancelButton);
-		if(LogInBtn.isDisplayed())
-			LogInBtn.click();
+		ElementActions CancelBtn=new ElementActions(driver);
+		CancelBtn.ClickElement(LCancelButton, WaitSeconds);
+		
 	}
 	public  WebDriver getDriver() {
 		return driver;
