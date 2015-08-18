@@ -1,5 +1,7 @@
 package com.pack.entities;
 
+import java.util.Arrays;
+
 public class Brand {
 	private String BrandName;
 	private String [] BrandLocation;// Always the location[0] is the main location , used to select the business 
@@ -62,13 +64,22 @@ public class Brand {
 		this.media = media;
 	}
 
+
 	public String getDescription() {
 		return Description;
 	}
 	public void setDescription(String description) {
 		Description = description;
 	}
-	
+
+
+	@Override
+	public String toString() {
+		return "Brand [BrandName=" + BrandName + ", BrandLocation="
+				+ Arrays.toString(BrandLocation) + ", Hecs=" + Hecs
+				+ ", Cuisine=" + Cuisine + ", BusinessEmail=" + BusinessEmail
+				+ ", GroupName=" + GroupName + ", media=" + media + "]";
+	}
 	
 	
 
