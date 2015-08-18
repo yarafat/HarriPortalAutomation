@@ -24,7 +24,7 @@ public class SBMLRegistrationActions extends SBMLRegistrationFunnelPages{
 		
 	}
 	/*Select SBML Type Stage*/
-	public Object SelectEmpTypeSBML()
+	public Object SelectEmpTypeSBML(Boolean IsDropped)
 	{
 		try
 		{
@@ -32,8 +32,14 @@ public class SBMLRegistrationActions extends SBMLRegistrationFunnelPages{
 			if(SBML!=null)
 			{
 				SBML.ChooseSBML(5);
+				if(IsDropped)
+				{
+					SBML.clickCloseModal(5);
+				}
+				else 
+				{
 				SBML.ClickContinueSBML(5);
-				
+				}
 			}
 			else {Error.setError(false, "Error: SBML pages Pointer is NULL");}
 			
@@ -46,19 +52,19 @@ public class SBMLRegistrationActions extends SBMLRegistrationFunnelPages{
 		return Error;
 	}
 	/* Select business and fill its required data  */
-    public Object BrandInfo(Brand BrandInfo)
+    public Object BrandInfo(Brand BrandInfo, Boolean IsDropped)
     {
     	try
 		{
 			
 			if(SBML!=null)
 			{
-				if(BrandInfo.getProfileLogoPath()!=null)
+				if(BrandInfo.getMedia()!=null && BrandInfo.getMedia().getProfileUrl()!=null)
 				{
-					SBML.SelectBrandLogo(BrandInfo.getProfileLogoPath(), 5);
+					SBML.SelectBrandLogo(BrandInfo.getMedia().getProfileUrl(), 5);
 				    Crop.ClickSave(5);
 				}
-				SBML.SelectBusiness(BrandInfo.getBrandName(), BrandInfo.getBrandLocation(), 5);
+				SBML.SelectBusiness(BrandInfo.getBrandName(), (BrandInfo.getBrandLocation())[0].toString(), 5);
 				SBML.SelectHecs(BrandInfo.getHecs(), 5);
 				SBML.SelectCuisine(BrandInfo.getCuisine(), 5);
 		        if(BrandInfo.getBusinessEmail()!=null)
@@ -69,8 +75,14 @@ public class SBMLRegistrationActions extends SBMLRegistrationFunnelPages{
 		        {
 		        	SBML.enterBrandDescription(BrandInfo.getDescription(), 5);
 		        }
+		        if(IsDropped)
+				{
+					SBML.clickCloseModal(5);
+				}
+		        else 
+		        {
 		        SBML.ClickContineBrandInfo(5);
-		        
+		        }
 							
 			}
 			else {Error.setError(false, "Error: SBML pages Pointer is NULL");}
@@ -85,19 +97,31 @@ public class SBMLRegistrationActions extends SBMLRegistrationFunnelPages{
     	
     }
     /* add new location  */
-    public Object AddLocation(Brand BrandInfo)
+    public Object AddLocation(Brand BrandInfo, Boolean IsDropped)
     {
     	try
 		{
 			
 			if(SBML!=null)
 			{
-				if(BrandInfo.getEnteredLocation()!=null)
+				if(BrandInfo.getBrandLocation()!=null && BrandInfo.getBrandLocation().length>1)
 				{
-				   SBML.SelectBrandLocation(BrandInfo.getEnteredLocation(), BrandInfo.getBrandLocation(), 5);
+
+					for(int index=1;index<=BrandInfo.getBrandLocation().length;index++)//starts from index 1 because the location in index zero is the main brand location which stored by default in Db and will be shown on UI 
+					{
+						String EnteredLocation=((BrandInfo.getBrandLocation())[index].split(" "))[0].toString();
+				        SBML.SelectBrandLocation(EnteredLocation, (BrandInfo.getBrandLocation())[index], 5);
+				        Thread.sleep(2000);
+					}
 				}
+				if(IsDropped)
+				{
+					SBML.clickCloseModal(5);
+				}
+				else
+				{
 				SBML.clickContinueLocations(5);
-				
+				}
 			}
 			else {Error.setError(false, "Error: SBML pages Pointer is NULL");}
 			
@@ -110,19 +134,25 @@ public class SBMLRegistrationActions extends SBMLRegistrationFunnelPages{
 		return Error;
     }
     /* Add Media to the selected brand */
-    public Object AddBrandMedia(Brand BrandInfo)
+    public Object AddBrandMedia(Brand BrandInfo, Boolean IsDropped)
     {
     	try
 		{
 			
 			if(SBML!=null)
 			{
-				if(BrandInfo.getProfileLogoPath()!=null)
+				if(BrandInfo.getMedia()!=null && BrandInfo.getMedia().getProfileUrl()!=null)
 				{
-					SBML.ClickUploadBrandPic(BrandInfo.getProfileLogoPath(), 10);
+					SBML.ClickUploadBrandPic(BrandInfo.getMedia().getProfileUrl(), 10);
 				}
+				if(IsDropped)
+				{
+					SBML.clickCloseModal(5);
+				}
+				else 
+				{
 				  SBML.ClickContinueMedia(5);
-				
+				}
 			}
 			else {Error.setError(false, "Error: SBML pages Pointer is NULL");}
 			

@@ -2,11 +2,11 @@ package com.pack.entities;
 
 public class Brand {
 	private String BrandName;
-	private String [] BrandLocation;
+	private String [] BrandLocation;// Always the location[0] is the main location , used to select the business 
 	private String Hecs;
 	private String Cuisine;
 	private String BusinessEmail;
-	private String GroupName;
+	private String GroupName;//will be removed 
 	private String Description ;
 	private Media media;
 	
