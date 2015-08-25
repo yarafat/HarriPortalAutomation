@@ -10,6 +10,7 @@ package com.pack.common.pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
 import com.pack.utils.ElementActions;
 import com.pack.utils.GeneralSelectors;
 
@@ -20,6 +21,10 @@ public class SBMLRegistrationFunnelPages {
 	private String ContinueSBMlXpath="//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[4]/div/form/div[4]/button";
 	private By SBMLRadioBtn=By.xpath(SBMLXpath);
 	private By ContinueSBMLBtn=By.xpath(ContinueSBMlXpath);
+	
+	/*X button for all modules has the same Xpath */
+	private String CloseBtnXpath="//*[@id='join-modal']/div/div[2]/div/button";
+	private By CloseModal=By.xpath(CloseBtnXpath);
 	
 	/*About Your Company*/
 	private String SelectProfileLinkXpath="//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[5]/div/div[1]/div/div[2]";
@@ -60,6 +65,14 @@ public class SBMLRegistrationFunnelPages {
 		 ElementActions ClickContinue=new ElementActions(driver);
 		 ClickContinue.ClickElement(ContinueSBMLBtn, WaitSeconds);
 
+	 }
+	 
+	 /*this general method for closing the opened modal , Note: all X button in this SBSL have the same Xpath */
+	 public void clickCloseModal(int WaitSeconds)
+	 {
+		 ElementActions ClickCloseModal=new ElementActions(driver);
+		 ClickCloseModal.ClickElement(CloseModal, WaitSeconds);
+		 
 	 }
 	 
 	 /*About Your Company methods */

@@ -22,6 +22,10 @@ public class MBMLRegistrationFunnelPage {
 	private By MBMLRadioBtn=By.xpath(MBMLXpath);
 	private By ContinueMBMLBtn=By.xpath(ContinueMBMlXpath);
 	
+	/*X button for all modules has the same Xpath */
+	private String CloseBtnXpath="//*[@id='join-modal']/div/div[2]/div/button";
+	private By CloseModal=By.xpath(CloseBtnXpath);
+	
 	/*About Your Group*/
 	private By GroupDDlLocator=By.id("select2-chosen-12");
 	private By GroupSearchTextBoxLOcator=By.id("s2id_autogen12_search");
@@ -69,7 +73,15 @@ public class MBMLRegistrationFunnelPage {
 		 ClickContinue.ClickElement(ContinueMBMLBtn, WaitSeconds);
 
 	 }
-     
+	 
+	 /*this general method for closing the opened modal , Note: all X button in this SBSL have the same Xpath */
+	 public void clickCloseModal(int WaitSeconds)
+	 {
+		 ElementActions ClickCloseModal=new ElementActions(driver);
+		 ClickCloseModal.ClickElement(CloseModal, WaitSeconds);
+		 
+	 }
+	 
 	 /*About Your Group*/
 	 public void SelectGroup(String GroupName, String Address,int WaitSeconds)
 	 {

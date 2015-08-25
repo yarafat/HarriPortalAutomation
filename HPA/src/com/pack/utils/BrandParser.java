@@ -48,16 +48,16 @@ public class BrandParser {
 			// Get first/desired sheet from the workbook
 			sheet = workbook.getSheetAt(0);
 			// Get the brand row that we need to parse
-			row = sheet.getRow(1);
+			row = sheet.getRow(brand_number);
 
 			// Parse the brand media section
-			//parse_brand_media();
+			parse_brand_media();
 			// Print brand media values
-			//System.out.println(brand_media.toString());
+			System.out.println(brand_media.toString());
 			
 		    // set the brand
 			 brand = new Brand();
-			 // set brand name
+			 // set cells type to string
 			 for (int i = 0; i < 6; i++) {
 				 row.getCell(i).setCellType(1);
 			}

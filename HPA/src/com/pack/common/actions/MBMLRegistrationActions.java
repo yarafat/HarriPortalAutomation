@@ -23,7 +23,7 @@ public class MBMLRegistrationActions extends MBMLRegistrationFunnelPage {
 		
 	}
 	/*Select MBML Type Stage*/
-	public Object SelectEmpTypeMBML()
+	public Object SelectEmpTypeMBML(Boolean IsDropped)
 	{
 		try
 		{
@@ -31,8 +31,14 @@ public class MBMLRegistrationActions extends MBMLRegistrationFunnelPage {
 			if(MBML!=null)
 			{
 				MBML.ChooseMBML(5);
+				if(IsDropped)
+				{
+					MBML.clickCloseModal(5);
+				}
+				else 
+				{
 				MBML.ClickContinueMBML(5);
-				
+				}
 			}
 			else {Error.setError(false, "Error: MBML pages Pointer is NULL");}
 			
@@ -45,21 +51,28 @@ public class MBMLRegistrationActions extends MBMLRegistrationFunnelPage {
 		return Error;
 	}
 	/* add enterprise Group name and logo */
-	public Object AddGroupName(Brand BrandInfo)
+	public Object AddGroupName(Brand BrandInfo, Boolean IsDropped)
 	{
 		try
 		{
 			
 			if(MBML!=null)
 			{
-				MBML.SelectGroup(BrandInfo.getGroupName(), BrandInfo.getGroupLocation(), 5);
-				if(BrandInfo.getProfileLogoPath()!=null)
+				//group or enterprise is also a brand 
+				MBML.SelectGroup(BrandInfo.getBrandName(), (BrandInfo.getBrandLocation())[0].toString(), 5);
+				if(BrandInfo.getMedia()!=null && BrandInfo.getMedia().getProfileUrl()!=null)
 				{
-					MBML.SelectGroupLogo(BrandInfo.getProfileLogoPath(), 5);
+					MBML.SelectGroupLogo(BrandInfo.getMedia().getProfileUrl(), 5);
 					Crop.ClickSave(5);
 				}
+				if(IsDropped)
+				{
+					MBML.clickCloseModal(5);
+				}
+				else 
+				{
 				MBML.continueGroup(5);
-				
+				}
 			}
 			else {Error.setError(false, "Error: MBML pages Pointer is NULL");}
 			
@@ -72,19 +85,25 @@ public class MBMLRegistrationActions extends MBMLRegistrationFunnelPage {
 		return Error;
 	}
 	/* add media to the main enterprise brand */
-	public Object AddBrandMedia(Brand BrandInfo)
+	public Object AddBrandMedia(Brand BrandInfo, Boolean IsDropped)
     {
     	try
 		{
 			
 			if(MBML!=null)
 			{
-				if(BrandInfo.getProfileLogoPath()!=null)
+				if(BrandInfo.getMedia()!=null && BrandInfo.getMedia().getProfileUrl()!=null)
 				{
-					MBML.ClickUploadBrandPic(BrandInfo.getProfileLogoPath(), 10);
+					MBML.ClickUploadBrandPic(BrandInfo.getMedia().getProfileUrl(), 10);
 				}
+				if(IsDropped)
+				{
+					MBML.clickCloseModal(5);
+				}
+				else 
+				{
 				MBML.ClickContinueMedia(5);
-				
+				}
 			}
 			else {Error.setError(false, "Error: MBML pages Pointer is NULL");}
 			
@@ -98,19 +117,19 @@ public class MBMLRegistrationActions extends MBMLRegistrationFunnelPage {
     }
 	
 	/* Select business and fill its required data  */
-    public Object BrandInfo(Brand BrandInfo)
+    public Object BrandInfo(Brand BrandInfo, Boolean IsDropped)
     {
     	try
 		{
 			
 			if(MBML!=null)
 			{
-				if(BrandInfo.getProfileLogoPath()!=null)
+				if(BrandInfo.getMedia()!=null && BrandInfo.getMedia().getProfileUrl()!=null)
 				{
-					MBML.SelectBrandLogo(BrandInfo.getProfileLogoPath(), 5);
+					MBML.SelectBrandLogo(BrandInfo.getMedia().getProfileUrl(), 5);
 				    Crop.ClickSave(5);
 				}
-				MBML.SelectBusiness(BrandInfo.getBrandName(), BrandInfo.getBrandLocation(), 5);
+				MBML.SelectBusiness(BrandInfo.getBrandName(), (BrandInfo.getBrandLocation())[0].toString(), 5);
 				MBML.SelectHecs(BrandInfo.getHecs(), 5);
 				MBML.SelectCuisine(BrandInfo.getCuisine(), 5);
 		        if(BrandInfo.getBusinessEmail()!=null)
@@ -121,8 +140,14 @@ public class MBMLRegistrationActions extends MBMLRegistrationFunnelPage {
 		        {
 		        	MBML.enterBrandDescription(BrandInfo.getDescription(), 5);
 		        }
+		        if(IsDropped)
+				{
+					MBML.clickCloseModal(5);
+				}
+		        else 
+		        {
 		        MBML.ClickContineBrandInfo(5);
-		        
+		        }
 							
 			}
 			else {Error.setError(false, "Error: MBML pages Pointer is NULL");}
@@ -137,19 +162,30 @@ public class MBMLRegistrationActions extends MBMLRegistrationFunnelPage {
     	
     }
     /* add new location  */
-    public Object AddLocation(Brand BrandInfo)
+    public Object AddLocation(Brand BrandInfo, Boolean IsDropped)
     {
     	try
 		{
 			
 			if(MBML!=null)
 			{
-				if(BrandInfo.getEnteredLocation()!=null)
+				if(BrandInfo.getBrandLocation()!=null && BrandInfo.getBrandLocation().length>1)
 				{
-					MBML.SelectBrandLocation(BrandInfo.getEnteredLocation(), BrandInfo.getBrandLocation(), 5);
+					for(int index=1;index<=BrandInfo.getBrandLocation().length;index++)//starts from index 1 because the location in index zero is the main brand location which stored by default in Db and will be shown on UI 
+					{
+						String EnteredLocation=((BrandInfo.getBrandLocation())[index].split(" "))[0].toString();
+					    MBML.SelectBrandLocation(EnteredLocation, (BrandInfo.getBrandLocation())[index], 5);
+					  Thread.sleep(2000);
+					}
 				}
+				if(IsDropped)
+				{
+					MBML.clickCloseModal(5);
+				}
+				else 
+				{
 				MBML.clickContinueLocations(5);
-				
+				}
 			}
 			else {Error.setError(false, "Error: MBML pages Pointer is NULL");}
 			

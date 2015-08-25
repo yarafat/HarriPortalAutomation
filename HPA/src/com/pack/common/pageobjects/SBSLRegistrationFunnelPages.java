@@ -21,13 +21,15 @@ public class SBSLRegistrationFunnelPages {
 	/* Employer Type SBSL*/
 	private String SBSLXpath="//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[4]/div/form/div[2]/div[1]/label/span";
 	private String ContinueSBSlXpath="//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[4]/div/form/div[4]/button";
-	private By SBSLRadioBtn=By.xpath(SBSLXpath);
+    private By SBSLRadioBtn=By.xpath(SBSLXpath);
 	private By ContinueSBSLBtn=By.xpath(ContinueSBSlXpath);
-	
+	/*X button for all modules has the same Xpath */
+	private String CloseBtnXpath="//*[@id='join-modal']/div/div[2]/div/button";
+	private By CloseModal=By.xpath(CloseBtnXpath);
 	/*About Your Company*/
 	private String SelectProfileLinkXpath="//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[5]/div/div[1]/div/div[2]";
 	private String ContinueBrandInfo="//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[5]/div/div[2]/form/div[5]/button";
-	private By BusinessDropDown=By.id("select2-chosen-10");
+    private By BusinessDropDown=By.id("select2-chosen-10");
 	private By BusinessSearchBox=By.id("s2id_autogen10_search");
 	private By HecsDropDown=By.id("select2-chosen-12");
 	private By CuisineDropDown=By.id("select2-chosen-14");
@@ -36,11 +38,11 @@ public class SBSLRegistrationFunnelPages {
 	private By SelectPhotoLink=By.xpath(SelectProfileLinkXpath);
 	private By ContinueBrandInfoBtn=By.xpath(ContinueBrandInfo);
 	private By BrandPhone=By.name("phone");
-	
 	/*Media For Selected Brand*/
 	private By UploadLogoPic=By.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[7]/div[2]/ng-form/div[2]/div[2]/div[1]");
 	private By ClickContinueMedia=By.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[7]/div[2]/ng-form/div[12]/button");
-	 public SBSLRegistrationFunnelPages(WebDriver driver)
+   
+	public SBSLRegistrationFunnelPages(WebDriver driver)
 		{
 			this.driver = driver;
 		}
@@ -59,6 +61,14 @@ public class SBSLRegistrationFunnelPages {
 	  }
 	 
 	 
+	 
+	 /*this general method for closing the opened modal , Note: all X button in this SBSL have the same Xpath */
+	 public void clickCloseModal(int WaitSeconds)
+	 {
+		 ElementActions ClickCloseModal=new ElementActions(driver);
+		 ClickCloseModal.ClickElement(CloseModal, WaitSeconds);
+		 
+	 }
 	 /*About Your Company methods */
 	 public void SelectBusiness(String BusinessName, String Address,int WaitSeconds)
 		{

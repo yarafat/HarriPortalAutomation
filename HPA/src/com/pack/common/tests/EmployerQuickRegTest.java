@@ -59,12 +59,12 @@ private Errors Actual;
 		if(BrandInfo!=null)
 		{
 			BrandInfo.setBrandName("Redline tuning");
-			BrandInfo.setBrandLocation("Ha-Banai Street 29, Holon, 58857, Israel");
+		//	BrandInfo.setBrandLocation("Ha-Banai Street 29, Holon, 58857, Israel");
 			BrandInfo.setHecs("Event/Catering");
 			BrandInfo.setCuisine("American");
 			BrandInfo.setGroupName("HarriTest");
 			//We should use the media object here
-			BrandInfo.setProfileLogoPath("C:\\Users\\Harri\\Desktop\\test.jpg");
+		//	BrandInfo.setProfileLogoPath("C:\\Users\\Harri\\Desktop\\test.jpg");
 			BrandInfo.setHecs("Event/Catering");
 			BrandInfo.setCuisine("American");
 		}
