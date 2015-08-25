@@ -15,6 +15,7 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -189,9 +190,9 @@ public class GeneralSelectors {
 	}
 
 	public void SelectPosition(String SelectedPosition, boolean NewPosition,
-			By WorkHistoryPositionDropdown, By WorkHistoryPositionTextBox,int seconds )
-			throws Exception {
-		WebDriverWait wait=new WebDriverWait(driver, seconds);
+			By WorkHistoryPositionDropdown, By WorkHistoryPositionTextBox,
+			int seconds) throws Exception {
+		WebDriverWait wait = new WebDriverWait(driver, seconds);
 		try {
 			Thread.sleep(6000);
 			WebElement work_history = driver
@@ -223,5 +224,157 @@ public class GeneralSelectors {
 			throw (ex);
 		}
 	}
-	
+
+	public void SelectWorkHistory(String SelectedName, String SelectedLocation,
+			By WorkHistoryDropdown, By WorkHistoryTextBox, int seconds) {
+		String NewEntry = "Keep typing to create your own entry";
+		WebDriverWait wait = new WebDriverWait(driver, seconds);
+		try {
+			WebElement work_history = driver.findElement(WorkHistoryDropdown);
+			work_history.click();
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(WorkHistoryTextBox));
+			WebElement work_history_txtbox = driver
+					.findElement(WorkHistoryTextBox);
+			work_history_txtbox.sendKeys(SelectedName);
+			if (SelectedLocation == null) {
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By
+						.xpath("//small[contains(text(),'" + NewEntry + "')]")));
+				driver.findElement(
+						By.xpath("//small[contains(text(),'" + NewEntry + "')]"))
+						.click();
+
+			} else {
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By
+						.xpath("//small[contains(text(),'" + SelectedLocation
+								+ "')]")));
+				driver.findElement(
+						By.xpath("//small[contains(text(),'" + SelectedLocation
+								+ "')]")).click();
+			}
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
+	}
+
+	public void SelectEducation(String SelectedInstitution,
+			String InstitutionLocation, By EducationDropDown,
+			By EducationTextBox, int seconds) {
+		WebDriverWait wait = new WebDriverWait(driver, seconds);
+		try {
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(EducationDropDown));
+			WebElement education = driver.findElement(EducationDropDown);
+			education.click();
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(EducationTextBox));
+			WebElement education_txtbox = driver.findElement(EducationTextBox);
+			education_txtbox.sendKeys(SelectedInstitution);
+			if (InstitutionLocation == null) {
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By
+						.xpath("//*[contains(text(),'" + SelectedInstitution
+								+ "')]")));
+				driver.findElement(
+						By.xpath("//*[contains(text(),'" + SelectedInstitution
+								+ "')]")).click();
+			} else {
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By
+						.xpath("//small[contains(text(),'"
+								+ InstitutionLocation + "')]")));
+				driver.findElement(
+						By.xpath("//small[contains(text(),'"
+								+ InstitutionLocation + "')]")).click();
+			}
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
+	}
+
+	public void SelectDegree(String degree, By Degree, By DegreeTextBox,
+			int seconds) {
+		WebDriverWait wait = new WebDriverWait(driver, seconds);
+		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(Degree));
+			WebElement degree_dropdown = driver.findElement(Degree);
+			degree_dropdown.click();
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(DegreeTextBox));
+			WebElement degree_textbox = driver.findElement(DegreeTextBox);
+			degree_textbox.sendKeys(degree);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By
+					.xpath("//*[contains(text(),'" + degree + "')]")));
+			driver.findElement(
+					By.xpath("//*[contains(text(),'" + degree + "')]")).click();
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
+
+	}
+
+	public void SelectSkills(String[] skills, By SkillsInputTxt, int seconds) {
+		WebDriverWait wait = new WebDriverWait(driver, seconds);
+		try {
+			WebElement skills_input = driver.findElement(SkillsInputTxt);
+			skills_input.click();
+			for (int i = 0; i < skills.length; i++) {
+				skills_input.sendKeys(skills[i]);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By
+						.xpath("//*[contains(text(),'" + skills[i] + "')]")));
+				driver.findElement(
+						By.xpath("//*[contains(text(),'" + skills[i] + "')]"))
+						.click();
+			}
+
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
+	}
+
+	public void SelectAvailability(boolean Anytime, boolean Fulltime,
+			boolean Parttime, By AnyTime, By FullTime, By PartTime) {
+		try {
+			if (Anytime) {
+				WebElement anytime = driver.findElement(AnyTime);
+				anytime.click();
+			}
+			if (Fulltime) {
+				WebElement fulltime = driver.findElement(FullTime);
+				fulltime.click();
+			}
+			if (Parttime) {
+				WebElement parttime = driver.findElement(PartTime);
+				parttime.click();
+			}
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
+
+	}
+
+	public void UploadImage(String ImageURL, By SavePhoto, By ImageUpload,int seconds)
+			throws Exception {
+		WebDriverWait wait = new WebDriverWait(driver, seconds);
+		try {
+			WebElement uploadInputField = driver.findElement(ImageUpload);
+			uploadInputField.sendKeys(ImageURL);
+			wait.until(ExpectedConditions
+					.invisibilityOfElementLocated(SavePhoto));
+			Thread.sleep(3000);
+			WebElement SaveButton = driver.findElement(SavePhoto);
+			SaveButton.click();
+			Thread.sleep(7000);
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
+	}
 }
