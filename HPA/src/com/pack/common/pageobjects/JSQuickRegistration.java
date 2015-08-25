@@ -4,6 +4,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.pack.utils.GeneralSelectors;
+
 public class JSQuickRegistration {
 	protected WebDriver driver;
 	private WebDriverWait wait;
@@ -311,35 +313,9 @@ public class JSQuickRegistration {
 
 	public void SelectPosition(String SelectedPosition, boolean NewPosition)
 			throws Exception {
-		try {
-			Thread.sleep(6000);
-			WebElement work_history = driver.findElement(WorkHistoryPosition);
-			work_history.click();
-			wait.until(ExpectedConditions
-					.visibilityOfElementLocated(WorkHistoryPositionTextBox));
-			WebElement work_history_txtbox = driver
-					.findElement(WorkHistoryPositionTextBox);
-			work_history_txtbox.sendKeys(SelectedPosition);
-			if (NewPosition) {
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By
-						.xpath("//strong[contains(text(),'" + SelectedPosition
-								+ "')]")));
-				driver.findElement(
-						By.xpath("//strong[contains(text(),'"
-								+ SelectedPosition + "')]")).click();
-			} else {
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By
-						.xpath("//*[contains(text(),'" + SelectedPosition
-								+ "')]")));
-				driver.findElement(
-						By.xpath("//*[contains(text(),'" + SelectedPosition
-								+ "')]")).click();
-			}
-			System.out.println("Element was found and clicked successfully");
-		} catch (Exception ex) {
-			System.out.println("Error: " + ex.getMessage());
-			throw (ex);
-		}
+		GeneralSelectors selector=new GeneralSelectors(driver);
+		selector.SelectPosition(SelectedPosition, NewPosition, WorkHistoryPosition, WorkHistoryPositionTextBox, 5);
+
 	}
 
 	public void SetWorkHistoryStartMonth(String workStarMonth) {

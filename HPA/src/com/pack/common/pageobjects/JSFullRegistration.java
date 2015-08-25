@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.pack.utils.GeneralSelectors;
+
 public class JSFullRegistration {
 	protected WebDriver driver;
 	private WebDriverWait wait;
@@ -224,35 +226,8 @@ public class JSFullRegistration {
 
 	public void SelectPosition(String SelectedPosition, boolean NewPosition)
 			throws Exception {
-		try {
-			Thread.sleep(6000);
-			WebElement work_history = driver.findElement(Position);
-			work_history.click();
-			wait.until(ExpectedConditions
-					.visibilityOfElementLocated(PositionTextbox));
-			WebElement work_history_txtbox = driver
-					.findElement(PositionTextbox);
-			work_history_txtbox.sendKeys(SelectedPosition);
-			if (NewPosition) {
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By
-						.xpath("//strong[contains(text(),'" + SelectedPosition
-								+ "')]")));
-				driver.findElement(
-						By.xpath("//strong[contains(text(),'"
-								+ SelectedPosition + "')]")).click();
-			} else {
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By
-						.xpath("//*[contains(text(),'" + SelectedPosition
-								+ "')]")));
-				driver.findElement(
-						By.xpath("//*[contains(text(),'" + SelectedPosition
-								+ "')]")).click();
-			}
-			System.out.println("Element was found and clicked successfully");
-		} catch (Exception ex) {
-			System.out.println("Error: " + ex.getMessage());
-			throw (ex);
-		}
+		GeneralSelectors selector=new GeneralSelectors(driver);
+		selector.SelectPosition(SelectedPosition, NewPosition, Position, PositionTextbox, 10);
 	}
 
 	public void SetWorkHistoryStartMonth(String workStarMonth) {
