@@ -1,5 +1,7 @@
 package com.pack.common.tests;
 
+import java.io.FileNotFoundException;
+
 import junit.framework.Assert;
 
 import org.testng.annotations.Test;
@@ -9,7 +11,9 @@ import org.testng.annotations.BeforeClass;
 import com.pack.base.TestBaseSetup;
 import com.pack.common.actions.JSQuickRegistrationAction;
 import com.pack.common.pageobjects.JSQuickRegistration;
+import com.pack.utils.CandidateParser;
 import com.pack.utils.EmailsGenerator;
+import com.pack.entities.Candidate;
 import com.pack.entities.User;
 import com.pack.entities.UserAbout;
 import com.pack.entities.UserEducation;
@@ -29,21 +33,33 @@ public class JSQuickRegTest extends TestBaseSetup {
 	private Media testUserMeida;
 	private UserReferences testUserRef;
 	private EmailsGenerator UserEmail = new EmailsGenerator();
+	private CandidateParser parser;
+	private Candidate testCan;
 	String Email;
 
 	@BeforeClass
 	public void setUp() {
 		driver = getDriver();
-		action = new JSQuickRegistrationAction(driver);
 		JSQuickRegPage=new JSQuickRegistration(driver);
-
+		action = new JSQuickRegistrationAction(driver);
+		
+		try {
+			parser=new CandidateParser(3);
+			parser.parse();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		testUser = new User();
+
+/*		
 		testUser.setFirstUserName("Sireen");
 		testUser.setLastUserName("Suliman Adeela");
-		UserEmail.SetEmail("Sireen");
+		UserEmail.SetEmail("Sireen");*/
 		Email = UserEmail.getEmail();
 		testUser.setEmail(Email);
-		testUser.setPhoneNumber("123123123");
+		testCan=new Candidate();
+/*		testUser.setPhoneNumber("123123123");
 		testUser.setPassword("123123");
 		testUser.SetConfirmPassword("123123");
 
@@ -77,14 +93,14 @@ public class JSQuickRegTest extends TestBaseSetup {
 		testUserAbout.setWord1("first word");
 		testUserAbout.setWord2("second word");
 		testUserAbout.setWord3("third word");
-		testUserAbout.setBio("Bio");
+		testUserAbout.setBio("Bio");*/
 
 	}
 
 	@Test
 	public void VerifyFirstStageFunctionality() throws Exception {
 		System.out.println("Vefifying JS Quick Registration First Stage..");
-		action.FirstStage(testUser);
+		action.FirstStage(testCan);
 		Assert.assertTrue("User Passed First Stage of Quick Reg..",
 				JSQuickRegPage.FirstLoginHint());
 	}

@@ -54,7 +54,7 @@ public class CandidateParser {
 			row = sheet.getRow(candidate_number);
 			// Change the type of the cells to string before reading
 			for (int i = 0; i < 7; i++) {
-				 row.getCell(i).setCellType(1);
+				 row.getCell(i,row.CREATE_NULL_AS_BLANK).setCellType(1);
 			}
 			// Parse the work_history section
 
@@ -273,7 +273,7 @@ public class CandidateParser {
 			for (int j = 0; j < workHistory_string.length; j++) {
 
 				System.out.println(" workHistory_string " + j + " values : ");
-				String[] work_history_items = workHistory_string[j].split(",");
+				String[] work_history_items = workHistory_string[j].split(";");
 				for (int i = 0; i < work_history_items.length; i++) {
 					System.out.println(work_history_items[i]);
 				}
