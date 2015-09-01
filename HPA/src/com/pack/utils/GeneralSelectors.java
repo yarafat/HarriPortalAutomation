@@ -194,7 +194,8 @@ public class GeneralSelectors {
 			int seconds) throws Exception {
 		WebDriverWait wait = new WebDriverWait(driver, seconds);
 		try {
-			Thread.sleep(6000);
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(WorkHistoryPositionDropdown));
 			WebElement work_history = driver
 					.findElement(WorkHistoryPositionDropdown);
 			work_history.click();
@@ -232,7 +233,8 @@ public class GeneralSelectors {
 		try {
 			WebElement work_history = driver.findElement(WorkHistoryDropdown);
 			work_history.click();
-			wait.until(ExpectedConditions.elementToBeClickable(WorkHistoryTextBox));
+			wait.until(ExpectedConditions
+					.elementToBeClickable(WorkHistoryTextBox));
 			WebElement work_history_txtbox = driver
 					.findElement(WorkHistoryTextBox);
 			work_history_txtbox.sendKeys(SelectedName);
@@ -271,7 +273,7 @@ public class GeneralSelectors {
 					.visibilityOfElementLocated(EducationTextBox));
 			WebElement education_txtbox = driver.findElement(EducationTextBox);
 			education_txtbox.sendKeys(SelectedInstitution);
-			if (InstitutionLocation == null) {
+			if (InstitutionLocation.isEmpty()) {
 				wait.until(ExpectedConditions.visibilityOfElementLocated(By
 						.xpath("//*[contains(text(),'" + SelectedInstitution
 								+ "')]")));
@@ -318,6 +320,8 @@ public class GeneralSelectors {
 	public void SelectSkills(String[] skills, By SkillsInputTxt, int seconds) {
 		WebDriverWait wait = new WebDriverWait(driver, seconds);
 		try {
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(SkillsInputTxt));
 			WebElement skills_input = driver.findElement(SkillsInputTxt);
 			skills_input.click();
 			for (int i = 0; i < skills.length; i++) {
@@ -336,17 +340,24 @@ public class GeneralSelectors {
 	}
 
 	public void SelectAvailability(boolean Anytime, boolean Fulltime,
-			boolean Parttime, By AnyTime, By FullTime, By PartTime) {
+			boolean Parttime, By AnyTime, By FullTime, By PartTime, int seconds) {
+		WebDriverWait wait = new WebDriverWait(driver, seconds);
 		try {
 			if (Anytime) {
+				wait.until(ExpectedConditions
+						.visibilityOfElementLocated(AnyTime));
 				WebElement anytime = driver.findElement(AnyTime);
 				anytime.click();
 			}
 			if (Fulltime) {
+				wait.until(ExpectedConditions
+						.visibilityOfElementLocated(FullTime));
 				WebElement fulltime = driver.findElement(FullTime);
 				fulltime.click();
 			}
 			if (Parttime) {
+				wait.until(ExpectedConditions
+						.visibilityOfElementLocated(PartTime));
 				WebElement parttime = driver.findElement(PartTime);
 				parttime.click();
 			}
@@ -358,15 +369,16 @@ public class GeneralSelectors {
 
 	}
 
-	public void UploadImage(String ImageURL, By SavePhoto, By ImageUpload,int seconds)
-			throws Exception {
+	public void UploadImage(String ImageURL, By SavePhoto, By ImageUpload,
+			int seconds) throws Exception {
 		WebDriverWait wait = new WebDriverWait(driver, seconds);
 		try {
+			wait.until(ExpectedConditions.presenceOfElementLocated(ImageUpload));
 			WebElement uploadInputField = driver.findElement(ImageUpload);
 			uploadInputField.sendKeys(ImageURL);
 			wait.until(ExpectedConditions
 					.invisibilityOfElementLocated(SavePhoto));
-			Thread.sleep(3000);
+			Thread.sleep(6000);
 			WebElement SaveButton = driver.findElement(SavePhoto);
 			SaveButton.click();
 			Thread.sleep(7000);

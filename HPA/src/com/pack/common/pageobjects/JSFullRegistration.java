@@ -105,12 +105,19 @@ public class JSFullRegistration {
 	private By Bio = By.id("bio");
 	private By AboutContinue = By
 			.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[15]/div/form/div[4]/button");
+
 	private By ImageUpload = By
 			.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[16]/div[2]/form/div[2]/div[2]/div[1]/input");
 	private By SavePhoto = By
 			.xpath("//*[@id='harriApp']/div[1]/div[2]/div[1]/image-cropping/div/div[1]/div[2]/div/div/div[5]/div/div[4]");
 	private By MediaContinue = By
 			.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[16]/div[2]/form/div[11]/button");
+	private By CoverUpload = By
+			.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[16]/div[2]/form/div[4]/div[2]/div[1]/input");
+	private By AddtionalImages = By
+			.xpath("//*[@id='upload-btn-box']/div[1]/input");
+	private By LinkVideo = By.xpath("//*[@id='upload-btn-box']/div[2]");
+
 	private By ReferenceName = By
 			.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[18]/div/form/div[2]/div/div[1]/div[1]/input");
 	private By ReferencePhone = By
@@ -346,7 +353,7 @@ public class JSFullRegistration {
 			String InstitutionLocation) {
 		GeneralSelectors selector = new GeneralSelectors(driver);
 		selector.SelectEducation(SelectedInstitution, InstitutionLocation,
-				Eduction, EducationTextBox, 10);
+				Eduction, EducationTextBox, 15);
 	}
 
 	public void SelectDegree(String degree) {
@@ -478,6 +485,8 @@ public class JSFullRegistration {
 
 	public void ClickEducationContinue() {
 		try {
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(EductionContinue));
 			WebElement edu_continue = driver.findElement(EductionContinue);
 			edu_continue.click();
 			System.out.println("Element was found and clicked successfully");
@@ -513,7 +522,8 @@ public class JSFullRegistration {
 	public void SelectAvailability(boolean Anytime, boolean Fulltime,
 			boolean Parttime) {
 		GeneralSelectors selector = new GeneralSelectors(driver);
-		selector.SelectAvailability(Anytime, Fulltime, Parttime, AnyTime, FullTime, PartTime);
+		selector.SelectAvailability(Anytime, Fulltime, Parttime, AnyTime,
+				FullTime, PartTime, 5);
 
 	}
 
@@ -532,6 +542,7 @@ public class JSFullRegistration {
 
 	public void SetFirstWord(String word1) {
 		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(Word1));
 			WebElement first_word = driver.findElement(Word1);
 			first_word.sendKeys(word1);
 		} catch (Exception ex) {
@@ -542,6 +553,7 @@ public class JSFullRegistration {
 
 	public void SetSecondWord(String word2) {
 		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(Word2));
 			WebElement second_word = driver.findElement(Word2);
 			second_word.sendKeys(word2);
 		} catch (Exception ex) {
@@ -552,6 +564,7 @@ public class JSFullRegistration {
 
 	public void SetThirdWord(String word3) {
 		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(Word3));
 			WebElement third_word = driver.findElement(Word3);
 			third_word.sendKeys(word3);
 		} catch (Exception ex) {
@@ -587,6 +600,22 @@ public class JSFullRegistration {
 		selector.UploadImage(ImageURL, SavePhoto, ImageUpload, 10);
 	}
 
+	public void UploadCover(String ImageURL) throws Exception {
+		try {
+			WebElement uploadInputField = driver.findElement(CoverUpload);
+			uploadInputField.sendKeys(ImageURL);
+			Thread.sleep(3000);
+			System.out.println("Element was found and clicked successfully");
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex.getMessage());
+			throw (ex);
+		}
+	}
+
+	public void UploadAddtionalMedia() {
+
+	}
+
 	public void MediaContinue() {
 		try {
 			WebElement media_continue = driver.findElement(MediaContinue);
@@ -600,6 +629,8 @@ public class JSFullRegistration {
 
 	public void SetReferennceName(String Referencename) {
 		try {
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(ReferenceName));
 			WebElement reference_name = driver.findElement(ReferenceName);
 			reference_name.sendKeys(Referencename);
 			System.out.println("Keys were sent successfully");
@@ -611,6 +642,8 @@ public class JSFullRegistration {
 
 	public void SetReferenncePhone(String Referencephone) {
 		try {
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(ReferencePhone));
 			WebElement reference_phone = driver.findElement(ReferencePhone);
 			reference_phone.sendKeys(Referencephone);
 			System.out.println("Keys were sent successfully");
@@ -622,6 +655,8 @@ public class JSFullRegistration {
 
 	public void SetReferennceCompany(String Referencecompany) {
 		try {
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(ReferenceCompany));
 			WebElement reference_company = driver.findElement(ReferenceCompany);
 			reference_company.sendKeys(Referencecompany);
 			System.out.println("Keys were sent successfully");
@@ -633,6 +668,8 @@ public class JSFullRegistration {
 
 	public void SetReferennceEmail(String Referenceemail) {
 		try {
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(ReferenceEmail));
 			WebElement reference_email = driver.findElement(ReferenceEmail);
 			reference_email.sendKeys(Referenceemail);
 			System.out.println("Keys were sent successfully");

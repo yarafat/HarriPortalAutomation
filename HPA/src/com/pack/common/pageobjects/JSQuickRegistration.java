@@ -421,7 +421,7 @@ public class JSQuickRegistration {
 	public void SelectAvailability(boolean Anytime, boolean Fulltime,
 			boolean Parttime) {
 		GeneralSelectors selector = new GeneralSelectors(driver);
-		selector.SelectAvailability(Anytime, Fulltime, Parttime, AnyTime, FullTime, PartTime);
+		selector.SelectAvailability(Anytime, Fulltime, Parttime, AnyTime, FullTime, PartTime,5);
 
 	}
 

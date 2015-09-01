@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 
 import com.pack.common.pageobjects.JSQuickRegistration;
 import com.pack.entities.Candidate;
-import com.pack.entities.User;
 import com.pack.entities.UserAbout;
 import com.pack.entities.UserEducation;
 import com.pack.entities.Media;
@@ -33,7 +32,8 @@ public class JSQuickRegistrationAction {
 	public void FillWorkHistory(UserWorkHistory WorkHistory) throws Exception {
 		jsPage.SelectWorkHistory(WorkHistory.getCompany(),
 				WorkHistory.getCompanyAddress());
-		jsPage.SelectPosition(WorkHistory.getPosition(),WorkHistory.isNewPosition());
+		jsPage.SelectPosition(WorkHistory.getPosition(),
+				WorkHistory.isNewPosition());
 		jsPage.SetWorkHistoryStartMonth(WorkHistory.getStartMonth());
 		jsPage.SetWorkHistoryStartYear(WorkHistory.getStartYear());
 
@@ -48,7 +48,8 @@ public class JSQuickRegistrationAction {
 
 	public void FillEducation(UserEducation Education) throws Exception {
 		jsPage.ExpandEducation();
-		jsPage.SelectEducation(Education.getInstitution(),Education.getLocation());
+		jsPage.SelectEducation(Education.getInstitution(),
+				Education.getLocation());
 		jsPage.SelectDegree(Education.getDegree());
 		jsPage.SetAreaOfStudy(Education.getAreaOfStudy());
 		jsPage.SetEducationStartMonth(Education.getStartMonth());
@@ -87,9 +88,9 @@ public class JSQuickRegistrationAction {
 		jsPage.SetReferennceEmail(references.getEmail());
 	}
 
-	public void SecondStage(UserWorkHistory UserWorkHistory,
-			Media UserMedia, UserEducation UserEdu, UserReferences UserRef,
-			String[] UserSkills, UserAbout UserAbout) throws Exception {
+	public void SecondStage(UserWorkHistory UserWorkHistory, Media UserMedia,
+			UserEducation UserEdu, UserReferences UserRef, String[] UserSkills,
+			UserAbout UserAbout) throws Exception {
 		FillWorkHistory(UserWorkHistory);
 		FillUserMedia(UserMedia);
 		jsPage.SelectAvailability(true, true, false);
