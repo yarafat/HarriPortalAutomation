@@ -232,8 +232,7 @@ public class GeneralSelectors {
 		try {
 			WebElement work_history = driver.findElement(WorkHistoryDropdown);
 			work_history.click();
-			wait.until(ExpectedConditions
-					.visibilityOfElementLocated(WorkHistoryTextBox));
+			wait.until(ExpectedConditions.elementToBeClickable(WorkHistoryTextBox));
 			WebElement work_history_txtbox = driver
 					.findElement(WorkHistoryTextBox);
 			work_history_txtbox.sendKeys(SelectedName);

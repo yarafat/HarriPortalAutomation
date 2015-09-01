@@ -62,7 +62,8 @@ public class JSQuickRegistration {
 	private By IstillWorkHere = By
 			.xpath("//*[@id='work_history_2-form-cont']/h-form/div/form/div[1]/ng-form/div[3]/div[3]/div/label/div/i");
 	private By ProfileImageInputFile = By
-			.xpath("//*[@id='application-cont']/div[2]/div/div/div/div[3]/div[2]/div/div[5]/div/div/div/div[3]/div[4]/h-form/form/div[2]/div/div[2]/div/input");
+					//*[@id="application-cont"]/div[2]/div/div/div/div[3]/div[2]/div/div[5]/div/div/div/div[3]/div[3]/h-form/form/div[2]/div/div[2]/div/input
+			.xpath("//*[@id='application-cont']/div[2]/div/div/div/div[3]/div[2]/div/div[5]/div/div/div/div[3]/div[3]/h-form/form/div[2]/div/div[2]/div/input");
 	private By UploadButton = By
 			.xpath("//*[@id='harriApp']/div[1]/span[1]/image-cropping/div/div[1]/div[2]/div/div/div[5]/div/div[4]");
 	private By AnyTime = By
@@ -282,7 +283,7 @@ public class JSQuickRegistration {
 	public void SelectWorkHistory(String SelectedName, String SelectedLocation) {
 		GeneralSelectors selector = new GeneralSelectors(driver);
 		selector.SelectWorkHistory(SelectedName, SelectedLocation,
-				WorkHistoryDropDown, WorkHistoryTextBox, 5);
+				WorkHistoryDropDown, WorkHistoryTextBox, 15);
 	}
 
 	public void SelectPosition(String SelectedPosition, boolean NewPosition)

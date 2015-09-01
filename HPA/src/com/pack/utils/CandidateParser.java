@@ -40,7 +40,7 @@ public class CandidateParser {
 		this.candidate_number = candidate_number;
 	}
 
-	public  void parse() {
+	public  Candidate parse() {
 		try {
 
 			FileInputStream file = new FileInputStream(new File(
@@ -105,9 +105,10 @@ public class CandidateParser {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return candidate;
 	}
 
-	public  void parse_user_about() {
+	public UserAbout parse_user_about() {
 		try
 
 		{
@@ -136,9 +137,10 @@ public class CandidateParser {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return user_about;
 	}
 
-	public  void parse_user_education() {
+	public  UserEducation parse_user_education() {
 		try
 
 		{
@@ -184,9 +186,10 @@ public class CandidateParser {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return user_education;
 	}
 
-	public  void parse_user_media() {
+	public  Media parse_user_media() {
 		try
 
 		{
@@ -220,9 +223,10 @@ public class CandidateParser {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return user_media;
 	}
 
-	public  void parse_user_references() {
+	public  UserReferences parse_user_references() {
 		try
 
 		{
@@ -257,9 +261,11 @@ public class CandidateParser {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return user_references;
 	}
 
-	public  void parse_user_workHistory() {
+	public  UserWorkHistory parse_user_workHistory() {
+		UserWorkHistory user_workHistory = new UserWorkHistory();
 		try
 
 		{
@@ -282,7 +288,7 @@ public class CandidateParser {
 							.println("Missing attributes in the workHistory section");
 				else if (work_history_items.length == 8) {
 
-					UserWorkHistory user_workHistory = new UserWorkHistory();
+					
 
 					user_workHistory.setCompany(work_history_items[0]);
 					user_workHistory.setCompanyAddress(work_history_items[1]);
@@ -303,6 +309,7 @@ public class CandidateParser {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return user_workHistory;
 	}
 
 	/**
