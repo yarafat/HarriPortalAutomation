@@ -30,7 +30,7 @@ public class JobParser {
 
 	public JobParser(int job_number) throws FileNotFoundException {
 		super();
-		this.job_number = job_number;
+		JobParser.job_number = job_number;
 	}
 
 	public static void main(String[] args) {

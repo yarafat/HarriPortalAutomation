@@ -3,7 +3,6 @@
  */
 package com.pack.entities;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 
 /**

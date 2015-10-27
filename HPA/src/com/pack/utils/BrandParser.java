@@ -29,7 +29,7 @@ public class BrandParser {
 
 
 	public BrandParser(int brand_number) throws FileNotFoundException {
-		this.brand_number = brand_number;
+		BrandParser.brand_number = brand_number;
 	}
 	
 	public static void main(String [ ] args)
