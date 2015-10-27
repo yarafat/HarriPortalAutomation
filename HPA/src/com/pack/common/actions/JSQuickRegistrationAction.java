@@ -3,7 +3,7 @@ package com.pack.common.actions;
 import org.openqa.selenium.WebDriver;
 
 import com.pack.common.pageobjects.JSQuickRegistration;
-import com.pack.entities.User;
+import com.pack.entities.Candidate;
 import com.pack.entities.UserAbout;
 import com.pack.entities.UserEducation;
 import com.pack.entities.Media;
@@ -19,20 +19,21 @@ public class JSQuickRegistrationAction {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void FirstStage(User JSuser) throws Exception {
-		jsPage.SetFirstName(JSuser.getFirstUserName());
-		jsPage.SetLastName(JSuser.getLastUserName());
-		jsPage.SetEmailAddress(JSuser.getEmail());
-		jsPage.SetPhoneNumber(JSuser.getPhoneNumber());
-		jsPage.SetPassword(JSuser.getPassword());
-		jsPage.ConfirmPassword(JSuser.getConfirmPassword());
+	public void FirstStage(Candidate testCan) throws Exception {
+		jsPage.SetFirstName(testCan.getFirstUserName());
+		jsPage.SetLastName(testCan.getLastUserName());
+		jsPage.SetEmailAddress(testCan.getEmail());
+		jsPage.SetPhoneNumber(testCan.getPhoneNumber());
+		jsPage.SetPassword(testCan.getPassword());
+		jsPage.ConfirmPassword(testCan.getConfirmPassword());
 		jsPage.ClickContinueButton();
 	}
 
 	public void FillWorkHistory(UserWorkHistory WorkHistory) throws Exception {
 		jsPage.SelectWorkHistory(WorkHistory.getCompany(),
 				WorkHistory.getCompanyAddress());
-		jsPage.SelectPosition(WorkHistory.getPosition(),WorkHistory.isNewPosition());
+		jsPage.SelectPosition(WorkHistory.getPosition(),
+				WorkHistory.isNewPosition());
 		jsPage.SetWorkHistoryStartMonth(WorkHistory.getStartMonth());
 		jsPage.SetWorkHistoryStartYear(WorkHistory.getStartYear());
 
@@ -47,7 +48,8 @@ public class JSQuickRegistrationAction {
 
 	public void FillEducation(UserEducation Education) throws Exception {
 		jsPage.ExpandEducation();
-		jsPage.SelectEducation(Education.getInstitution(),Education.getLocation());
+		jsPage.SelectEducation(Education.getInstitution(),
+				Education.getLocation());
 		jsPage.SelectDegree(Education.getDegree());
 		jsPage.SetAreaOfStudy(Education.getAreaOfStudy());
 		jsPage.SetEducationStartMonth(Education.getStartMonth());
@@ -86,9 +88,9 @@ public class JSQuickRegistrationAction {
 		jsPage.SetReferennceEmail(references.getEmail());
 	}
 
-	public void SecondStage(UserWorkHistory UserWorkHistory,
-			Media UserMedia, UserEducation UserEdu, UserReferences UserRef,
-			String[] UserSkills, UserAbout UserAbout) throws Exception {
+	public void SecondStage(UserWorkHistory UserWorkHistory, Media UserMedia,
+			UserEducation UserEdu, UserReferences UserRef, String[] UserSkills,
+			UserAbout UserAbout) throws Exception {
 		FillWorkHistory(UserWorkHistory);
 		FillUserMedia(UserMedia);
 		jsPage.SelectAvailability(true, true, false);

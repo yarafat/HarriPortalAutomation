@@ -3,6 +3,7 @@ package com.pack.common.pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MainRegistration {
@@ -106,8 +107,9 @@ public class MainRegistration {
 		}
 	}
 
-	public void ClickContinueButton() {
+	public void ClickContinueButton() throws Exception {
 		try {
+			Thread.sleep(2000);
 			WebElement continue_btn = driver.findElement(MainContinueButton);
 			continue_btn.click();
 			System.out.println("Element was found and clicked successfully");

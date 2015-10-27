@@ -4,10 +4,11 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.pack.utils.GeneralSelectors;
+
 public class JSQuickRegistration {
 	protected WebDriver driver;
 	private WebDriverWait wait;
-	private String NewEntry = "Keep typing to create your own entry";
 	private By FirstName = By
 			.xpath("//*[@id='app-quick-reg-form']/div[1]/div[1]/div[1]/div/input");
 	private By LastName = By
@@ -61,7 +62,8 @@ public class JSQuickRegistration {
 	private By IstillWorkHere = By
 			.xpath("//*[@id='work_history_2-form-cont']/h-form/div/form/div[1]/ng-form/div[3]/div[3]/div/label/div/i");
 	private By ProfileImageInputFile = By
-			.xpath("//*[@id='application-cont']/div[2]/div/div/div/div[3]/div[2]/div/div[5]/div/div/div/div[3]/div[4]/h-form/form/div[2]/div/div[2]/div/input");
+					//*[@id="application-cont"]/div[2]/div/div/div/div[3]/div[2]/div/div[5]/div/div/div/div[3]/div[3]/h-form/form/div[2]/div/div[2]/div/input
+			.xpath("//*[@id='application-cont']/div[2]/div/div/div/div[3]/div[2]/div/div[5]/div/div/div/div[3]/div[3]/h-form/form/div[2]/div/div[2]/div/input");
 	private By UploadButton = By
 			.xpath("//*[@id='harriApp']/div[1]/span[1]/image-cropping/div/div[1]/div[2]/div/div/div[5]/div/div[4]");
 	private By AnyTime = By
@@ -279,67 +281,17 @@ public class JSQuickRegistration {
 	}
 
 	public void SelectWorkHistory(String SelectedName, String SelectedLocation) {
-		try {
-			WebElement work_history = driver.findElement(WorkHistoryDropDown);
-			work_history.click();
-			wait.until(ExpectedConditions
-					.visibilityOfElementLocated(WorkHistoryTextBox));
-			WebElement work_history_txtbox = driver
-					.findElement(WorkHistoryTextBox);
-			work_history_txtbox.sendKeys(SelectedName);
-			if (SelectedLocation == null) {
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By
-						.xpath("//small[contains(text(),'" + NewEntry + "')]")));
-				driver.findElement(
-						By.xpath("//small[contains(text(),'" + NewEntry + "')]"))
-						.click();
-
-			} else {
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By
-						.xpath("//small[contains(text(),'" + SelectedLocation
-								+ "')]")));
-				driver.findElement(
-						By.xpath("//small[contains(text(),'" + SelectedLocation
-								+ "')]")).click();
-			}
-			System.out.println("Element was found and clicked successfully");
-		} catch (Exception ex) {
-			System.out.println("Error: " + ex.getMessage());
-			throw (ex);
-		}
+		GeneralSelectors selector = new GeneralSelectors(driver);
+		selector.SelectWorkHistory(SelectedName, SelectedLocation,
+				WorkHistoryDropDown, WorkHistoryTextBox, 15);
 	}
 
 	public void SelectPosition(String SelectedPosition, boolean NewPosition)
 			throws Exception {
-		try {
-			Thread.sleep(6000);
-			WebElement work_history = driver.findElement(WorkHistoryPosition);
-			work_history.click();
-			wait.until(ExpectedConditions
-					.visibilityOfElementLocated(WorkHistoryPositionTextBox));
-			WebElement work_history_txtbox = driver
-					.findElement(WorkHistoryPositionTextBox);
-			work_history_txtbox.sendKeys(SelectedPosition);
-			if (NewPosition) {
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By
-						.xpath("//strong[contains(text(),'" + SelectedPosition
-								+ "')]")));
-				driver.findElement(
-						By.xpath("//strong[contains(text(),'"
-								+ SelectedPosition + "')]")).click();
-			} else {
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By
-						.xpath("//*[contains(text(),'" + SelectedPosition
-								+ "')]")));
-				driver.findElement(
-						By.xpath("//*[contains(text(),'" + SelectedPosition
-								+ "')]")).click();
-			}
-			System.out.println("Element was found and clicked successfully");
-		} catch (Exception ex) {
-			System.out.println("Error: " + ex.getMessage());
-			throw (ex);
-		}
+		GeneralSelectors selector = new GeneralSelectors(driver);
+		selector.SelectPosition(SelectedPosition, NewPosition,
+				WorkHistoryPosition, WorkHistoryPositionTextBox, 5);
+
 	}
 
 	public void SetWorkHistoryStartMonth(String workStarMonth) {
@@ -461,48 +413,15 @@ public class JSQuickRegistration {
 	}
 
 	public void UploadImage(String ImageURL) throws Exception {
-		try {
-			driver.findElement(
-					By.xpath("//*[@id='application-cont']/div[2]/div/div/div/div[3]/div[2]/div/div[5]/div/div/div/div[3]/div[4]/h-form/form/div[2]"))
-					.click();
-			;
-			WebElement uploadInputField = driver
-					.findElement(ProfileImageInputFile);
-			uploadInputField.sendKeys(ImageURL);
-			wait.until(ExpectedConditions
-					.invisibilityOfElementLocated(UploadButton));
-			Thread.sleep(3000);
-			WebElement SaveButton = driver.findElement(UploadButton);
-			SaveButton.click();
-			Thread.sleep(7000);
-			System.out.println("Element was found and clicked successfully");
-		} catch (Exception ex) {
-			System.out.println("Error: " + ex.getMessage());
-			throw (ex);
-		}
+		GeneralSelectors selector = new GeneralSelectors(driver);
+		selector.UploadImage(ImageURL, UploadButton, ProfileImageInputFile, 10);
 
 	}
 
 	public void SelectAvailability(boolean Anytime, boolean Fulltime,
 			boolean Parttime) {
-		try {
-			if (Anytime) {
-				WebElement anytime = driver.findElement(AnyTime);
-				anytime.click();
-			}
-			if (Fulltime) {
-				WebElement fulltime = driver.findElement(FullTime);
-				fulltime.click();
-			}
-			if (Parttime) {
-				WebElement parttime = driver.findElement(PartTime);
-				parttime.click();
-			}
-			System.out.println("Element was found and clicked successfully");
-		} catch (Exception ex) {
-			System.out.println("Error: " + ex.getMessage());
-			throw (ex);
-		}
+		GeneralSelectors selector = new GeneralSelectors(driver);
+		selector.SelectAvailability(Anytime, Fulltime, Parttime, AnyTime, FullTime, PartTime,5);
 
 	}
 
@@ -564,26 +483,8 @@ public class JSQuickRegistration {
 	}
 
 	public void SelectSkills(String[] skills) {
-		try {
-
-			JavascriptExecutor jse = (JavascriptExecutor) driver;
-			jse.executeScript("arguments[0].scrollTop = arguments[1];",
-					driver.findElement(ExpandSkills), 100);
-			WebElement skills_input = driver.findElement(SkillsInputTxt);
-			skills_input.click();
-			for (int i = 0; i < skills.length; i++) {
-				skills_input.sendKeys(skills[i]);
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By
-						.xpath("//*[contains(text(),'" + skills[i] + "')]")));
-				driver.findElement(
-						By.xpath("//*[contains(text(),'" + skills[i] + "')]"))
-						.click();
-			}
-
-		} catch (Exception ex) {
-			System.out.println("Error: " + ex.getMessage());
-			throw (ex);
-		}
+		GeneralSelectors selector = new GeneralSelectors(driver);
+		selector.SelectSkills(skills, SkillsInputTxt, 5);
 	}
 
 	public void ExpandAbout() {
@@ -649,55 +550,14 @@ public class JSQuickRegistration {
 
 	public void SelectEducation(String SelectedInstitution,
 			String InstitutionLocation) {
-		try {
-			wait.until(ExpectedConditions
-					.visibilityOfElementLocated(EducationDropDown));
-			WebElement education = driver.findElement(EducationDropDown);
-			education.click();
-			wait.until(ExpectedConditions
-					.visibilityOfElementLocated(EducationTextBox));
-			WebElement education_txtbox = driver.findElement(EducationTextBox);
-			education_txtbox.sendKeys(SelectedInstitution);
-			if (InstitutionLocation == null) {
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By
-						.xpath("//*[contains(text(),'" + SelectedInstitution
-								+ "')]")));
-				driver.findElement(
-						By.xpath("//*[contains(text(),'" + SelectedInstitution
-								+ "')]")).click();
-			} else {
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By
-						.xpath("//small[contains(text(),'"
-								+ InstitutionLocation + "')]")));
-				driver.findElement(
-						By.xpath("//small[contains(text(),'"
-								+ InstitutionLocation + "')]")).click();
-			}
-			System.out.println("Element was found and clicked successfully");
-		} catch (Exception ex) {
-			System.out.println("Error: " + ex.getMessage());
-			throw (ex);
-		}
+		GeneralSelectors selector = new GeneralSelectors(driver);
+		selector.SelectEducation(SelectedInstitution, InstitutionLocation,
+				EducationDropDown, EducationTextBox, 10);
 	}
 
 	public void SelectDegree(String degree) {
-		try {
-			wait.until(ExpectedConditions
-					.visibilityOfElementLocated(DegreeDropDown));
-			WebElement degree_dropdown = driver.findElement(DegreeDropDown);
-			degree_dropdown.click();
-			wait.until(ExpectedConditions
-					.visibilityOfElementLocated(DegreeTextBox));
-			WebElement degree_textbox = driver.findElement(DegreeTextBox);
-			degree_textbox.sendKeys(degree);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By
-					.xpath("//*[contains(text(),'" + degree + "')]")));
-			driver.findElement(
-					By.xpath("//*[contains(text(),'" + degree + "')]")).click();
-		} catch (Exception ex) {
-			System.out.println("Error: " + ex.getMessage());
-			throw (ex);
-		}
+		GeneralSelectors selector = new GeneralSelectors(driver);
+		selector.SelectDegree(degree, DegreeDropDown, DegreeTextBox, 5);
 
 	}
 

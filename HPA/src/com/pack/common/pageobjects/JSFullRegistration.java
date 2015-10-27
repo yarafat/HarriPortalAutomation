@@ -6,10 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.pack.utils.GeneralSelectors;
+
 public class JSFullRegistration {
 	protected WebDriver driver;
 	private WebDriverWait wait;
-	private String NewEntry = "Keep typing to create your own entry";
 	private By LookingForJobs = By.id("user_type-0");
 	private By UserTypeContinueButton = By
 			.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[3]/div/form/div[3]/button");
@@ -104,12 +105,19 @@ public class JSFullRegistration {
 	private By Bio = By.id("bio");
 	private By AboutContinue = By
 			.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[15]/div/form/div[4]/button");
+
 	private By ImageUpload = By
 			.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[16]/div[2]/form/div[2]/div[2]/div[1]/input");
 	private By SavePhoto = By
 			.xpath("//*[@id='harriApp']/div[1]/div[2]/div[1]/image-cropping/div/div[1]/div[2]/div/div/div[5]/div/div[4]");
 	private By MediaContinue = By
 			.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[16]/div[2]/form/div[11]/button");
+	private By CoverUpload = By
+			.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[16]/div[2]/form/div[4]/div[2]/div[1]/input");
+	private By AddtionalImages = By
+			.xpath("//*[@id='upload-btn-box']/div[1]/input");
+	private By LinkVideo = By.xpath("//*[@id='upload-btn-box']/div[2]");
+
 	private By ReferenceName = By
 			.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[18]/div/form/div[2]/div/div[1]/div[1]/input");
 	private By ReferencePhone = By
@@ -180,34 +188,11 @@ public class JSFullRegistration {
 	}
 
 	public void FillWorkHistory(String SelectedCompany, String SelectedLocation) {
-		try {
-			WebElement work_history = driver.findElement(WorkExperience);
-			work_history.click();
-			wait.until(ExpectedConditions
-					.visibilityOfElementLocated(WorkExperienceTextbox));
-			WebElement work_history_txtbox = driver
-					.findElement(WorkExperienceTextbox);
-			work_history_txtbox.sendKeys(SelectedCompany);
-			if (SelectedLocation == null) {
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By
-						.xpath("//small[contains(text(),'" + NewEntry + "')]")));
-				driver.findElement(
-						By.xpath("//small[contains(text(),'" + NewEntry + "')]"))
-						.click();
 
-			} else {
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By
-						.xpath("//small[contains(text(),'" + SelectedLocation
-								+ "')]")));
-				driver.findElement(
-						By.xpath("//small[contains(text(),'" + SelectedLocation
-								+ "')]")).click();
-			}
-			System.out.println("Element was found and clicked successfully");
-		} catch (Exception ex) {
-			System.out.println("Error: " + ex.getMessage());
-			throw (ex);
-		}
+		GeneralSelectors selector = new GeneralSelectors(driver);
+		selector.SelectWorkHistory(SelectedCompany, SelectedLocation,
+				WorkExperience, WorkExperienceTextbox, 10);
+
 	}
 
 	public void ClickWorkHistoryContinue() {
@@ -224,35 +209,9 @@ public class JSFullRegistration {
 
 	public void SelectPosition(String SelectedPosition, boolean NewPosition)
 			throws Exception {
-		try {
-			Thread.sleep(6000);
-			WebElement work_history = driver.findElement(Position);
-			work_history.click();
-			wait.until(ExpectedConditions
-					.visibilityOfElementLocated(PositionTextbox));
-			WebElement work_history_txtbox = driver
-					.findElement(PositionTextbox);
-			work_history_txtbox.sendKeys(SelectedPosition);
-			if (NewPosition) {
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By
-						.xpath("//strong[contains(text(),'" + SelectedPosition
-								+ "')]")));
-				driver.findElement(
-						By.xpath("//strong[contains(text(),'"
-								+ SelectedPosition + "')]")).click();
-			} else {
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By
-						.xpath("//*[contains(text(),'" + SelectedPosition
-								+ "')]")));
-				driver.findElement(
-						By.xpath("//*[contains(text(),'" + SelectedPosition
-								+ "')]")).click();
-			}
-			System.out.println("Element was found and clicked successfully");
-		} catch (Exception ex) {
-			System.out.println("Error: " + ex.getMessage());
-			throw (ex);
-		}
+		GeneralSelectors selector = new GeneralSelectors(driver);
+		selector.SelectPosition(SelectedPosition, NewPosition, Position,
+				PositionTextbox, 10);
 	}
 
 	public void SetWorkHistoryStartMonth(String workStarMonth) {
@@ -374,22 +333,8 @@ public class JSFullRegistration {
 	}
 
 	public void SelectSkills(String[] skills) {
-		try {
-			WebElement skills_input = driver.findElement(Skills);
-			skills_input.click();
-			for (int i = 0; i < skills.length; i++) {
-				skills_input.sendKeys(skills[i]);
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By
-						.xpath("//*[contains(text(),'" + skills[i] + "')]")));
-				driver.findElement(
-						By.xpath("//*[contains(text(),'" + skills[i] + "')]"))
-						.click();
-			}
-
-		} catch (Exception ex) {
-			System.out.println("Error: " + ex.getMessage());
-			throw (ex);
-		}
+		GeneralSelectors selector = new GeneralSelectors(driver);
+		selector.SelectSkills(skills, Skills, 5);
 	}
 
 	public void ClickSkillsContinue() {
@@ -406,54 +351,14 @@ public class JSFullRegistration {
 
 	public void SelectEducation(String SelectedInstitution,
 			String InstitutionLocation) {
-		try {
-			wait.until(ExpectedConditions.visibilityOfElementLocated(Eduction));
-			WebElement education = driver.findElement(Eduction);
-			education.click();
-			wait.until(ExpectedConditions
-					.visibilityOfElementLocated(EducationTextBox));
-			WebElement education_txtbox = driver.findElement(EducationTextBox);
-			education_txtbox.sendKeys(SelectedInstitution);
-			if (InstitutionLocation == null) {
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By
-						.xpath("//*[contains(text(),'" + SelectedInstitution
-								+ "')]")));
-				driver.findElement(
-						By.xpath("//*[contains(text(),'" + SelectedInstitution
-								+ "')]")).click();
-			} else {
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By
-						.xpath("//small[contains(text(),'"
-								+ InstitutionLocation + "')]")));
-				driver.findElement(
-						By.xpath("//small[contains(text(),'"
-								+ InstitutionLocation + "')]")).click();
-			}
-			System.out.println("Element was found and clicked successfully");
-		} catch (Exception ex) {
-			System.out.println("Error: " + ex.getMessage());
-			throw (ex);
-		}
+		GeneralSelectors selector = new GeneralSelectors(driver);
+		selector.SelectEducation(SelectedInstitution, InstitutionLocation,
+				Eduction, EducationTextBox, 15);
 	}
 
 	public void SelectDegree(String degree) {
-		try {
-			wait.until(ExpectedConditions.visibilityOfElementLocated(Degree));
-			WebElement degree_dropdown = driver.findElement(Degree);
-			degree_dropdown.click();
-			wait.until(ExpectedConditions
-					.visibilityOfElementLocated(DegreeTextBox));
-			WebElement degree_textbox = driver.findElement(DegreeTextBox);
-			degree_textbox.sendKeys(degree);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By
-					.xpath("//*[contains(text(),'" + degree + "')]")));
-			driver.findElement(
-					By.xpath("//*[contains(text(),'" + degree + "')]")).click();
-		} catch (Exception ex) {
-			System.out.println("Error: " + ex.getMessage());
-			throw (ex);
-		}
-
+		GeneralSelectors selector = new GeneralSelectors(driver);
+		selector.SelectDegree(degree, Degree, DegreeTextBox, 5);
 	}
 
 	public void SetAreaOfStudy(String areaofstudy) throws Exception {
@@ -580,6 +485,8 @@ public class JSFullRegistration {
 
 	public void ClickEducationContinue() {
 		try {
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(EductionContinue));
 			WebElement edu_continue = driver.findElement(EductionContinue);
 			edu_continue.click();
 			System.out.println("Element was found and clicked successfully");
@@ -614,24 +521,9 @@ public class JSFullRegistration {
 
 	public void SelectAvailability(boolean Anytime, boolean Fulltime,
 			boolean Parttime) {
-		try {
-			if (Anytime) {
-				WebElement anytime = driver.findElement(AnyTime);
-				anytime.click();
-			}
-			if (Fulltime) {
-				WebElement fulltime = driver.findElement(FullTime);
-				fulltime.click();
-			}
-			if (Parttime) {
-				WebElement parttime = driver.findElement(PartTime);
-				parttime.click();
-			}
-			System.out.println("Element was found and clicked successfully");
-		} catch (Exception ex) {
-			System.out.println("Error: " + ex.getMessage());
-			throw (ex);
-		}
+		GeneralSelectors selector = new GeneralSelectors(driver);
+		selector.SelectAvailability(Anytime, Fulltime, Parttime, AnyTime,
+				FullTime, PartTime, 5);
 
 	}
 
@@ -650,6 +542,7 @@ public class JSFullRegistration {
 
 	public void SetFirstWord(String word1) {
 		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(Word1));
 			WebElement first_word = driver.findElement(Word1);
 			first_word.sendKeys(word1);
 		} catch (Exception ex) {
@@ -660,6 +553,7 @@ public class JSFullRegistration {
 
 	public void SetSecondWord(String word2) {
 		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(Word2));
 			WebElement second_word = driver.findElement(Word2);
 			second_word.sendKeys(word2);
 		} catch (Exception ex) {
@@ -670,6 +564,7 @@ public class JSFullRegistration {
 
 	public void SetThirdWord(String word3) {
 		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(Word3));
 			WebElement third_word = driver.findElement(Word3);
 			third_word.sendKeys(word3);
 		} catch (Exception ex) {
@@ -701,20 +596,24 @@ public class JSFullRegistration {
 	}
 
 	public void UploadImage(String ImageURL) throws Exception {
+		GeneralSelectors selector = new GeneralSelectors(driver);
+		selector.UploadImage(ImageURL, SavePhoto, ImageUpload, 10);
+	}
+
+	public void UploadCover(String ImageURL) throws Exception {
 		try {
-			WebElement uploadInputField = driver.findElement(ImageUpload);
+			WebElement uploadInputField = driver.findElement(CoverUpload);
 			uploadInputField.sendKeys(ImageURL);
-			wait.until(ExpectedConditions
-					.invisibilityOfElementLocated(SavePhoto));
 			Thread.sleep(3000);
-			WebElement SaveButton = driver.findElement(SavePhoto);
-			SaveButton.click();
-			Thread.sleep(7000);
 			System.out.println("Element was found and clicked successfully");
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
 			throw (ex);
 		}
+	}
+
+	public void UploadAddtionalMedia() {
+
 	}
 
 	public void MediaContinue() {
@@ -730,6 +629,8 @@ public class JSFullRegistration {
 
 	public void SetReferennceName(String Referencename) {
 		try {
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(ReferenceName));
 			WebElement reference_name = driver.findElement(ReferenceName);
 			reference_name.sendKeys(Referencename);
 			System.out.println("Keys were sent successfully");
@@ -741,6 +642,8 @@ public class JSFullRegistration {
 
 	public void SetReferenncePhone(String Referencephone) {
 		try {
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(ReferencePhone));
 			WebElement reference_phone = driver.findElement(ReferencePhone);
 			reference_phone.sendKeys(Referencephone);
 			System.out.println("Keys were sent successfully");
@@ -752,6 +655,8 @@ public class JSFullRegistration {
 
 	public void SetReferennceCompany(String Referencecompany) {
 		try {
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(ReferenceCompany));
 			WebElement reference_company = driver.findElement(ReferenceCompany);
 			reference_company.sendKeys(Referencecompany);
 			System.out.println("Keys were sent successfully");
@@ -763,6 +668,8 @@ public class JSFullRegistration {
 
 	public void SetReferennceEmail(String Referenceemail) {
 		try {
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(ReferenceEmail));
 			WebElement reference_email = driver.findElement(ReferenceEmail);
 			reference_email.sendKeys(Referenceemail);
 			System.out.println("Keys were sent successfully");
