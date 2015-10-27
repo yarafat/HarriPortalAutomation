@@ -3,6 +3,7 @@ package com.pack.common.pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -32,6 +33,7 @@ public class MainRegistration {
 
 	public void FillFirstName(String fname) {
 		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(Firstname));
 			WebElement firstname = driver.findElement(Firstname);
 			firstname.sendKeys(fname);
 			System.out.println("keys were sent successfully");
@@ -77,7 +79,15 @@ public class MainRegistration {
 	public void FillPassword(String password) {
 		try {
 			WebElement pass = driver.findElement(Password);
-			pass.sendKeys(password);
+			Actions actions = new Actions(driver);
+			actions.moveToElement(pass);
+			actions.click();
+			actions.sendKeys(password);
+			actions.build().perform();
+
+			/*
+			 * pass.click(); pass.sendKeys(password);
+			 */
 			System.out.println("keys were sent successfully");
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
@@ -109,7 +119,7 @@ public class MainRegistration {
 
 	public void ClickContinueButton() throws Exception {
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 			WebElement continue_btn = driver.findElement(MainContinueButton);
 			continue_btn.click();
 			System.out.println("Element was found and clicked successfully");

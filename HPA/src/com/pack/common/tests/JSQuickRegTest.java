@@ -2,8 +2,6 @@ package com.pack.common.tests;
 
 import java.io.FileNotFoundException;
 
-import junit.framework.Assert;
-
 import org.testng.annotations.Test;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;

@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Page Object test example" duration-ms="57065" started-at="2015-10-27T12:49:46Z" finished-at="2015-10-27T12:50:43Z">
+  <suite name="Page Object test example" duration-ms="71318" started-at="2015-10-27T13:22:27Z" finished-at="2015-10-27T13:23:39Z">
     <groups>
     </groups>
-    <test name="sample test" duration-ms="57065" started-at="2015-10-27T12:49:46Z" finished-at="2015-10-27T12:50:43Z">
+    <test name="sample test" duration-ms="71318" started-at="2015-10-27T13:22:27Z" finished-at="2015-10-27T13:23:39Z">
       <class name="com.pack.common.tests.EmployerQuickRegTest">
-        <test-method status="PASS" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:com.pack.common.tests.EmployerQuickRegTest@6fffcba5]" name="initializeTestBaseSetup" is-config="true" duration-ms="56971" started-at="2015-10-27T14:49:46Z" finished-at="2015-10-27T14:50:43Z">
+        <test-method status="PASS" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:com.pack.common.tests.EmployerQuickRegTest@6fffcba5]" name="initializeTestBaseSetup" is-config="true" duration-ms="71193" started-at="2015-10-27T15:22:27Z" finished-at="2015-10-27T15:23:39Z">
           <params>
             <param index="0">
               <value>
@@ -23,15 +23,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeTestBaseSetup -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.pack.common.tests.EmployerQuickRegTest@6fffcba5]" name="setUp" is-config="true" duration-ms="2" started-at="2015-10-27T14:50:43Z" finished-at="2015-10-27T14:50:43Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.pack.common.tests.EmployerQuickRegTest@6fffcba5]" name="setUp" is-config="true" duration-ms="0" started-at="2015-10-27T15:23:39Z" finished-at="2015-10-27T15:23:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="TestEmpRegFirstStage()[pri:0, instance:com.pack.common.tests.EmployerQuickRegTest@6fffcba5]" name="TestEmpRegFirstStage" duration-ms="58" started-at="2015-10-27T14:50:43Z" finished-at="2015-10-27T14:50:43Z">
+        <test-method status="PASS" signature="TestEmpRegFirstStage()[pri:0, instance:com.pack.common.tests.EmployerQuickRegTest@6fffcba5]" name="TestEmpRegFirstStage" duration-ms="47" started-at="2015-10-27T15:23:39Z" finished-at="2015-10-27T15:23:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestEmpRegFirstStage -->
-        <test-method status="FAIL" signature="tearDown()[pri:0, instance:com.pack.common.tests.EmployerQuickRegTest@6fffcba5]" name="tearDown" is-config="true" duration-ms="0" started-at="2015-10-27T14:50:43Z" finished-at="2015-10-27T14:50:43Z">
+        <test-method status="FAIL" signature="tearDown()[pri:0, instance:com.pack.common.tests.EmployerQuickRegTest@6fffcba5]" name="tearDown" is-config="true" duration-ms="0" started-at="2015-10-27T15:23:39Z" finished-at="2015-10-27T15:23:39Z">
           <exception class="java.lang.NullPointerException">
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException

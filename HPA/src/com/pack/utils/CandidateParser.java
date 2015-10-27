@@ -51,7 +51,7 @@ public class CandidateParser {
 			row = sheet.getRow(candidate_number);
 			// Change the type of the cells to string before reading
 			for (int i = 0; i < 7; i++) {
-				 row.getCell(i,row.CREATE_NULL_AS_BLANK).setCellType(1);
+				 row.getCell(i,Row.CREATE_NULL_AS_BLANK).setCellType(1);
 			}
 			// Parse the work_history section
 
