@@ -32,12 +32,12 @@ public class BrandParser {
 		BrandParser.brand_number = brand_number;
 	}
 	
-	public static void main(String [ ] args)
+	public  void main(String [ ] args)
 	{
 	  parse();
 	}
 
-	public static void parse() {
+	public  Brand parse() {
 		try {
 
 			FileInputStream file = new FileInputStream(new File(
@@ -70,6 +70,7 @@ public class BrandParser {
 			 brand.setBusinessEmail(row.getCell(4).toString());
 			 brand.setGroupName(row.getCell(5).toString());
 			 brand.setMedia(brand_media);
+			 brand.setDescription(row.getCell(7).toString());
 			// Print brand details
 			 System.out.println(brand.toString());
 			file.close();
@@ -77,12 +78,13 @@ public class BrandParser {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return brand;
 	}
 
 	
 	
 
-	public static  void parse_brand_media() {
+	public   void parse_brand_media() {
 		try
 
 		{

@@ -8,15 +8,18 @@
 */
 package com.pack.common.tests;
 import java.io.FileNotFoundException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
 import com.pack.base.TestBaseSetup;
 import com.pack.common.actions.EmpQuickRegActions;
 import com.pack.common.pageobjects.HomePage;
 import com.pack.entities.Brand;
+import com.pack.utils.BrandParser;
 import com.pack.utils.CandidateParser;
 import com.pack.utils.EmailsGenerator;
 import com.pack.entities.Candidate;
@@ -33,49 +36,26 @@ private Errors Actual;
 	{
 		EmailsGenerator Email=new EmailsGenerator();
 		Email.SetEmail("EMPLOYER");
-		CandidateParser ParsEMpUserInfo=new CandidateParser(2);
-		//empInfo=ParsEMpUserInfo.parse();
+		CandidateParser ParsEMpUserInfo=new CandidateParser(4);
+	    empInfo=ParsEMpUserInfo.parse();
 		
 		if(empInfo!=null)
-		{	
+		{	if(empInfo.getEmail()==null )
 			empInfo.setEmail(Email.getEmail());
-			/*	empInfo.setFirstUserName("Test");
-			empInfo.setLastUserName("Test");
-			empInfo.setPhoneNumber("0597395494");
-		
-			empInfo.setPassword("123123");
-			empInfo.setDescription("Redline Tuning are an Essex based "
-					+ "engine tuning company, which specialise in vehicle "
-					+ "performance enhancements. With over 10 years experience, "
-					+ "fully qualified Ford main agent technicians and the very"
-					+ "latest in leading computer diagnostics, you’ll feel safe in the "
-					+ "knowledge your car couldn’t be in better hands.");
-
-			empInfo.setProfileLogoPath("C:\\Users\\Harri\\Desktop\\test.jpg");*/
-		
+	
 		}
 		return empInfo;
 	}
 	
-	private Brand SetBrandInfo(Brand BrandInfo)
+	private Brand SetBrandInfo(Brand BrandInfo) throws FileNotFoundException
 	{
-		if(BrandInfo!=null)
-		{
-			BrandInfo.setBrandName("Redline tuning");
-		//	BrandInfo.setBrandLocation("Ha-Banai Street 29, Holon, 58857, Israel");
-			BrandInfo.setHecs("Event/Catering");
-			BrandInfo.setCuisine("American");
-			BrandInfo.setGroupName("HarriTest");
-			//We should use the media object here
-		//	BrandInfo.setProfileLogoPath("C:\\Users\\Harri\\Desktop\\test.jpg");
-			BrandInfo.setHecs("Event/Catering");
-			BrandInfo.setCuisine("American");
-		}
+		BrandParser ParsBrandInfo=new BrandParser(2);
+		BrandInfo=ParsBrandInfo.parse();
 		return BrandInfo;
 	}
 
 
-	
+	@Test
 	public void TestEmpRegFirstStage()
 	{
 		HomePage Home;
@@ -114,7 +94,7 @@ private Errors Actual;
 	    	System.out.println("Error: " + e.getMessage());
 	    }
 	}
-	@Test
+	
 	public void TestEmpQuickRegFullstages()
 	{
 		HomePage Home;
