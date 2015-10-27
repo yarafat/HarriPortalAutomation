@@ -108,6 +108,7 @@ public class JSFullRegistration {
 
 	private By ImageUpload = By
 			.xpath("//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[16]/div[2]/form/div[2]/div[2]/div[1]/input");
+	
 	private By SavePhoto = By
 			.xpath("//*[@id='harriApp']/div[1]/div[2]/div[1]/image-cropping/div/div[1]/div[2]/div/div/div[5]/div/div[4]");
 	private By MediaContinue = By
@@ -191,7 +192,7 @@ public class JSFullRegistration {
 
 		GeneralSelectors selector = new GeneralSelectors(driver);
 		selector.SelectWorkHistory(SelectedCompany, SelectedLocation,
-				WorkExperience, WorkExperienceTextbox, 10);
+				WorkExperience, WorkExperienceTextbox, 20);
 
 	}
 
@@ -334,7 +335,7 @@ public class JSFullRegistration {
 
 	public void SelectSkills(String[] skills) {
 		GeneralSelectors selector = new GeneralSelectors(driver);
-		selector.SelectSkills(skills, Skills, 5);
+		selector.SelectSkills(skills, Skills, 10);
 	}
 
 	public void ClickSkillsContinue() {
@@ -367,7 +368,7 @@ public class JSFullRegistration {
 			// area_of_study.clear();
 			area_of_study.sendKeys(areaofstudy);
 			System.out.println("Keys were sent successfully");
-			// Thread.sleep(3000);
+			Thread.sleep(3000);
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
 			throw (ex);
@@ -597,7 +598,7 @@ public class JSFullRegistration {
 
 	public void UploadImage(String ImageURL) throws Exception {
 		GeneralSelectors selector = new GeneralSelectors(driver);
-		selector.UploadImage(ImageURL, SavePhoto, ImageUpload, 10);
+		selector.UploadImage(ImageURL, SavePhoto, ImageUpload, 20);
 	}
 
 	public void UploadCover(String ImageURL) throws Exception {

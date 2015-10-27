@@ -34,7 +34,7 @@ public class JSFullRegistrationActions {
 		main.FillEmail(testCan.getEmail());
 		main.FillPhone(testCan.getPhoneNumber());
 		main.FillPassword(testCan.getPassword());
-		main.ConfirmPassword(testCan.getConfirmPassword());
+		//main.ConfirmPassword(testCan.getConfirmPassword());
 		main.ClickContinueButton();
 	}
 

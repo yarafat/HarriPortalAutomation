@@ -191,6 +191,7 @@ public class JSQuickRegistration {
 
 	public void SetPassword(String pass) {
 		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(Password));
 			WebElement password = driver.findElement(Password);
 			password.sendKeys(pass);
 			System.out.println("keys were sent successfully");
@@ -567,7 +568,7 @@ public class JSQuickRegistration {
 			// area_of_study.clear();
 			area_of_study.sendKeys(areaofstudy);
 			System.out.println("Keys were sent successfully");
-			// Thread.sleep(3000);
+			Thread.sleep(3000);
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
 			throw (ex);
