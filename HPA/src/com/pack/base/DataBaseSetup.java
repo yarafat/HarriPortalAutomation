@@ -5,6 +5,7 @@ import java.sql.*;
 public class DataBaseSetup {
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	static final String DB_URL = "jdbc:mysql://harri-api-test.cvuu9acg76dy.us-east-1.rds.amazonaws.com/harri3_beta";
+	Connection conn = null;
 	Statement stmt = null;
 	static final String USER = "harriu";
 	static final String PASS = "asdf123!";
