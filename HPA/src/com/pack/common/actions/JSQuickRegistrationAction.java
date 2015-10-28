@@ -25,7 +25,7 @@ public class JSQuickRegistrationAction {
 		jsPage.SetEmailAddress(testCan.getEmail());
 		jsPage.SetPhoneNumber(testCan.getPhoneNumber());
 		jsPage.SetPassword(testCan.getPassword());
-		jsPage.ConfirmPassword(testCan.getConfirmPassword());
+		//jsPage.ConfirmPassword(testCan.getConfirmPassword());
 		jsPage.ClickContinueButton();
 	}
 

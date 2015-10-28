@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 
+import com.pack.base.DataBaseSetup;
 import com.pack.base.TestBaseSetup;
 import com.pack.common.actions.JSQuickRegistrationAction;
 import com.pack.common.pageobjects.JSQuickRegistration;
@@ -34,13 +35,16 @@ public class JSQuickRegTest extends TestBaseSetup {
 	private CandidateParser parser;
 	private Candidate testCan;
 	String Email;
+	private DataBaseSetup db;
 
 	@BeforeClass
 	public void setUp() {
+		db= new DataBaseSetup();
+		System.out.println("testing DB connection");
+		db.InitiateConnection();
 		driver = getDriver();
 		JSQuickRegPage=new JSQuickRegistration(driver);
 		action = new JSQuickRegistrationAction(driver);
-		
 		try {
 			parser=new CandidateParser(3);
 			
@@ -69,11 +73,12 @@ public class JSQuickRegTest extends TestBaseSetup {
 				JSQuickRegPage.FirstLoginHint());*/
 	}
 
-	@Test
+	/*@Test
 	public void VerifySecondStageFunctionality() throws Exception {
+		
 		System.out.println("Vefifying JS Quick Registration Second Stage..");
 		action.SecondStage(testUserHis, testUserMeida, testUserEdu, testUserRef, skills, testUserAbout);
 
-	}
+	}*/
 
 }

@@ -1,6 +1,7 @@
 package com.pack.common.pageobjects;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -18,7 +19,7 @@ public class JSQuickRegistration {
 	private By PhoneNumber = By
 			.xpath("//*[@id='app-quick-reg-form']/div[2]/div[2]/div[1]/div/input");
 	private By Password = By
-			.xpath("//*[@id='app-quick-reg-form']/div[3]/div[1]/div[1]/div/input");
+			.id("password");
 	private By ConfimrPassword = By
 			.xpath("//*[@id='app-quick-reg-form']/div[3]/div[2]/div[1]/div/input");
 	private By ContinueButton = By
@@ -62,6 +63,7 @@ public class JSQuickRegistration {
 	private By IstillWorkHere = By
 			.xpath("//*[@id='work_history_2-form-cont']/h-form/div/form/div[1]/ng-form/div[3]/div[3]/div/label/div/i");
 	private By ProfileImageInputFile = By
+			//*[@id="application-cont"]/div[2]/div/div/div/div[3]/div[2]/div/div[5]/div/div/div/div[3]/div[4]/h-form/form/div[2]/div/div[2]/div/input
 					//*[@id="application-cont"]/div[2]/div/div/div/div[3]/div[2]/div/div[5]/div/div/div/div[3]/div[3]/h-form/form/div[2]/div/div[2]/div/input
 			.xpath("//*[@id='application-cont']/div[2]/div/div/div/div[3]/div[2]/div/div[5]/div/div/div/div[3]/div[3]/h-form/form/div[2]/div/div[2]/div/input");
 	private By UploadButton = By
@@ -130,7 +132,7 @@ public class JSQuickRegistration {
 			.xpath("//*[@id='location-form-cont']/h-form/form/div[2]/div[2]/div[1]/span/span[1]/div/div[2]/div/input");
 	private By DeleteLocation = By
 			.xpath("//*[@id='location-form-cont']/h-form/form/div[2]/div[2]/div[3]/div/div/div/div/div/div[2]/button");
-	private By HintMsg = By.id("app-reg-welcome-text");
+	private By HintMsg = By.xpath("//*[@id='resume-form-cont']/h-form/div/form/div[1]/div/p[1]");
 
 	public JSQuickRegistration(WebDriver driver) {
 		this.driver = driver;
@@ -144,6 +146,7 @@ public class JSQuickRegistration {
 
 	public void SetFirstName(String FName) {
 		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(FirstName));
 			WebElement firstname = driver.findElement(FirstName);
 			firstname.sendKeys(FName);
 			System.out.println("keys were sent successfully");
@@ -193,7 +196,12 @@ public class JSQuickRegistration {
 		try {
 			wait.until(ExpectedConditions.visibilityOfElementLocated(Password));
 			WebElement password = driver.findElement(Password);
-			password.sendKeys(pass);
+			Actions actions = new Actions(driver);
+			actions.moveToElement(password);
+			actions.click();
+			actions.sendKeys(pass);
+			actions.build().perform();
+			
 			System.out.println("keys were sent successfully");
 		} catch (Exception ex) {
 			System.out.println("Error: " + ex.getMessage());
