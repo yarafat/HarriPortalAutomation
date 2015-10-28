@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Page Object test example" duration-ms="71318" started-at="2015-10-27T13:22:27Z" finished-at="2015-10-27T13:23:39Z">
+  <suite name="Page Object test example" duration-ms="147481" started-at="2015-10-28T10:55:49Z" finished-at="2015-10-28T10:58:17Z">
     <groups>
     </groups>
-    <test name="sample test" duration-ms="71318" started-at="2015-10-27T13:22:27Z" finished-at="2015-10-27T13:23:39Z">
+    <test name="sample test" duration-ms="147481" started-at="2015-10-28T10:55:49Z" finished-at="2015-10-28T10:58:17Z">
       <class name="com.pack.common.tests.EmployerQuickRegTest">
-        <test-method status="PASS" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:com.pack.common.tests.EmployerQuickRegTest@6fffcba5]" name="initializeTestBaseSetup" is-config="true" duration-ms="71193" started-at="2015-10-27T15:22:27Z" finished-at="2015-10-27T15:23:39Z">
+        <test-method status="PASS" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:com.pack.common.tests.EmployerQuickRegTest@6fffcba5]" name="initializeTestBaseSetup" is-config="true" duration-ms="28438" started-at="2015-10-28T12:55:49Z" finished-at="2015-10-28T12:56:18Z">
           <params>
             <param index="0">
               <value>
@@ -23,46 +23,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeTestBaseSetup -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.pack.common.tests.EmployerQuickRegTest@6fffcba5]" name="setUp" is-config="true" duration-ms="0" started-at="2015-10-27T15:23:39Z" finished-at="2015-10-27T15:23:39Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.pack.common.tests.EmployerQuickRegTest@6fffcba5]" name="setUp" is-config="true" duration-ms="0" started-at="2015-10-28T12:56:18Z" finished-at="2015-10-28T12:56:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="TestEmpRegFirstStage()[pri:0, instance:com.pack.common.tests.EmployerQuickRegTest@6fffcba5]" name="TestEmpRegFirstStage" duration-ms="47" started-at="2015-10-27T15:23:39Z" finished-at="2015-10-27T15:23:39Z">
+        <test-method status="PASS" signature="TestEmpQuickRegFullstages()[pri:0, instance:com.pack.common.tests.EmployerQuickRegTest@6fffcba5]" name="TestEmpQuickRegFullstages" duration-ms="117288" started-at="2015-10-28T12:56:18Z" finished-at="2015-10-28T12:58:15Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TestEmpRegFirstStage -->
-        <test-method status="FAIL" signature="tearDown()[pri:0, instance:com.pack.common.tests.EmployerQuickRegTest@6fffcba5]" name="tearDown" is-config="true" duration-ms="0" started-at="2015-10-27T15:23:39Z" finished-at="2015-10-27T15:23:39Z">
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-	at com.pack.base.TestBaseSetup.tearDown(TestBaseSetup.java:78)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
-	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:213)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:140)
-	at org.testng.internal.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:220)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:771)
-	at org.testng.TestRunner.run(TestRunner.java:621)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1176)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1101)
-	at org.testng.TestNG.run(TestNG.java:1009)
-	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+        </test-method> <!-- TestEmpQuickRegFullstages -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.pack.common.tests.EmployerQuickRegTest@6fffcba5]" name="tearDown" is-config="true" duration-ms="1731" started-at="2015-10-28T12:58:15Z" finished-at="2015-10-28T12:58:17Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

@@ -36,11 +36,11 @@ private Errors Actual;
 	{
 		EmailsGenerator Email=new EmailsGenerator();
 		Email.SetEmail("EMPLOYER");
-		CandidateParser ParsEMpUserInfo=new CandidateParser(4);
+		CandidateParser ParsEMpUserInfo=new CandidateParser(3);
 	    empInfo=ParsEMpUserInfo.parse();
 		
 		if(empInfo!=null)
-		{	if(empInfo.getEmail()==null )
+		{	
 			empInfo.setEmail(Email.getEmail());
 	
 		}
@@ -49,13 +49,13 @@ private Errors Actual;
 	
 	private Brand SetBrandInfo(Brand BrandInfo) throws FileNotFoundException
 	{
-		BrandParser ParsBrandInfo=new BrandParser(2);
+		BrandParser ParsBrandInfo=new BrandParser(1);
 		BrandInfo=ParsBrandInfo.parse();
 		return BrandInfo;
 	}
 
 
-	@Test
+	
 	public void TestEmpRegFirstStage()
 	{
 		HomePage Home;
@@ -95,6 +95,7 @@ private Errors Actual;
 	    }
 	}
 	
+	@Test
 	public void TestEmpQuickRegFullstages()
 	{
 		HomePage Home;
@@ -120,7 +121,7 @@ private Errors Actual;
 			Thread.sleep(6000);
 			if(Actual.getStatus())
 			{
-			Assert.assertTrue(driver.findElement(By.xpath("//*[@id='emp-quick-reg-cont']/div[2]/div/div[2]/div/div/div/div[2]/h-form/div/form/div[2]/div[1]/input")).isDisplayed(), "Error: Second Stage is not being opened");
+			Assert.assertTrue(driver.findElement(By.xpath("//*[@id='top']/div/nav/div/span/ul/li[4]/a")).isDisplayed(), "Error: Second Stage is not being opened");
 			
 			}
 			else 
