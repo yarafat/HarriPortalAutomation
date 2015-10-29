@@ -11,11 +11,15 @@ package com.pack.common.pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.pack.utils.ElementActions;
+
 public class JoinUsPage {
 	private  WebDriver driver;
+	
 	/* for join us first modal */
 	private String FbBtnXpath="//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[1]/div/div[3]/div[2]/button";
 	private String LInBtnXpath="//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[1]/div/div[3]/div[4]/button";
@@ -26,6 +30,15 @@ public class JoinUsPage {
     private By SignUpWithEmailBtn=By.xpath(EmailBtnXpath);
     private By LoginLink=By.xpath(LoginLinkXpath);
 	 
+	/*X button for all modules has the same Xpath */
+	private String CloseBtnXpath="//*[@id='join-modal']/div/div[2]/div/button";
+	private By CloseModal=By.xpath(CloseBtnXpath);
+	private String OkXpath="//*[@id='harriApp']/div[4]/div[2]/div/div[2]/button[1]";
+	private By OkBtn=By.xpath(OkXpath);
+	private String CancelXpath="//*[@id='harriApp']/div[4]/div[2]/div/div[2]/button[2]";
+	private By CancelBtn=By.xpath(CancelXpath); 
+	
+	
 	/* user basic info */
     private By FUserName=By.id("firstname");
     private By LUserName =By.id("lastname");
@@ -43,12 +56,31 @@ public class JoinUsPage {
     private By Emp=By.xpath(EmpXpath);
     private By ContinueSecond=By.xpath(ContinueSecondStageXpath);
     
-    
+    /**/
+    private String LastContinueXpath="//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[19]/div/form/div[3]/button";
+    private By FContinue=By.xpath(LastContinueXpath);
     
     public JoinUsPage(WebDriver driver)
 	{
 		this.driver = driver;
 	}
+    /*this general method for closing the opened modal , Note: all X button in this SBSL have the same Xpath */
+	 public void clickCloseModal(int WaitSeconds)
+	 {
+		 ElementActions ClickCloseModal=new ElementActions(driver);
+		 ClickCloseModal.ClickElement(CloseModal, WaitSeconds);
+		 
+	 }
+	 public void ClickOK(int WaitSeconds)
+	 {
+		 ElementActions ClickOKBtn=new ElementActions(driver);
+		 ClickOKBtn.ClickElement(OkBtn, WaitSeconds);
+	 }
+	 public void ClickCancel(int WaitSeconds)
+	 {
+		 ElementActions ClickCancelBtn=new ElementActions(driver);
+		 ClickCancelBtn.ClickElement(CancelBtn, WaitSeconds);
+	 }
 	/* Login page Options*/
 	public void ClickRegWithFB(int WaitSeconds)
 	{
@@ -123,12 +155,13 @@ public class JoinUsPage {
 	}
 	public void enterPass(String Pass, int WaitSeconds)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(Password));		
-		WebElement UserPass =driver.findElement(Password);
-		if(UserPass.isDisplayed())
-			UserPass.sendKeys(Pass);
-		System.out.println("element was founded and Password entered  ");
+		Actions actions = new Actions(driver);
+		WebElement WebelementLocator = driver.findElement(Password);
+		actions.moveToElement(WebelementLocator);
+		actions.click();
+		actions.sendKeys(Pass);
+		actions.build().perform();
+		
 	}
 	public void confirmPass(String Password, int WaitSeconds)
 	{
@@ -148,8 +181,8 @@ public class JoinUsPage {
 			Continue.click();
 	}
     
-	/* User type stage */
-	private void chooseJS(int WaitSeconds )
+	
+	public void chooseJS(int WaitSeconds )
 	{
 		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(JS));
@@ -157,7 +190,7 @@ public class JoinUsPage {
 		if(Jslbl.isDisplayed())
 			Jslbl.click();
 	}
-	private void ChooseEmp(int WaitSeconds)
+	public void ChooseEmp(int WaitSeconds)
 	{
 		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(Emp));
@@ -165,13 +198,30 @@ public class JoinUsPage {
 		if(Emplbl.isDisplayed())
 			Emplbl.click();
 	}
-	private void ClickContinueSeconStage(int WaitSeconds)
+	public void ClickContinueSeconStage(int WaitSeconds)
 	{
 		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(ContinueSecond));
 		WebElement Continue = driver.findElement(ContinueSecond);
 		if(Continue.isDisplayed())
 			Continue.click();
+	}
+	/* click the continue button on the next stage where there are no control just the continue button*/
+	public void ClickContinueBeforeEmpType(int WaitSeconds)
+	{
+		WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(FContinue));
+		WebElement Continue = driver.findElement(FContinue);
+		if(Continue.isDisplayed())
+			Continue.click();
+	}
+	public WebDriver getDriver() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public void setDriver(WebDriver driver) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 

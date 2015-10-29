@@ -69,7 +69,7 @@ public class EmpQuickRegActions extends EmployerQuickReg {
 				{
 				//We should use the media object here
 				Emp.SelectBrandLogo(BrandInfo.getMedia().getProfileUrl().toString(), 10);
-			    Crop.ClickSave(10);
+			    Crop.ClickSave(10,"");
 				}
 				if(BrandInfo.getGroupName()!=null)
 				{

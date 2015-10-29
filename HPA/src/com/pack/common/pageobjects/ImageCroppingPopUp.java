@@ -59,14 +59,17 @@ public class ImageCroppingPopUp {
 		 ResetSttingButton.ClickElement(ResetSettings, WaitSeconds);
 		
 	}
-	public  void ClickSave(int WaitSeconds)
+	public  void ClickSave(int WaitSeconds , String Xpath)
 	{
+		if(!Xpath.isEmpty())
+		 Save=By.xpath(Xpath);
 		 ElementActions SaveButton=new ElementActions(driver);
 		 SaveButton.ClickElement(Save, WaitSeconds);
 		
 	}
 	public  void ClickClose(int WaitSeconds)
 	{
+		
 		 ElementActions CloseButton=new ElementActions(driver);
 		 CloseButton.ClickElement(ClosePopUp, WaitSeconds);
 		

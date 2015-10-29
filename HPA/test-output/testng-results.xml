@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Page Object test example" duration-ms="147481" started-at="2015-10-28T10:55:49Z" finished-at="2015-10-28T10:58:17Z">
+  <suite name="Page Object test example" duration-ms="173125" started-at="2015-10-29T13:40:22Z" finished-at="2015-10-29T13:43:15Z">
     <groups>
     </groups>
-    <test name="sample test" duration-ms="147481" started-at="2015-10-28T10:55:49Z" finished-at="2015-10-28T10:58:17Z">
-      <class name="com.pack.common.tests.EmployerQuickRegTest">
-        <test-method status="PASS" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:com.pack.common.tests.EmployerQuickRegTest@6fffcba5]" name="initializeTestBaseSetup" is-config="true" duration-ms="28438" started-at="2015-10-28T12:55:49Z" finished-at="2015-10-28T12:56:18Z">
+    <test name="sample test" duration-ms="173125" started-at="2015-10-29T13:40:22Z" finished-at="2015-10-29T13:43:15Z">
+      <class name="com.pack.common.tests.EmpFullRegTest">
+        <test-method status="PASS" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:com.pack.common.tests.EmpFullRegTest@6fffcba5]" name="initializeTestBaseSetup" is-config="true" duration-ms="20653" started-at="2015-10-29T15:40:22Z" finished-at="2015-10-29T15:40:43Z">
           <params>
             <param index="0">
               <value>
@@ -23,19 +23,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeTestBaseSetup -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.pack.common.tests.EmployerQuickRegTest@6fffcba5]" name="setUp" is-config="true" duration-ms="0" started-at="2015-10-28T12:56:18Z" finished-at="2015-10-28T12:56:18Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.pack.common.tests.EmpFullRegTest@6fffcba5]" name="setUp" is-config="true" duration-ms="1" started-at="2015-10-29T15:40:43Z" finished-at="2015-10-29T15:40:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="TestEmpQuickRegFullstages()[pri:0, instance:com.pack.common.tests.EmployerQuickRegTest@6fffcba5]" name="TestEmpQuickRegFullstages" duration-ms="117288" started-at="2015-10-28T12:56:18Z" finished-at="2015-10-28T12:58:15Z">
+        <test-method status="PASS" signature="SBSLTest()[pri:0, instance:com.pack.common.tests.EmpFullRegTest@6fffcba5]" name="SBSLTest" duration-ms="150451" started-at="2015-10-29T15:40:43Z" finished-at="2015-10-29T15:43:13Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TestEmpQuickRegFullstages -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.pack.common.tests.EmployerQuickRegTest@6fffcba5]" name="tearDown" is-config="true" duration-ms="1731" started-at="2015-10-28T12:58:15Z" finished-at="2015-10-28T12:58:17Z">
+        </test-method> <!-- SBSLTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.pack.common.tests.EmpFullRegTest@6fffcba5]" name="tearDown" is-config="true" duration-ms="1974" started-at="2015-10-29T15:43:13Z" finished-at="2015-10-29T15:43:15Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.pack.common.tests.EmployerQuickRegTest -->
+      </class> <!-- com.pack.common.tests.EmpFullRegTest -->
     </test> <!-- sample test -->
   </suite> <!-- Page Object test example -->
 </testng-results>

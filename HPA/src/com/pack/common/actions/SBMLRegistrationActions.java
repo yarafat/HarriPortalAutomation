@@ -62,7 +62,7 @@ public class SBMLRegistrationActions extends SBMLRegistrationFunnelPages{
 				if(BrandInfo.getMedia()!=null && BrandInfo.getMedia().getProfileUrl()!=null)
 				{
 					SBML.SelectBrandLogo(BrandInfo.getMedia().getProfileUrl(), 5);
-				    Crop.ClickSave(5);
+				    Crop.ClickSave(5, "//*[@id='harriApp']/div[1]/div[2]/div[1]/image-cropping/div/div[1]/div[2]/div/div/div[5]/div/div[4]");
 				}
 				SBML.SelectBusiness(BrandInfo.getBrandName(), (BrandInfo.getBrandLocation())[0].toString(), 5);
 				SBML.SelectHecs(BrandInfo.getHecs(), 5);
