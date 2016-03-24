@@ -42,6 +42,8 @@ public class JSQuickRegTest extends TestBaseSetup {
 		db= new DataBaseSetup();
 		System.out.println("testing DB connection");
 		db.InitiateConnection();
+		String sql="Select * from user where id='5054'";
+		db.ExcuteQuery(sql);
 		driver = getDriver();
 		JSQuickRegPage=new JSQuickRegistration(driver);
 		action = new JSQuickRegistrationAction(driver);

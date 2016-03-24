@@ -14,8 +14,10 @@ import org.openqa.selenium.WebDriver;
 
 
 
+
 import com.pack.common.pageobjects.Facebookpage;
 import com.pack.common.pageobjects.Google;
+import com.pack.common.pageobjects.HomePage;
 import com.pack.common.pageobjects.LinkedinPage;
 import com.pack.common.pageobjects.LoginPage;
 import com.pack.common.pageobjects.ForgetPassword;
@@ -28,6 +30,7 @@ public class LoginActions extends LoginPage {
 	private  Errors Error;
 	private WebDriver driver;
     private LoginPage Login;
+    private HomePage Home;
     private Facebookpage FaceBookLogin;
     private LinkedinPage LinkedInLogin;
     private Google GoogleLogin;
@@ -37,6 +40,7 @@ public class LoginActions extends LoginPage {
 		super(driver);
 		this.setDriver(driver);
 		this.Login=new LoginPage(getDriver());
+		this.Home = new HomePage(getDriver());
 		Error=new Errors();
 		Error.setError(true, "Success");
 		System.out.println("login actions constructor  ");
@@ -49,6 +53,7 @@ public class LoginActions extends LoginPage {
 			if(Login!=null)
 			{
 				System.out.println("before enter user name  ");
+				Home.clickLoginLink();
 				Login.enterUserName(UserName, 5);
 				Login.enterPassword(Password, 5);
 				Login.clickOnLogin(5);

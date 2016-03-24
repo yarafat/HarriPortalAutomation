@@ -227,6 +227,7 @@ public class CandidateParser {
 	}
 
 	public  UserReferences parse_user_references() {
+		String[] references_string;
 		try
 
 		{
@@ -235,7 +236,9 @@ public class CandidateParser {
 			Row row = sheet.getRow(candidate_number);
 
 			// Create and set the about object
-			String[] references_string = row.getCell(8).toString().split("\\|");
+			if (row.getCell(8) != null || row.getCell(8).getCellType() != Cell.CELL_TYPE_BLANK) {
+			references_string = row.getCell(8).toString().split("\\|");
+			
 			for (int j = 0; j < references_string.length; j++) {
 
 				System.out.println(" references_string " + j + " values : ");
@@ -258,6 +261,7 @@ public class CandidateParser {
 					System.out
 							.println("References Attributes count is more than expected");
 			}
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -278,11 +282,11 @@ public class CandidateParser {
 					.split("\\|");
 			for (int j = 0; j < workHistory_string.length; j++) {
 
-				System.out.println(" workHistory_string " + j + " values : ");
+				System.out.println("workHistory_string " + j + " values : ");
 				String[] work_history_items = workHistory_string[j].split(";");
-				for (int i = 0; i < work_history_items.length; i++) {
+				/*for (int i = 0; i < work_history_items.length; i++) {
 					System.out.println(work_history_items[i]);
-				}
+				}*/
 				if (work_history_items.length < 8)
 					System.out
 							.println("Missing attributes in the workHistory section");
