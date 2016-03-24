@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import com.pack.entities.Candidate;
+import com.pack.entities.User;
 import com.pack.entities.UserAbout;
 import com.pack.entities.UserEducation;
 import com.pack.entities.Media;
@@ -22,7 +22,7 @@ import com.pack.entities.UserWorkHistory;
 public class CandidateParser {
 	private  XSSFSheet sheet;
 	private  int candidate_number;
-	private  Candidate candidate;
+	private  User candidate;
 	private  UserEducation user_education;
 	private  UserAbout user_about;
 	private  Media user_media;
@@ -37,7 +37,7 @@ public class CandidateParser {
 		this.candidate_number = candidate_number;
 	}
 
-	public  Candidate parse() {
+	public  User parse() {
 		try {
 
 			FileInputStream file = new FileInputStream(new File(
@@ -81,7 +81,7 @@ public class CandidateParser {
 			// Print user about values
 				System.out.println(user_about.toString());
 		    // set the candidate data
-			 candidate = new Candidate();
+			 candidate = new User();
 			 candidate.setFirstUserName(row.getCell(0).toString());
 			 candidate.setLastUserName(row.getCell(1).toString());
 			 candidate.setPassword(row.getCell(2).toString());

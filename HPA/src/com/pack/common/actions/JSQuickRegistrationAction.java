@@ -3,7 +3,7 @@ package com.pack.common.actions;
 import org.openqa.selenium.WebDriver;
 
 import com.pack.common.pageobjects.JSQuickRegistration;
-import com.pack.entities.Candidate;
+import com.pack.entities.User;
 import com.pack.entities.UserAbout;
 import com.pack.entities.UserEducation;
 import com.pack.entities.Media;
@@ -19,7 +19,7 @@ public class JSQuickRegistrationAction {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void FirstStage(Candidate testCan) throws Exception {
+	public void FirstStage(User testCan) throws Exception {
 		jsPage.SetFirstName(testCan.getFirstUserName());
 		jsPage.SetLastName(testCan.getLastUserName());
 		jsPage.SetEmailAddress(testCan.getEmail());

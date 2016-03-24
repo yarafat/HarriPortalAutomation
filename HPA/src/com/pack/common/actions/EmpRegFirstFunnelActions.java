@@ -3,7 +3,7 @@ package com.pack.common.actions;
 import org.openqa.selenium.WebDriver;
 
 import com.pack.common.pageobjects.JoinUsPage;
-import com.pack.entities.Candidate;
+import com.pack.entities.User;
 import com.pack.entities.Errors;
 
 public class EmpRegFirstFunnelActions extends JoinUsPage{
@@ -29,7 +29,7 @@ public void setDriver(WebDriver driver) {
 	this.driver = driver;
 }
  /* fill emp basic info and choose the type is emp */
-public Object EmpFirstStage(Candidate EmpInfo , Boolean IsDropped)
+public Object EmpFirstStage(User EmpInfo , Boolean IsDropped)
  {
 	try
 	{
