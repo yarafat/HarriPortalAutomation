@@ -63,7 +63,7 @@ public class MBMLRegistrationActions extends MBMLRegistrationFunnelPage {
 				if(BrandInfo.getMedia()!=null && BrandInfo.getMedia().getProfileUrl()!=null)
 				{
 					MBML.SelectGroupLogo(BrandInfo.getMedia().getProfileUrl(), 5);
-					Crop.ClickSave(5);
+					Crop.ClickSave(5,"//*[@id='harriApp']/div[1]/div[2]/div[1]/image-cropping/div/div[1]/div[2]/div/div/div[5]/div/div[4]");
 				}
 				if(IsDropped)
 				{
@@ -127,7 +127,7 @@ public class MBMLRegistrationActions extends MBMLRegistrationFunnelPage {
 				if(BrandInfo.getMedia()!=null && BrandInfo.getMedia().getProfileUrl()!=null)
 				{
 					MBML.SelectBrandLogo(BrandInfo.getMedia().getProfileUrl(), 5);
-				    Crop.ClickSave(5);
+				    Crop.ClickSave(5, "//*[@id='harriApp']/div[1]/div[2]/div[1]/image-cropping/div/div[1]/div[2]/div/div/div[5]/div/div[4]");
 				}
 				MBML.SelectBusiness(BrandInfo.getBrandName(), (BrandInfo.getBrandLocation())[0].toString(), 5);
 				MBML.SelectHecs(BrandInfo.getHecs(), 5);

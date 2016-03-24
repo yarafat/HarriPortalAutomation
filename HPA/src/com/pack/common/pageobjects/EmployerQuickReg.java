@@ -10,6 +10,9 @@
 package com.pack.common.pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
 import com.pack.utils.ElementActions;
 import com.pack.utils.GeneralSelectors;
 public class EmployerQuickReg {
@@ -21,21 +24,26 @@ public class EmployerQuickReg {
 	private  String LastNametxtXpath="//*[@id='app-quick-reg-form']/div[1]/div[2]/div[1]/div/input";
 	private  String EmailtxtXpath="//*[@id='app-quick-reg-form']/div[2]/div[1]/div[1]/div/input";
 	private  String PhonetxtXpath="//*[@id='app-quick-reg-form']/div[2]/div[2]/div[1]/div/input";
-	private  String PasswordtxtXpath="//*[@id='app-quick-reg-form']/div[3]/div[1]/div[1]/div/input";
+	//private  String PasswordtxtXpath="//*[@id='app-quick-reg-form']/div[3]/div[1]/div[1]/div/input";
 	private  String PasswordConftxtXpath="//*[@id='app-quick-reg-form']/div[3]/div[2]/div[1]/div/input";
 	private  String TermofServiceLinkXpath="//*[@id='app-quick-reg-form']/div[5]/div/a[1]";
 	private  String PrivacyPolicLinkXpath="//*[@id='app-quick-reg-form']/div[5]/div/a[2]";
 	private  String FirstContinueButtonXpath="//*[@id='app-quick-reg-form']/div[7]/div/button";
-	private  String LastContinueButtonXpath="//div[contains(text(),' Continue')]";
+	private  String LastContinueButtonXpath="//*[@id='emp-quick-reg-cont']/div[2]/div/div[2]/div/div/div/div[2]/h-form/div/form/div[7]";
+			
+			
+			/*"//div[contains(text(),' Continue')]";*/
 	private  String CheckGroupBoxXpath="//*[@id='emp-quick-reg-cont']/div[2]/div/div[2]/div/div/div/div[2]/h-form/div/form/div[6]/div/div/label/div/div";
 	private  String UploadPicButtonXpath="//*[@id='emp-quick-reg-cont']/div[2]/div/div[2]/div/div/div/div[2]/h-form/div/form/h-form/div/ng-form/div[2]/div[2]/div[1]";
+	
+	
 	
 	private  By LoginLink=By.xpath(LoginLinkXpath);
 	private  By FirstNameText=By.xpath(FirstNametxtXpath);
 	private  By LastNameText=By.xpath(LastNametxtXpath);
 	private  By EmailText=By.xpath(EmailtxtXpath);
 	private  By PhoneNumText=By.xpath(PhonetxtXpath);
-	private  By PasswordText=By.xpath(PasswordtxtXpath);
+	private  By PasswordText=By.id("password");
 	private  By PasswordConfirmText=By.xpath(PasswordConftxtXpath);
 	private  By BusinessDropDown=By.id("select2-chosen-10");
 	private  By BusinessSearchBox=By.id("s2id_autogen10_search");
@@ -93,8 +101,14 @@ public class EmployerQuickReg {
 	}
 	public  void enterPassword(String Password,int WaitSeconds)
 	{
-		ElementActions PassLocator=new ElementActions(driver);
-		PassLocator.EnterText(PasswordText, Password, WaitSeconds);
+	//	ElementActions PassLocator=new ElementActions(driver);
+		Actions actions = new Actions(driver);
+		WebElement WebelementLocator = driver.findElement(PasswordText);
+		actions.moveToElement(WebelementLocator);
+		actions.click();
+		actions.sendKeys(Password);
+		actions.build().perform();
+	//	PassLocator.EnterText(PasswordText, Password, WaitSeconds);
 		
 	}
 	public  void enterConfirmPass(String ConfPassword,int WaitSeconds)
@@ -108,63 +122,19 @@ public class EmployerQuickReg {
 		 
 		GeneralSelectors business=new GeneralSelectors(getDriver());
 		business.SelectBusiness(BusinessDropDown, BusinessSearchBox, BusinessName, Address, WaitSeconds);
-		/*WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(BusinessDropDown));
-		WebElement BusinessDroplocator=getDriver().findElement(BusinessDropDown);
-		 WebElement Item;	
-		if(BusinessDroplocator.isDisplayed())
-		{
-			BusinessDroplocator.click();
-			WebElement BusinessSearchText = (new WebDriverWait(getDriver(), 10))
-					  .until(ExpectedConditions.visibilityOfElementLocated(BusinessSearchBox));
-			if(BusinessSearchText.isDisplayed()||BusinessSearchText.isEnabled())
-			{
-				BusinessSearchText.sendKeys(BusinessName);
-				
-				if(Address!=null && !Address.isEmpty())
-				{
-				       Item=(new WebDriverWait(getDriver(), 60))
-						   .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//small[contains(text(),'"+Address+"')]")));
-				}
-				else
-				{
-				       Item=(new WebDriverWait(getDriver(), 60))
-						   .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//strong[contains(text(),'"+BusinessName+"')]")));
-				}
-			
-				 Item.click();
-				
-				
-			}
-		}*/
+		
 	}
     public  void SelectHecs(String HecsText,int WaitSeconds) throws InterruptedException	
     {
     	GeneralSelectors Hecs=new GeneralSelectors(getDriver());
     	Hecs.SelectHecs(HecsDropDown, HecsText, WaitSeconds);
-    	/*WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-    	wait.until(ExpectedConditions.visibilityOfElementLocated(HecsDropDown));
-    	Thread.sleep(6000);
-    	WebElement HecsDrop=getDriver().findElement(HecsDropDown);
-    	HecsDrop.click();
-    	Thread.sleep(6000);
-    	WebElement	 Item=(new WebDriverWait(getDriver(), 60))
-				   .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[contains(text(),'"+HecsText+"')]")));
     	
-    	Item.click();*/
     }
     public  void SelectCuisine(String CuisineText,int WaitSeconds)
     {
     	GeneralSelectors Cuisine=new GeneralSelectors(getDriver());
     	Cuisine.SelectCuisine(CuisineDropDown, CuisineText, WaitSeconds);
-    	/*WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-    	wait.until(ExpectedConditions.visibilityOfElementLocated(CuisineDropDown));
-    	WebElement CuisineDrop=getDriver().findElement(CuisineDropDown);
-    	CuisineDrop.click();
-    	WebElement	 Item=(new WebDriverWait(getDriver(), 60))
-				   .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'"+CuisineText+"')]")));
-    	
-    	Item.click();*/
+    
     }
     
     public  void SelectBrandLogo(String LogoPath,int WaitSeconds)
@@ -172,43 +142,8 @@ public class EmployerQuickReg {
     	GeneralSelectors BrandLogo=new GeneralSelectors(getDriver());
     	BrandLogo.SelectLogo(UploadPicButton, LogoPath, WaitSeconds);
     	
-    	/*WebDriverWait wait = new WebDriverWait(driver, WaitSeconds);
-    	wait.until(ExpectedConditions.visibilityOfElementLocated(UploadPicButton));
-    	    	
-    	//click select button
-    	WebElement UploadButtonLocator=getDriver().findElement(UploadPicButton);
-    	if(UploadButtonLocator.isDisplayed())
-    	{
-    		UploadButtonLocator.click();
-    	}
-    	try {
-			Thread.sleep(60000);
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-    	setClipboardData(LogoPath);
-    	//native key strokes for CTRL, V and ENTER keys
-    	Robot robot;
-		try {
-			robot = new Robot();
-			robot.keyPress(KeyEvent.VK_CONTROL);
-	    	robot.keyPress(KeyEvent.VK_V);
-	    	robot.keyRelease(KeyEvent.VK_V);
-	    	robot.keyRelease(KeyEvent.VK_CONTROL);
-	    	robot.keyPress(KeyEvent.VK_ENTER);
-	    	robot.keyRelease(KeyEvent.VK_ENTER);
-		} catch (AWTException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-    	
     }
-   /* public  void setClipboardData(String string) 
-    {
-    	   StringSelection stringSelection = new StringSelection(string);
-    	   Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
-    }*/
+  
 	public  void ClickTerm(int WaitSeconds)
 	{
 		 ElementActions Term=new ElementActions(driver);

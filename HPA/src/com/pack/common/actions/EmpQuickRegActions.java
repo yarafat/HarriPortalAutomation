@@ -5,8 +5,8 @@ import org.openqa.selenium.WebDriver;
 import com.pack.common.pageobjects.EmployerQuickReg;
 import com.pack.common.pageobjects.ImageCroppingPopUp;
 import com.pack.entities.Brand;
+import com.pack.entities.Candidate;
 import com.pack.entities.Errors;
-import com.pack.entities.User;
 
 public class EmpQuickRegActions extends EmployerQuickReg {
 	private Errors Error;
@@ -23,7 +23,7 @@ public class EmpQuickRegActions extends EmployerQuickReg {
 		Error.setError(true, "Success");
 		System.out.println("EmpQuickRegActions constructor  ");
 	}
-	public Object EmpRegFirstStage(User EmpUserInfo,Brand BrandInfo)
+	public Object EmpRegFirstStage(Candidate EmpUserInfo,Brand BrandInfo)
 	{
 		try
 		{
@@ -34,9 +34,9 @@ public class EmpQuickRegActions extends EmployerQuickReg {
 				Emp.enterLastname(EmpUserInfo.getLastUserName(), 5);
 				Emp.enterEmail(EmpUserInfo.getEmail(), 5);
 				Emp.enterPhoneNumber(EmpUserInfo.getPhoneNumber(),5);
-				Emp.SelectBusiness(BrandInfo.getBrandName(), (BrandInfo.getBrandLocation())[0].toString(), 20);
+				Emp.SelectBusiness(BrandInfo.getBrandName(), (BrandInfo.getBrandLocation())[0].toString(), 60);
 				Emp.enterPassword(EmpUserInfo.getPassword(), 5);
-				Emp.enterConfirmPass(EmpUserInfo.getPassword(), 5);
+		//		Emp.enterConfirmPass(EmpUserInfo.getPassword(), 5);
 				Emp.ClickContinueStageOne(5);
 				
 			}
@@ -50,7 +50,7 @@ public class EmpQuickRegActions extends EmployerQuickReg {
 		}
 		return Error;
 	}
-	public Object EmpQuickRegFullStages(User EmpUserInfo, Brand BrandInfo)
+	public Object EmpQuickRegFullStages(Candidate EmpUserInfo, Brand BrandInfo)
 	{
 		try
 		{
@@ -60,16 +60,16 @@ public class EmpQuickRegActions extends EmployerQuickReg {
 			{
 				Emp.SelectHecs(BrandInfo.getHecs(), 60);
 				Emp.SelectCuisine(BrandInfo.getCuisine(), 60);
-				if(EmpUserInfo.getDescription()!=null)
+				if(BrandInfo.getDescription()!=null)
 				{
-				Emp.enterBrandDescription(EmpUserInfo.getDescription(), 10);
+				Emp.enterBrandDescription(BrandInfo.getDescription(), 10);
 				}
 				//We should use the media object here
 				if(BrandInfo.getMedia()!=null && BrandInfo.getMedia().getProfileUrl()!=null)
 				{
 				//We should use the media object here
 				Emp.SelectBrandLogo(BrandInfo.getMedia().getProfileUrl().toString(), 10);
-			    Crop.ClickSave(5);
+			    Crop.ClickSave(10,"");
 				}
 				if(BrandInfo.getGroupName()!=null)
 				{
@@ -89,9 +89,11 @@ public class EmpQuickRegActions extends EmployerQuickReg {
 		
 	}
 
+	@Override
 	public WebDriver getDriver() {
 		return driver;
 	}
+	@Override
 	public void setDriver(WebDriver driver) {
 		this.driver = driver;
 	}

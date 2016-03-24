@@ -7,7 +7,7 @@
 * @since   2015-07-28
 */
 package com.pack.common.tests;
-
+import java.io.FileNotFoundException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,9 +19,11 @@ import com.pack.base.TestBaseSetup;
 import com.pack.common.actions.EmpQuickRegActions;
 import com.pack.common.pageobjects.HomePage;
 import com.pack.entities.Brand;
+import com.pack.utils.BrandParser;
+import com.pack.utils.CandidateParser;
 import com.pack.utils.EmailsGenerator;
+import com.pack.entities.Candidate;
 import com.pack.entities.Errors;
-import com.pack.entities.User;
 import com.pack.common.pageobjects.Employer;
 public class EmployerQuickRegTest extends TestBaseSetup{
 private WebDriver driver;
@@ -30,44 +32,25 @@ private Errors Actual;
 	public void setUp() {
 		driver=getDriver();
 	}
-	private User SetEmpInfo(User empInfo)
+	private Candidate SetEmpInfo(Candidate empInfo) throws FileNotFoundException
 	{
 		EmailsGenerator Email=new EmailsGenerator();
 		Email.SetEmail("EMPLOYER");
-		if(empInfo!=null)
-		{
-			empInfo.setFirstUserName("Test");
-			empInfo.setLastUserName("Test");
-			empInfo.setPhoneNumber("0597395494");
-			empInfo.setEmail(Email.getEmail());
-			empInfo.setPassword("123123");
-			empInfo.setDescription("Redline Tuning are an Essex based "
-					+ "engine tuning company, which specialise in vehicle "
-					+ "performance enhancements. With over 10 years experience, "
-					+ "fully qualified Ford main agent technicians and the very"
-					+ "latest in leading computer diagnostics, you’ll feel safe in the "
-					+ "knowledge your car couldn’t be in better hands.");
-
-			empInfo.setProfileLogoPath("C:\\Users\\Harri\\Desktop\\test.jpg");
+		CandidateParser ParsEMpUserInfo=new CandidateParser(3);
+	    empInfo=ParsEMpUserInfo.parse();
 		
+		if(empInfo!=null)
+		{	
+			empInfo.setEmail(Email.getEmail());
+	
 		}
 		return empInfo;
 	}
 	
-	private Brand SetBrandInfo(Brand BrandInfo)
+	private Brand SetBrandInfo(Brand BrandInfo) throws FileNotFoundException
 	{
-		if(BrandInfo!=null)
-		{
-			BrandInfo.setBrandName("Redline tuning");
-		//	BrandInfo.setBrandLocation("Ha-Banai Street 29, Holon, 58857, Israel");
-			BrandInfo.setHecs("Event/Catering");
-			BrandInfo.setCuisine("American");
-			BrandInfo.setGroupName("HarriTest");
-			//We should use the media object here
-		//	BrandInfo.setProfileLogoPath("C:\\Users\\Harri\\Desktop\\test.jpg");
-			BrandInfo.setHecs("Event/Catering");
-			BrandInfo.setCuisine("American");
-		}
+		BrandParser ParsBrandInfo=new BrandParser(1);
+		BrandInfo=ParsBrandInfo.parse();
 		return BrandInfo;
 	}
 
@@ -78,7 +61,7 @@ private Errors Actual;
 		HomePage Home;
 	    EmpQuickRegActions EmpReg;
 	    Employer Emp;
-	    User NewEmp;
+	    Candidate NewEmp;
 	    Brand brand;
 	    Actual=new Errors();
 	    try
@@ -88,7 +71,7 @@ private Errors Actual;
 			Home=new HomePage(driver);
 			EmpReg=new EmpQuickRegActions(driver);
 			Emp=new Employer(driver);
-			NewEmp=new User();
+			NewEmp=new Candidate();
 		    brand=new Brand();
 
 			Home.clickEmployersLink();
@@ -111,13 +94,14 @@ private Errors Actual;
 	    	System.out.println("Error: " + e.getMessage());
 	    }
 	}
+	
 	@Test
 	public void TestEmpQuickRegFullstages()
 	{
 		HomePage Home;
 	    EmpQuickRegActions EmpReg;
 	    Employer Emp;
-	    User NewEmp;
+	    Candidate NewEmp;
 	    Brand brand;
 	    Actual=new Errors();
 	    try
@@ -127,7 +111,7 @@ private Errors Actual;
 			Home=new HomePage(driver);
 			EmpReg=new EmpQuickRegActions(driver);
 			Emp=new Employer(driver);
-			NewEmp=new User();
+			NewEmp=new Candidate();
 			brand=new Brand();
 			Home.clickEmployersLink();
 		    Emp.ClickBuildemployerProfile(7);
@@ -137,7 +121,7 @@ private Errors Actual;
 			Thread.sleep(6000);
 			if(Actual.getStatus())
 			{
-			Assert.assertTrue(driver.findElement(By.xpath("//*[@id='emp-quick-reg-cont']/div[2]/div/div[2]/div/div/div/div[2]/h-form/div/form/div[2]/div[1]/input")).isDisplayed(), "Error: Second Stage is not being opened");
+			Assert.assertTrue(driver.findElement(By.xpath("//*[@id='top']/div/nav/div/span/ul/li[4]/a")).isDisplayed(), "Error: Second Stage is not being opened");
 			
 			}
 			else 

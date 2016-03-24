@@ -3,12 +3,9 @@ package com.pack.utils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.Iterator;
 import java.util.LinkedList;
 
-import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import com.pack.entities.Candidate;
@@ -54,7 +51,7 @@ public class CandidateParser {
 			row = sheet.getRow(candidate_number);
 			// Change the type of the cells to string before reading
 			for (int i = 0; i < 7; i++) {
-				 row.getCell(i,row.CREATE_NULL_AS_BLANK).setCellType(1);
+				 row.getCell(i,Row.CREATE_NULL_AS_BLANK).setCellType(1);
 			}
 			// Parse the work_history section
 
@@ -236,7 +233,6 @@ public class CandidateParser {
 			Row row = sheet.getRow(candidate_number);
 
 			// Create and set the about object
-			if (row.getCell(8) != null || row.getCell(8).getCellType() != Cell.CELL_TYPE_BLANK) {
 			references_string = row.getCell(8).toString().split("\\|");
 			
 			for (int j = 0; j < references_string.length; j++) {
@@ -261,7 +257,7 @@ public class CandidateParser {
 					System.out
 							.println("References Attributes count is more than expected");
 			}
-			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

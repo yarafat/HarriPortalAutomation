@@ -23,17 +23,25 @@ public class SBSLRegistrationFunnelPages {
 	private String ContinueSBSlXpath="//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[4]/div/form/div[4]/button";
     private By SBSLRadioBtn=By.xpath(SBSLXpath);
 	private By ContinueSBSLBtn=By.xpath(ContinueSBSlXpath);
+	
 	/*X button for all modules has the same Xpath */
 	private String CloseBtnXpath="//*[@id='join-modal']/div/div[2]/div/button";
 	private By CloseModal=By.xpath(CloseBtnXpath);
+	private String OkXpath1="//*[@id='harriApp']/div[4]/div[2]/div/div[2]/button[1]";
+	private String OkXpath2="//*[@id='harriApp']/div[5]/div[2]/div/div[2]/button[1]";
+	private By OkBtn1=By.xpath(OkXpath1);
+	private By OkBtn2=By.xpath(OkXpath2);
+	private String CancelXpath="//*[@id='harriApp']/div[4]/div[2]/div/div[2]/button[2]";
+	private By CancelBtn=By.xpath(CancelXpath);
+	
 	/*About Your Company*/
 	private String SelectProfileLinkXpath="//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[5]/div/div[1]/div/div[2]";
 	private String ContinueBrandInfo="//*[@id='join-modal']/div/div[2]/div/div/div/div/div/h-form[5]/div/div[2]/form/div[5]/button";
-    private By BusinessDropDown=By.id("select2-chosen-10");
-	private By BusinessSearchBox=By.id("s2id_autogen10_search");
-	private By HecsDropDown=By.id("select2-chosen-12");
-	private By CuisineDropDown=By.id("select2-chosen-14");
-	private By BrandCommunicationEmail=By.name("email");
+	private By BusinessDropDown=By.id("select2-chosen-6");
+	private By BusinessSearchBox=By.id("s2id_autogen6_search");
+	private By HecsDropDown=By.id("select2-chosen-8");
+	private By CuisineDropDown=By.id("select2-chosen-10");
+	private By BrandCommunicationEmail=By.id("email");
 	private By BrandDesc=By.name("description");
 	private By SelectPhotoLink=By.xpath(SelectProfileLinkXpath);
 	private By ContinueBrandInfoBtn=By.xpath(ContinueBrandInfo);
@@ -68,6 +76,21 @@ public class SBSLRegistrationFunnelPages {
 		 ElementActions ClickCloseModal=new ElementActions(driver);
 		 ClickCloseModal.ClickElement(CloseModal, WaitSeconds);
 		 
+	 }
+	 public void ClickOK1(int WaitSeconds)
+	 {
+		 ElementActions ClickOKBtn=new ElementActions(driver);
+		 ClickOKBtn.ClickElement(OkBtn1, WaitSeconds);
+	 }
+	 public void ClickOK2(int WaitSeconds)
+	 {
+		 ElementActions ClickOKBtn=new ElementActions(driver);
+		 ClickOKBtn.ClickElement(OkBtn2, WaitSeconds);
+	 }
+	 public void ClickCancel(int WaitSeconds)
+	 {
+		 ElementActions ClickCancelBtn=new ElementActions(driver);
+		 ClickCancelBtn.ClickElement(CancelBtn, WaitSeconds);
 	 }
 	 /*About Your Company methods */
 	 public void SelectBusiness(String BusinessName, String Address,int WaitSeconds)

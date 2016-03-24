@@ -29,13 +29,16 @@ public class SBSLRegistrationActions extends SBSLRegistrationFunnelPages {
 			
 			if(SBSL!=null)
 			{
-				SBSL.ChooseSBSL(5);
+				
 				if(IsDropped)
 				{
 					SBSL.clickCloseModal(5);
+					SBSL.ClickOK1(10);
+				
 				}
 				else
 				{
+					SBSL.ChooseSBSL(5);
 				  SBSL.ClickContinueSBSL(5);
 				}
 				
@@ -58,29 +61,34 @@ public class SBSLRegistrationActions extends SBSLRegistrationFunnelPages {
 			
 			if(SBSL!=null)
 			{
-				if(BrandInfo.getMedia()!=null && BrandInfo.getMedia().getProfileUrl()!=null)
-				{
-			    	SBSL.SelectBrandLogo(BrandInfo.getMedia().getProfileUrl(), 5);
-				    Crop.ClickSave(5);
-				}
-				SBSL.SelectBusiness(BrandInfo.getBrandName(), (BrandInfo.getBrandLocation())[0].toString(), 5);
-				SBSL.SelectHecs(BrandInfo.getHecs(), 5);
-				SBSL.SelectCuisine(BrandInfo.getCuisine(), 5);
-		        if(BrandInfo.getBusinessEmail()!=null)
-		        {
-		        	SBSL.enterCommunicationEmail(BrandInfo.getBusinessEmail(), 5);
-		        }
-		        if(BrandInfo.getDescription()!=null)
-		        {
-		        	SBSL.enterBrandDescription(BrandInfo.getDescription(), 5);
-		        }
 		        if(IsDropped)
 				{
 					SBSL.clickCloseModal(5);
+					SBSL.ClickOK1(10);
 				}
 		        else
 		        {
-		        SBSL.ClickContineBrandInfo(5);
+
+					if(BrandInfo.getMedia()!=null && BrandInfo.getMedia().getProfileUrl()!=null)
+					{
+				    	SBSL.SelectBrandLogo(BrandInfo.getMedia().getProfileUrl(), 10);
+				    	Thread.sleep(6000);
+					    Crop.ClickSave(60,"//*[@id='harriApp']/div[1]/div[2]/div[1]/image-cropping/div/div[1]/div[2]/div/div/div[5]/div/div[4]");
+					}
+					SBSL.SelectBusiness(BrandInfo.getBrandName(), (BrandInfo.getBrandLocation())[0].toString(), 10);
+					SBSL.SelectHecs(BrandInfo.getHecs(), 10);
+					SBSL.SelectCuisine(BrandInfo.getCuisine(), 10);
+			        /*if(BrandInfo.getBusinessEmail()!=null && !BrandInfo.getBusinessEmail().isEmpty())
+			        {
+			        	//System.out.println("communecation email :"+BrandInfo.getBusinessEmail().toString() );
+			        	SBSL.enterCommunicationEmail(BrandInfo.getBusinessEmail(),10);
+			        }
+			        if(BrandInfo.getDescription()!=null && !BrandInfo.getDescription().isEmpty())
+			        {
+			        	SBSL.enterBrandDescription(BrandInfo.getDescription(), 10);
+			        }*/
+		            SBSL.ClickContineBrandInfo(10);
+		            
 		        }
 							
 			}
@@ -89,6 +97,7 @@ public class SBSLRegistrationActions extends SBSLRegistrationFunnelPages {
 		}
 		catch(Exception e)
 		{
+			//System.out.println(e.getMessage().toString());
 			Error.setError(false, e.getMessage());
 			
 		}
@@ -103,17 +112,19 @@ public class SBSLRegistrationActions extends SBSLRegistrationFunnelPages {
 			
 			if(SBSL!=null)
 			{
-				if(BrandInfo.getMedia()!=null&& BrandInfo.getMedia().getProfileUrl()!=null)
-				{
-			     SBSL.ClickUploadBrandPic(BrandInfo.getMedia().getProfileUrl(), 10);
-				}
+				
 				if(IsDropped)
 				{
 					SBSL.clickCloseModal(5);
+					SBSL.ClickOK2(10);
 				}
 				else
 				{
-			     SBSL.ClickContinueMedia(5);
+					if(BrandInfo.getMedia()!=null&& BrandInfo.getMedia().getProfileUrl()!=null)
+					{
+				     SBSL.ClickUploadBrandPic(BrandInfo.getMedia().getProfileUrl(), 10);
+					}
+			        SBSL.ClickContinueMedia(5);
 				}
 				
 			}

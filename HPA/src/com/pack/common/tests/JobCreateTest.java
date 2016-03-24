@@ -51,7 +51,6 @@ public class JobCreateTest extends TestBaseSetup{
 	//	testCan = parser.parse();
 	//	Email = testCan.getEmail();
 	//	Password= testCan.getPassword();
-		testJob= jobParser.parse();
 
 	}
 

@@ -20,25 +20,23 @@ import com.pack.entities.Media;
  *
  */
 public class BrandParser {
-	private static  XSSFSheet sheet;
-	private static  int brand_number;
-	private static  Brand brand;
-	private static  Media brand_media;
-	private static  FileInputStream file;
-	private static  Row row;
+	private   XSSFSheet sheet;
+	private static   int brand_number;
+	private   Brand brand;
+	private   Media brand_media;
+	private static   FileInputStream file;
+	private   Row row;
 
 
 	public BrandParser(int brand_number) throws FileNotFoundException {
-		this.brand_number = brand_number;
+		BrandParser.brand_number = brand_number;
 	}
 	
-	public static void main(String [ ] args)
-	{
-	  parse();
-	}
+	
 
-	public static void parse() {
+	public  Brand parse() {
 		try {
+			System.out.println("Enter Brand Parser Function");
 
 			FileInputStream file = new FileInputStream(new File(
 					"brand.xlsx"));
@@ -49,7 +47,9 @@ public class BrandParser {
 			sheet = workbook.getSheetAt(0);
 			// Get the brand row that we need to parse
 			row = sheet.getRow(brand_number);
-
+			for (int i = 0; i < 7; i++) {
+				 row.getCell(i,Row.CREATE_NULL_AS_BLANK).setCellType(1);
+			}
 			// Parse the brand media section
 			parse_brand_media();
 			// Print brand media values
@@ -58,31 +58,36 @@ public class BrandParser {
 		    // set the brand
 			 brand = new Brand();
 			 // set cells type to string
-			 for (int i = 0; i < 6; i++) {
+			 for (int i = 0; i < 7; i++) {
 				 row.getCell(i).setCellType(1);
 			}
 			 row.getCell(0).setCellType(1);
 			 brand.setBrandName(String.valueOf(row.getCell(0).toString()));
+			 System.out.println(brand.getBrandName());
+				
 			 String [] brandLocations = row.getCell(1).toString().split("\\|");
 			 brand.setBrandLocation(brandLocations);
+			 //System.out.println("****"+brandLocations[0].toString());
 			 brand.setHecs(row.getCell(2).toString());
 			 brand.setCuisine(row.getCell(3).toString());
 			 brand.setBusinessEmail(row.getCell(4).toString());
 			 brand.setGroupName(row.getCell(5).toString());
 			 brand.setMedia(brand_media);
-			// Print brand details
+			 brand.setDescription(row.getCell(7).toString());
+			 // Print brand details
 			 System.out.println(brand.toString());
 			file.close();
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return brand;
 	}
 
 	
 	
 
-	public static  void parse_brand_media() {
+	public   void parse_brand_media() {
 		try
 
 		{

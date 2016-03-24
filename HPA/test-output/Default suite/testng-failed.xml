@@ -5,7 +5,7 @@
     <classes>
       <class name="com.pack.common.tests.EmployerQuickRegTest">
         <methods>
-          <include name="TestEmpQuickRegFullstages"/>
+          <include name="TestEmpRegFirstStage"/>
         </methods>
       </class> <!-- com.pack.common.tests.EmployerQuickRegTest -->
     </classes>

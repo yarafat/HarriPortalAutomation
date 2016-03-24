@@ -78,7 +78,7 @@ public class Brand {
 		return "Brand [BrandName=" + BrandName + ", BrandLocation="
 				+ Arrays.toString(BrandLocation) + ", Hecs=" + Hecs
 				+ ", Cuisine=" + Cuisine + ", BusinessEmail=" + BusinessEmail
-				+ ", GroupName=" + GroupName + ", media=" + media + "]";
+				+ ", GroupName=" + GroupName + ", media=" + media +", Description="+ Description+ "]";
 	}
 	
 	
