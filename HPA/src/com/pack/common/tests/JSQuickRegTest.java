@@ -12,7 +12,7 @@ import com.pack.common.actions.JSQuickRegistrationAction;
 import com.pack.common.pageobjects.JSQuickRegistration;
 import com.pack.utils.CandidateParser;
 import com.pack.utils.EmailsGenerator;
-import com.pack.entities.Candidate;
+import com.pack.entities.User;
 import com.pack.entities.UserAbout;
 import com.pack.entities.UserEducation;
 import com.pack.entities.Media;
@@ -31,7 +31,7 @@ public class JSQuickRegTest extends TestBaseSetup {
 	private UserReferences testUserRef;
 	private EmailsGenerator CanEmail = new EmailsGenerator();
 	private CandidateParser parser;
-	private Candidate testCan;
+	private User testCan;
 	String Email;
 	private DataBaseSetup db;
 

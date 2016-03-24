@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import com.pack.common.pageobjects.EmployerQuickReg;
 import com.pack.common.pageobjects.ImageCroppingPopUp;
 import com.pack.entities.Brand;
-import com.pack.entities.Candidate;
+import com.pack.entities.User;
 import com.pack.entities.Errors;
 
 public class EmpQuickRegActions extends EmployerQuickReg {
@@ -23,7 +23,7 @@ public class EmpQuickRegActions extends EmployerQuickReg {
 		Error.setError(true, "Success");
 		System.out.println("EmpQuickRegActions constructor  ");
 	}
-	public Object EmpRegFirstStage(Candidate EmpUserInfo,Brand BrandInfo)
+	public Object EmpRegFirstStage(User EmpUserInfo,Brand BrandInfo)
 	{
 		try
 		{
@@ -50,7 +50,7 @@ public class EmpQuickRegActions extends EmployerQuickReg {
 		}
 		return Error;
 	}
-	public Object EmpQuickRegFullStages(Candidate EmpUserInfo, Brand BrandInfo)
+	public Object EmpQuickRegFullStages(User EmpUserInfo, Brand BrandInfo)
 	{
 		try
 		{

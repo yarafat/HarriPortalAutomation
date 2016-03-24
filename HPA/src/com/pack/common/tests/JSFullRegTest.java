@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import com.pack.base.TestBaseSetup;
 import com.pack.common.actions.JSFullRegistrationActions;
-import com.pack.entities.Candidate;
+import com.pack.entities.User;
 import com.pack.entities.Media;
 import com.pack.entities.UserAbout;
 import com.pack.entities.UserEducation;
@@ -31,7 +31,7 @@ public class JSFullRegTest extends TestBaseSetup {
 	private UserReferences testUserRef;
 	private EmailsGenerator CanEmail = new EmailsGenerator();
 	private CandidateParser parser;
-	private Candidate testCan;
+	private User testCan;
 	String Email;
 
 	@BeforeClass

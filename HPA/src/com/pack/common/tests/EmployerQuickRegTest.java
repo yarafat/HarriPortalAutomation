@@ -22,7 +22,7 @@ import com.pack.entities.Brand;
 import com.pack.utils.BrandParser;
 import com.pack.utils.CandidateParser;
 import com.pack.utils.EmailsGenerator;
-import com.pack.entities.Candidate;
+import com.pack.entities.User;
 import com.pack.entities.Errors;
 import com.pack.common.pageobjects.Employer;
 public class EmployerQuickRegTest extends TestBaseSetup{
@@ -32,7 +32,7 @@ private Errors Actual;
 	public void setUp() {
 		driver=getDriver();
 	}
-	private Candidate SetEmpInfo(Candidate empInfo) throws FileNotFoundException
+	private User SetEmpInfo(User empInfo) throws FileNotFoundException
 	{
 		EmailsGenerator Email=new EmailsGenerator();
 		Email.SetEmail("EMPLOYER");
@@ -61,7 +61,7 @@ private Errors Actual;
 		HomePage Home;
 	    EmpQuickRegActions EmpReg;
 	    Employer Emp;
-	    Candidate NewEmp;
+	    User NewEmp;
 	    Brand brand;
 	    Actual=new Errors();
 	    try
@@ -71,7 +71,7 @@ private Errors Actual;
 			Home=new HomePage(driver);
 			EmpReg=new EmpQuickRegActions(driver);
 			Emp=new Employer(driver);
-			NewEmp=new Candidate();
+			NewEmp=new User();
 		    brand=new Brand();
 
 			Home.clickEmployersLink();
@@ -101,7 +101,7 @@ private Errors Actual;
 		HomePage Home;
 	    EmpQuickRegActions EmpReg;
 	    Employer Emp;
-	    Candidate NewEmp;
+	    User NewEmp;
 	    Brand brand;
 	    Actual=new Errors();
 	    try
@@ -111,7 +111,7 @@ private Errors Actual;
 			Home=new HomePage(driver);
 			EmpReg=new EmpQuickRegActions(driver);
 			Emp=new Employer(driver);
-			NewEmp=new Candidate();
+			NewEmp=new User();
 			brand=new Brand();
 			Home.clickEmployersLink();
 		    Emp.ClickBuildemployerProfile(7);

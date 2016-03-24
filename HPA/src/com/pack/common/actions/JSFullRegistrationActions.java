@@ -6,7 +6,7 @@ import com.pack.common.pageobjects.HomePage;
 import com.pack.common.pageobjects.JSFullRegistration;
 import com.pack.common.pageobjects.JoinUsPage;
 import com.pack.common.pageobjects.MainRegistration;
-import com.pack.entities.Candidate;
+import com.pack.entities.User;
 import com.pack.entities.Media;
 import com.pack.entities.UserAbout;
 import com.pack.entities.UserEducation;
@@ -28,7 +28,7 @@ public class JSFullRegistrationActions {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void MainModal(Candidate testCan) throws Exception {
+	public void MainModal(User testCan) throws Exception {
 		main.FillFirstName(testCan.getFirstUserName());
 		main.FillLastName(testCan.getLastUserName());
 		main.FillEmail(testCan.getEmail());
@@ -121,7 +121,7 @@ public class JSFullRegistrationActions {
 		jsPage.ClickReferencesContinue();
 	}
 
-	public void FullRegistration(Candidate candidate,
+	public void FullRegistration(User candidate,
 			UserWorkHistory UserWorkHistory, Media UserMedia,
 			UserEducation UserEdu, UserReferences UserRef, String[] UserSkills,
 			UserAbout UserAbout, boolean Parttime, boolean Fulltime,

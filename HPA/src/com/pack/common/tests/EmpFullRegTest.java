@@ -24,7 +24,7 @@ import com.pack.common.actions.EmpRegFirstFunnelActions;
 import com.pack.common.actions.SBSLRegistrationActions;
 import com.pack.common.pageobjects.HomePage;
 import com.pack.entities.Brand;
-import com.pack.entities.Candidate;
+import com.pack.entities.User;
 import com.pack.entities.Errors;
 import com.pack.utils.BrandParser;
 import com.pack.utils.CandidateParser;
@@ -37,7 +37,7 @@ public class EmpFullRegTest extends TestBaseSetup{
 		public void setUp() {
 			driver=getDriver();
 		}
-		private Candidate SetEmpInfo(Candidate empInfo) throws FileNotFoundException
+		private User SetEmpInfo(User empInfo) throws FileNotFoundException
 		{
 			EmailsGenerator Email=new EmailsGenerator();
 			Email.SetEmail("EMPLOYER");
@@ -62,7 +62,7 @@ public class EmpFullRegTest extends TestBaseSetup{
 		public void SBSLTest()
 		{
 			HomePage Home;
-		    Candidate NewEmp;
+		    User NewEmp;
 			Brand brand;
 			EmpRegFirstFunnelActions EmpFirstStage;
 			SBSLRegistrationActions SBSL;
@@ -74,7 +74,7 @@ public class EmpFullRegTest extends TestBaseSetup{
 					Home=new HomePage(driver);
 					EmpFirstStage=new EmpRegFirstFunnelActions(driver);
 					SBSL=new SBSLRegistrationActions(driver);
-					NewEmp=new Candidate();
+					NewEmp=new User();
 					brand=new Brand();
 					Home.clickJoinLink();
 					EmpFirstStage.ClickRegWithEmail(7);
