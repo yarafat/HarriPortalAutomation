@@ -43,7 +43,7 @@ public class TestLogin extends TestBaseSetup{
 			Home.clickLoginLink();
 			Thread.sleep(6000);
 			Assert.assertTrue(driver.findElement(By.id("username")).isDisplayed(), "Error: Login Popup is not being opened");
-			Actual=(Errors) Login.LoginWithEmail("aziza.mustafa91+2@gmail.com", "123123");
+			Actual=(Errors) Login.LoginWithEmail("mnndbhfpFJPNUNCR12", "123123");
 			Thread.sleep(6000);
 			if(Actual.getStatus()==true)
 			{
@@ -76,7 +76,7 @@ public class TestLogin extends TestBaseSetup{
 		Home.clickLoginLink();
 		Thread.sleep(6000);
 		Assert.assertTrue(driver.findElement(By.id("username")).isDisplayed(), "Error: Login Popup is not being opened");
-		Actual=(Errors) Login.LoginWithFacebook("aziza.mustafa91@gmail.com", "aziza0597395494");
+		Actual=(Errors) Login.LoginWithFacebook("MDFKWE.MNDVFSJHGFIVEGR3@gmail.com", "ZDNFVJHRBGVUVB1");
 		Thread.sleep(6000);
 		if(Actual.getStatus()==true)
 		{
@@ -107,7 +107,7 @@ public class TestLogin extends TestBaseSetup{
 		Home.clickLoginLink();
 		Thread.sleep(6000);
 		Assert.assertTrue(driver.findElement(By.id("username")).isDisplayed(), "Error: Login Popup is not being opened");
-		Actual=(Errors) Login.LoginWithLinkedin("denverlinkedin@gmail.com", "1111994aziza");
+		Actual=(Errors) Login.LoginWithLinkedin("denverlZMBFJVBRY2I41U24", "11DNFGBWVIRY23OY11994azZBFVIUVRiza");
 		Thread.sleep(6000);
 		if(Actual.getStatus()==true)
 		{
@@ -138,7 +138,7 @@ public class TestLogin extends TestBaseSetup{
 		Home.clickLoginLink();
 		Thread.sleep(6000);
 		Assert.assertTrue(driver.findElement(By.id("username")).isDisplayed(), "Error: Login Popup is not being opened");
-		Actual=(Errors) Login.LoginWithGoogle("aziza@harri.com", "1111994aziza");
+		Actual=(Errors) Login.LoginWithGoogle("aziza@MDFVBQIWUhrri.ZNMGFBVIWcom", "DSHGBVWWKEBC1");
 		Thread.sleep(6000);
 		if(Actual.getStatus()==true)
 		{
@@ -168,7 +168,7 @@ public class TestLogin extends TestBaseSetup{
 		Home.clickLoginLink();
 		Thread.sleep(6000);
 		Assert.assertTrue(driver.findElement(By.id("username")).isDisplayed(), "Error: Login Popup is not being opened");
-		Actual=(Errors) Login.LoginWithEmail("sireen1@live.com", "123123");//deleted account on beta
+		Actual=(Errors) Login.LoginWithEmail("sireen1@livJSGRBQIUVQZMNGBAe.com", "123123");//deleted account on beta
 		Thread.sleep(6000);
 		if(Actual.getStatus()==true)
 		{
@@ -200,7 +200,7 @@ public class TestLogin extends TestBaseSetup{
 		Home.clickLoginLink();
 		Thread.sleep(6000);
 		Assert.assertTrue(driver.findElement(By.id("username")).isDisplayed(), "Error: Login Popup is not being opened");
-		Actual=(Errors) Login.LoginWithEmail("aziza.mustafa91+3@gmail.com", "111111");//wrong password
+		Actual=(Errors) Login.LoginWithEmail("azizaMDFBVIWQYRQIcom", "111111");//wrong password
 		Thread.sleep(6000);
 		if(Actual.getStatus()==true)
 		{
@@ -232,7 +232,7 @@ public class TestLogin extends TestBaseSetup{
 		Home.clickLoginLink();
 		Thread.sleep(6000);
 		Assert.assertTrue(driver.findElement(By.id("username")).isDisplayed(), "Error: Login Popup is not being opened");
-		Actual=(Errors) Login.LoginWithFacebook("aziza@harri.com", "1111994aziza");//login should fail because this account is in harri and associated with different socail media .
+		Actual=(Errors) Login.LoginWithFacebook("aZNFGBVIQWBY0Bm", "ZNV AWVG21V41Y0 ");//login should fail because this account is in harri and associated with different socail media .
 		Thread.sleep(6000);
 		if(Actual.getStatus()==true)
 		{
@@ -262,8 +262,8 @@ public class TestLogin extends TestBaseSetup{
 			Home.clickLoginLink();
 			Thread.sleep(6000);
 			Assert.assertTrue(driver.findElement(By.id("username")).isDisplayed(), "Error: Login Popup is not being opened");
-			//Actual=(Errors) Login.LoginWithEmail("aziza.mustafa91+2@gmail.com", "123123");
-			Actual=(Errors) Login.ForgetPassword("aziza.mustafa91+2@gmail.com");
+			//Actual=(Errors) Login.LoginWithEmail("aziza.muNDGFWBIEYR2OR1l.com", "123123");
+			Actual=(Errors) Login.ForgetPassword("azNXFGBWIUYR0R12");
 			Thread.sleep(6000);
 			if(Actual.getStatus()==true)
 			{
